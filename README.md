@@ -1,10 +1,11 @@
-## Holier than Thou
+## Holier than Thou: Partisan Gap in Consumption of Adult Content
 
-### Measurement
 
 #### Measuring Porn
 1. Add multiple columns to the survey file, each matching a diff. source. For instance, we have data from Wakoopa, shalla, and then third would be a model. For shalla and Wakoopa, only output unique_porn_domains. And then use 'match' to add these columns.
+
 2. We should look up top 10 porn sites and make sure they are in every list. So it should be shalla + top 10 or Wakoopa + top 10.
+
 3. Keyword classifier using just domain names + tld gives 82\%. If we keep the template the same but add data on keyword features from text, it should work great.
 
 #### Measuring PID
@@ -13,7 +14,7 @@
 2. Aggregate domain level visitation up to person level
 3. PID_3 ~ agg_domain + sociodem.
 
-#### Sampling 
+#### Sampling
 
 * Appendix table comparing means of critical variables to population (CPS, ANES etc.) (will add weighted col. later) 
 	* age (split in few cats - 3-4), education (split in few cats - 3-4), gender, marital status (again 3-4 cats), census region, urban, rural 
@@ -22,7 +23,7 @@
 * We can always use-subsamples - we can try to be representative of young republicans/democrats etc. etc. 
 * Key is really to be transparent, thoughtful... 
 
-### Analysis 
+### Analysis
 
 * Density/box-plots of porn consumption by party, by religiosity, by region/state? -- can we mimic the patterns that were obtained by the previous papers? 
 
