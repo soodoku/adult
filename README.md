@@ -1,7 +1,8 @@
 ## Holier than Thou: Partisan Gap in Consumption of Adult Content
 
-
 Both the parties claim the higher ground --- one's case for morality steepled in religion, another's in enduring concern for women. 
+
+### Analysis
 
 #### Measuring Porn
 
@@ -11,26 +12,22 @@ Both the parties claim the higher ground --- one's case for morality steepled in
 
 3. Keyword classifier using just domain names + tld gives 82\%. If we keep the template the same but add data on keyword features from text, it should work great.
 
-### Analysis
+#### Outcome Variables
 
-* Density/box-plots of porn consumption by party, by religiosity, by region/state? -- can we mimic the patterns that were obtained by the previous papers? 
-
-**Interpretation of #s:**
-
-1. Depends on distribution 
-2. If no info. on amount of time: Get correlation(frequency, time spent) via comScore for porno, plot, make some estimates
-3. What kind of porn
-I think we can have three dependent variables:
 1. total time spent on porn sites 
 2. porn_visits
 3. total_time_on_porn/total_time_on_internet
 4. visits_to_porn/total_visits
+5. What kind of porn
 
-We should start with population estimates detailing fun things:
-1. When is porn consumed (night or day) --- in fact give people fun estimates of across the day
-2. Base numbers about 1,2,3 and 4
+#### Outputs
+
+1. Base numbers about 1,2,3 and 4
+2. When is porn consumed (night or day)
 3. Skew in porn consumption. Most recently, it is said pornhub and I think a couple more sites cover a large chunk. This is the same old power law of consumption on Internet. We can even post the distribution of visitation. Cite Hindman.
 4. Split by party, controlling for the usual and perhaps something like density plots by R and D and also perhaps quantile regression, given skew, though proportions should be reasonably behaved as DVs.
+
+* Density/box-plots of porn consumption by party, by religiosity, by region/state? -- can we mimic the patterns that were obtained by the previous papers? 
 
 ### Future
 
