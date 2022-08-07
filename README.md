@@ -6,28 +6,22 @@ Both the parties claim the higher ground --- one's case for morality steepled in
 
 #### Measuring Porn
 
-1. Add multiple columns to the survey file, each matching a diff. source. For instance, we have data from Wakoopa, shalla, and then third would be a model. For shalla and Wakoopa, only output unique_porn_domains. And then use 'match' to add these columns.
-
-2. We should look up top 10 porn sites and make sure they are in every list. So it should be shalla + top 10 or Wakoopa + top 10.
-
-3. Keyword classifier using just domain names + tld gives 82\%. If we keep the template the same but add data on keyword features from text, it should work great.
+1. Measure domain level porn using the model (piedomains and pydomains) and using default output from YG. Keyword classifier using just domain names + tld gives 82\%.
+2. Validation: Look up top 10 porn sites and make sure they are in every list. This is assuming that there is a sharp skew.
 
 #### Outcome Variables
 
 1. total time spent on porn sites 
-2. porn_visits
+2. total number of visits to porn sites
 3. total_time_on_porn/total_time_on_internet
 4. visits_to_porn/total_visits
-5. What kind of porn
+5. what kind of porn --- tbd
 
 #### Outputs
 
-1. Base numbers about 1,2,3 and 4
-2. When is porn consumed (night or day)
-3. Skew in porn consumption. Most recently, it is said pornhub and I think a couple more sites cover a large chunk. This is the same old power law of consumption on Internet. We can even post the distribution of visitation. Cite Hindman.
-4. Split by party, controlling for the usual and perhaps something like density plots by R and D and also perhaps quantile regression, given skew, though proportions should be reasonably behaved as DVs.
-
-* Density/box-plots of porn consumption by party, by religiosity, by region/state? -- can we mimic the patterns that were obtained by the previous papers? 
+1. Distributions of 1, 2, 3 and 4
+2. When is porn consumed (night or day, weekday/weekend)?
+3. Split by party, region/state, etc. and show the density plot. Plus tables --- old + poisson/quantile regression, given skew---though proportions should be reasonably behaved as DVs.
 
 ### Future
 
