@@ -1,6 +1,6 @@
 ## Holier than Thou: Partisan Gap in Consumption of Adult Content
 
-Both the parties claim the higher ground --- one's case for morality steepled in religion, another's in enduring concern for women. 
+Both the parties claim the higher ground when it comes to women--- one's case for morality is steepled in religion, another's in enduring concern for women. Using passively collected browsing data from 1200 respondents, we test whether Republicans consume more pornography than Democrats. 
 
 ### Analysis
 
@@ -11,11 +11,11 @@ Both the parties claim the higher ground --- one's case for morality steepled in
 
 #### Outcome Variables
 
-1. total time spent on porn sites 
-2. total number of visits to porn sites
-3. total_time_on_porn/total_time_on_internet
-4. visits_to_porn/total_visits
-5. what kind of porn --- tbd
+1. Total time spent on porn sites 
+2. Total number of visits to porn sites
+3. Proportion of time spent on porn sites
+4. Proportion of visits to porn sites 
+5. What kind of porn
 
 #### Outputs
 
