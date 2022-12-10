@@ -2,50 +2,99 @@
 \usepackage[titletoc,title]{appendix}
 \usepackage{color}
 \usepackage{booktabs}
-\usepackage{caption}
-\newcommand\fnote[1]{\captionsetup{font=small}\caption*{#1}}
-
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\definecolor{dark-red}{rgb}{0.75,0.10,0.10} 
+\definecolor{dark-red}{rgb}{0.75,0.10,0.10}
+\definecolor{bluish}{rgb}{0.05,0.05,0.85}
+
 \usepackage[margin=1in]{geometry}
-\usepackage[linkcolor=dark-red,
+\usepackage[linkcolor=blue,
 			colorlinks=true,
 			urlcolor=blue,
 			pdfstartview={XYZ null null 1.00},
 			pdfpagemode=UseNone,
-			citecolor={dark-red},
-			pdftitle={Consumption of Pornography Online}]{hyperref}
-\usepackage{multibib}
-\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
-\geometry{letterpaper}               % This is 8.5x11 paper. Options are a4paper or a5paper or other... 
-\usepackage{graphicx}                % Handles inclusion of major graphics formats and allows use of 
+			citecolor={bluish},
+			pdftitle={partisan_gap}]{hyperref}
+
+\usepackage[resetlabels,labeled]{multibib}
+\newcites{SI}{SI References}
+\usepackage{natbib}
+
+\usepackage{float}
+
+\usepackage{geometry}  % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{letterpaper} % This is 8.5x11 paper. Options are a4paper or a5paper or other...
+\usepackage{graphicx}  % Handles inclusion of major graphics formats and allows use of
 \usepackage{amsfonts,amssymb,amsbsy}
 \usepackage{amsxtra}
-\usepackage{natbib}
-\usepackage{dcolumn}
-\usepackage{longtable}
 \usepackage{verbatim}
 \setcitestyle{round,semicolon,aysep={},yysep={;}}
-\usepackage{setspace}		     % Permits line spacing control. Options are \doublespacing, \onehalfspace
-\usepackage{sectsty}		     % Permits control of section header styles
-\usepackage{lscape}
-\usepackage{fancyhdr}		     % Permits header customization. See header section below.
-\usepackage{url}                 % Correctly formats URLs with the \url{} tag
-\usepackage{fullpage}		     %1-inch margins
+\usepackage{setspace} % Permits line spacing control. Options are:
+%\doublespacing
+%\onehalfspace
+\usepackage{sectsty}    % Permits control of section header styles
+\usepackage{pdflscape}
+\usepackage{fancyhdr}   % Permits header customization. See header section below.
+\usepackage{url}        % Correctly formats URLs with the \url{} tag
+\usepackage{fullpage}   %1-inch margins
 \usepackage{multirow}
+\usepackage{verbatim}
 \usepackage{rotating}
 \setlength{\parindent}{3em}
-\usepackage{subcaption}
+
 \usepackage[T1]{fontenc}
-\usepackage{bm}
-\usepackage{libertine}
+\usepackage[bitstream-charter]{mathdesign}
 
 \usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{dcolumn}
+
+\usepackage[nameinlink, capitalize, noabbrev]{cleveref}
+
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\makeatother
+
+\usepackage{footmisc}
+\setlength{\footnotesep}{\baselineskip}
+\makeatother
+\renewcommand{\footnotelayout}{\normalsize \doublespacing}
+
+
+% Colors
+\usepackage{color}
+
+\newcommand{\bch}{\color{blue}\em  }   % begin change
+\newcommand{\ying} {\color{orange}\em  }   % begin change
+\newcommand{\bgcd} {\color{purple}\em }
+\newcommand{\ech}{\color{black}\rm  }    % end change
+
+% Caption
+\usepackage[hang, font=small,skip=0pt, labelfont={bf}]{caption}
+%\captionsetup[subtable]{font=small,skip=0pt}
+\usepackage{subcaption}
+
+% tt font issues
+% \renewcommand*{\ttdefault}{qcr}
+\renewcommand{\ttdefault}{pcr}
+
+
+\setcounter{page}{0}
+
+\usepackage{lscape}
+\renewcommand{\textfraction}{0}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.40}
+\setcounter{totalnumber}{5}
+\makeatletter
+\providecommand\phantomcaption{\caption@refstepcounter\@captype}
+\makeatother
 
 
 \title{\Large{Consumption of Pornography Online}\footnote{Data and scripts behind the analysis presented here can be downloaded at: \href{http://github.com/soodoku/porn}{http://github.com/soodoku/porn.}}}
 
-\author{Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}} \and Andrew Guess\thanks{New York University, \href{mailto:guess@nyu.edu}{\footnotesize{\texttt{guess@nyu.edu}}}}\vspace{.5cm}}
+\author{Lucas Shen\thanks{Lucas is a Research Fellow at Asia Competitiveness Institute, Lee Kuan Yew School of Public Policy, at the National University of Singapore, \href{mailto:lucas@lucasshen.com}{\footnotesize{\texttt{lucas@lucasshen.com}}}} \and Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}}\vspace{.5cm}}
 
 \date{\vspace{.5cm}\normalsize{\today}}
 
@@ -65,7 +114,7 @@ setwd(basedir)
 \end{comment}
 
 \begin{abstract}
-\noindent Consumption of pornography has been blamed for a variety of societal ills, including, rise in misogyny, sex crimes, and coarsening of the culture. In this paper, using passive browsing data from comScore and YouGov, we investigate how much pornography Americans consume online, how consumption of pornography online has changed over time, and shed light on who consumes pornography. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography and many consuming small amounts. The median Internet user today spends X\% of time consuming pornography, and visits Y sites per year. Between 2002 and 2014, the consumption of pornography online increased by between XX and YY\%. Lastly, we find that, unlike previous data, relying on ecological inference, liberals consume more pornography than conservatives \citep{macinnis2015american, edelman2009markets}.
+\noindent Consumption of pornography has been blamed for a variety of societal ills, including, the rise in misogyny, sex crimes, and coarsening of the culture. Using passive browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography with most consuming small amounts. The median American Internet user today spends X\% of time-consuming pornography, visiting Y sites per month. Lastly, we find that, unlike previous research, relying on ecological inference, liberals consume slightly more pornography than conservatives \citep{macinnis2015american, edelman2009markets}.
 \end{abstract} 
 \clearpage
 \doublespace
@@ -131,11 +180,6 @@ With the YouGov survey, we measured ideology and partisanship using the conventi
 \begin{center}
 \Large{Supporting Information}
 \end{center}
-
-
-\section{Comparing comScore Sample to Population Benchmarks}
-\label{si1_comscore}
-\input{../tabs/cs_dem.tex}
 
 \clearpage
 \section{Comparing YouGov Sample to Population Benchmarks}
