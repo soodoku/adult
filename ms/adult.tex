@@ -151,7 +151,16 @@ Our primary dependent variables of interest are: total time spent on pornographi
 \centering
 \caption{Distribution of Consumption of Pornography Online by Party}
 \includegraphics[scale=.75]{figs/distribution_duration_on_adultsites_by_party.pdf}
-\label{fig:distribution_duration}
+\label{fig:distribution_duration_party}
+\end{figure}
+
+To formally test for these differences, we ran quantile regression, regressing the duration on party. 
+
+\begin{figure}[h]
+\centering
+\caption{Distribution of Consumption of Pornography Online by Party}
+\includegraphics[scale=.75]{figs/quantile_reg_nonzero_duration_adult.pdf}
+\label{fig:quantile_regression_duration}
 \end{figure}
 
 These minor differences (or lack of differences) could be because of the demographic differences we see across the party. Next, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find. 
@@ -176,6 +185,16 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 \end{center}
 
 \clearpage
+\section{Top 25 Adult Domains}
+
+
+\begin{figure}[h]
+\centering
+\caption{Proportion of Visits to Pornographic Sites}
+\includegraphics[scale=.75]{figs/top_25_adultsites.pdf}
+\label{fig:top25}
+\end{figure}
+
 \section{Consequence of Using Alternate Ways of Measuring Pornography}
 \subsection{Keyword Classifier}
 Our first classifier is based on just the domain name and domain suffix. In particular, we use a calibrated keyword classifier. The features of the model are whether any of the following keywords are present in the domain name:
@@ -211,4 +230,3 @@ cumshot, dildo, anal, adult, porn, mature, sex, xx, bbw, slut, whore, tits, titt
 \end{figure}
 
 \end{document}
-
