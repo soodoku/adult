@@ -5,7 +5,8 @@
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \definecolor{dark-red}{rgb}{0.75,0.10,0.10}
 \definecolor{bluish}{rgb}{0.05,0.05,0.85}
-
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
 \usepackage[margin=1in]{geometry}
 \usepackage[linkcolor=blue,
 			colorlinks=true,
@@ -13,10 +14,9 @@
 			pdfstartview={XYZ null null 1.00},
 			pdfpagemode=UseNone,
 			citecolor={bluish},
-			pdftitle={partisan_gap}]{hyperref}
+			pdftitle={partisan}]{hyperref}
 
-\usepackage[resetlabels,labeled]{multibib}
-\newcites{SI}{SI References}
+%\newcites{SI}{SI References}
 \usepackage{natbib}
 
 \usepackage{float}
@@ -27,11 +27,11 @@
 \usepackage{amsfonts,amssymb,amsbsy}
 \usepackage{amsxtra}
 \usepackage{verbatim}
-\setcitestyle{round,semicolon,aysep={},yysep={;}}
+%\setcitestyle{round,semicolon,aysep={},yysep={;}}
 \usepackage{setspace} % Permits line spacing control. Options are:
 %\doublespacing
 %\onehalfspace
-\usepackage{sectsty}    % Permits control of section header styles
+%\usepackage{sectsty}    % Permits control of section header styles
 \usepackage{pdflscape}
 \usepackage{fancyhdr}   % Permits header customization. See header section below.
 \usepackage{url}        % Correctly formats URLs with the \url{} tag
@@ -41,8 +41,8 @@
 \usepackage{rotating}
 \setlength{\parindent}{3em}
 
-\usepackage[T1]{fontenc}
-\usepackage[bitstream-charter]{mathdesign}
+%\usepackage[T1]{fontenc}
+%\usepackage[bitstream-charter]{mathdesign}
 
 \usepackage{chngcntr}
 \usepackage{longtable}
@@ -92,83 +92,77 @@
 \makeatother
 
 
-\title{\Large{Consumption of Pornography Online}\footnote{Data and scripts behind the analysis presented here can be downloaded at: \href{http://github.com/soodoku/porn}{http://github.com/soodoku/porn.}}}
+\title{\Large{Holier Than Thou: Partisan Gap in Consumption\\ of Pornography Online}\footnote{You can download the replication materials from \href{http://github.com/soodoku/adult}{https://github.com/soodoku/adult}}}
 
 \author{Lucas Shen\thanks{Lucas is a Research Fellow at Asia Competitiveness Institute, Lee Kuan Yew School of Public Policy, at the National University of Singapore, \href{mailto:lucas@lucasshen.com}{\footnotesize{\texttt{lucas@lucasshen.com}}}} \and Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}}\vspace{.5cm}}
 
-\date{\vspace{.5cm}\normalsize{\today}}
+\date{\today}
 
 \begin{document}
 \maketitle
 
-\begin{center}
-\vspace{.5cm}\textbf{NB:} Preliminary draft. Please do not cite without permission.\vspace{1.5cm}
-\end{center}
-
 \begin{comment}
 
-setwd(paste0(basedir, "adult/ms"))
+setwd("Documents/Github/adult/ms/")
 tools::texi2dvi("porn.tex", pdf=TRUE, clean=TRUE) 
 setwd(basedir)
 
 \end{comment}
 
 \begin{abstract}
-\noindent Consumption of pornography has been blamed for a variety of societal ills, including, the rise in misogyny, sex crimes, and coarsening of the culture. Using passive browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography with most consuming small amounts. The median American Internet user today spends X\% of time-consuming pornography, visiting Y sites per month. Lastly, we find that, unlike previous research, relying on ecological inference, liberals consume slightly more pornography than conservatives \citep{macinnis2015american, edelman2009markets}.
+\noindent Consumption of pornography has been blamed for a variety of societal ills, including the rise in misogyny, sex crimes, and the coarsening of culture. Using passively collected browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography and most consuming small amounts. The median American Internet user today spends X minutes per month consuming pornography, visiting Y sites per month; the 95th percentile is X and Y respectively. Lastly, we find that, unlike previous research \citep{macinnis2015american, edelman2009markets}, which relied on ecological inference, Democrats consume slightly more pornography than Republicans.
 \end{abstract} 
 \clearpage
 \doublespace
 
-Consumption of pornography is associated with a variety of disturbing attitudes, beliefs, emotions, and behaviors. Consuming pornography is associated with support for violence against women \citep{hald2010pornography, malamuth2012pornography, donnerstein1984pornography}, belief in rape myths \citep{foubert2011pornography}, greater gender role conflict and lesser sexual satisfaction \citep{szymanski2014psychological, stewart2012young}, poorer relationship quality \citep{szymanski2014psychological, szymanski2015male}, and sexually risky behaviors such as engaging in paid sex, and having extramarital sex \citep{wright2012internet}. A lot of popular pornography also contains a healthy dose of violence. One analysis of popular pornography revealed that 88.2\% of the analyzed scenes contained physical aggression, and 48.7\% verbal aggression \citep{bridges2010aggression}. In all, there exist good reasons to be worried about rise in consumption of pornography.
+Consumption of pornography is associated with a variety of disturbing attitudes, beliefs, emotions, and behaviors. Consuming pornography is associated with support for violence against women \citep{hald2010pornography, malamuth2012pornography, donnerstein1984pornography}, belief in rape myths \citep{foubert2011pornography}, increased gender role conflict, lesser sexual satisfaction \citep{szymanski2014psychological, stewart2012young}, poorer relationship quality \citep{szymanski2014psychological, szymanski2015male}, and sexually risky behaviors such as engaging in paid sex, and having extramarital sex \citep{wright2012internet}. A lot of popular pornography also contains a healthy dose of violence. An analysis of popular pornography revealed that 88.2\% of the scenes contained physical aggression, and 48.7\% verbal aggression \citep{bridges2010aggression}. For all these reasons, there are serious concerns about consumption of pornography.
 
-In this paper, using passive browsing data from comScore and a YouGov sample, we investigate how much pornography do Americans consume online, how consumption of pornography online has changed over time, and shed light on who consumes pornography. We find that there is sharp skew in the consumption of pornography, with a small set of users consuming a large chunk of pornography. The median Internet user today spends X\% of time consuming pornography, and visits Y sites per year. Between 2002 and 2014, the consumption of pornography online has increased by between XX and YY\%. Lastly, we find that, unlike previous data, relying on ecological inference, liberals consume more pornography than conservatives \citep{macinnis2015american, edelman2009markets}. 
+In this paper, using passive browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp skew in the consumption of pornography, with a small set of users consuming a large chunk of pornography. The median American Internet user spends X minutes per month (Y\% of their time online) consuming pornography, visiting Y unique sites; the 95th percentile for time spent consuming pornography online is YY minutes.
 
-\citep{lykke2015widening}
-\citep{boik2016empirical}
+We also use the data to shed light on an age-old debate --- whether Democrats consume more pornography than Republicans or vice versa. Both parties claim the higher moral ground. And in surveys both parties think consumption of pornography is abhorrent, plausibly for different reasons. Unlike previous research, which relied on ecological inference, we find that Democrats consume slightly more pornography online than Republicans \citep{macinnis2015american, edelman2009markets}. Adjusting for background covariates like age, gender etc., further mutes the differences.
 
 \section*{Data}
-We exploit data from comScore and a YouGov survey to measure the consumption of adult content. 
-
-comScore maintains a panel of around 100,000 households, offering small rewards in exchange for monitoring all Internet data from a machine. There are multiple notable biases in the sample. See \ref{si1_comscore} for comparison between demographics and population benchmarks on some key variables.
-
-YouGov maintains a large online panel recruited through a variety of methods. It uses matched sampling to survey respondents: The provider first draws a random sample from a large synthetic representative sampling frame, finds respondents that match the sampled individuals from its panel, and invites them to take a survey. For details and validation, see \citet{rivers2009}. For this particular sample, panelists also provided de-identified access to their web browsing activity via passive metering software installed voluntarily on their computers. The software, called Wakoopa, can be uninstalled at any point and captures visited web URLs independent of the type of browser or browser-specific privacy settings.\footnote{Wakoopa does not save passwords or financial transactions, and personally identifying information is screened out by the survey provider.} At the time this data was made available in March 2015, YouGov had recruited 1,392 individuals to the web tracking panel, which is currently marketed as YouGov Pulse. Our data comes from \citet{guess2016}. See \ref{si2_yougov} for a comparison between demographics and population benchmarks on some key variables.
-
-The passive metering component of this particular opt-in panel adds a layer of selectivity to the sampling process. Thus, to address concerns about the non-probability sampling procedure, we use raking weights to account for under- or overrepresentation along the following dimensions: age, gender, race, party identification, and region. We obtain population benchmark estimates from the U.S. Census (resident population, 2014) and proportions of party identifiers from Pew (2014). Raking takes into account the marginal, not the joint, distribution of the relevant demographic variables used to estimate the weights.
+We use passively observed browsing data from a YouGov survey to measure the consumption of adult content. YouGov maintains a large online panel recruited through a variety of methods. It uses matched sampling to survey respondents: The provider first draws a random sample from a large synthetic representative sampling frame, finds respondents that match the sampled individuals from its panel, and invites them to take a survey. For details and validation, see \citet{rivers2009}. For this particular sample, panelists also provided de-identified access to their web browsing activity via passive metering software installed voluntarily on their computers. The software, called RealityMine, can be uninstalled at any point and captures visited web URLs independent of the type of browser or browser-specific privacy settings.\footnote{RealityMine does not save passwords or financial transactions, and personally identifying information is screened out by the survey provider.} At the time this data was made available in June, 2022, YouGov had recruited 1,200 individuals to the web tracking panel, which is currently marketed as YouGov Pulse. The passive metering component of this particular opt-in panel adds a layer of selectivity to the sampling process. 
 
 \section*{Measuring Consumption of Adult Content}
-For both comScore and YouGov, we only observe data from a single machine per person. Our analyses should hold if people exhibit similar consumption patterns across devices. If that is too implausible an assumption, then we must decide on the direction of error and how it affects our analyses. We think it is likely that people would be less likely to search for pornography from machines on which they have installed these passive monitoring software (though the data are de-identified). If that is so, our estimates are a lower bound of net consumption of pornography per machine. As number of devices per person are increasing, all these numbers need to be adjusted. Next, is measurement error correlated with ideology? We have little reason to expect that, but we have no capacity to check if it is true. Thus, for current purposes, we assume that it is so. 
+For YouGov, we only observe data from a single machine per person. Our analyses should hold if people exhibit similar consumption patterns across devices. If that is too implausible an assumption, then we must decide on the direction of error and how it affects our analyses. We think it is likely that people would be less likely to search for pornography on machines on which they have installed passive monitoring software (though the data are de-identified). If that is so, our estimates are a lower bound of net consumption of pornography per machine. As the number of devices per person is increasing, all these numbers need to be adjusted. Next, is measurement error correlated with ideology? We have little reason to expect that, but we have no capacity to check if it is true. Thus, for current purposes, we assume that it is so.  
 
-We code pornographic content at the domain level. For both YouGov and comScore, we measure ideology using shallalist, DMOZ, and two machine learning classifiers. For YouGov data, we also present data based on classification from Wakoopa. 
-
-Our first classifier is based on just the domain name and domain suffix. In particular, we use a calibrated keyword classifier. The features of the model are whether any of the following keywords are present in the domain name:
-
-\begin{quote}
-cumshot, dildo, anal, adult, porn, mature, sex, xx, bbw, slut, whore, tits, titty, titties, pussy, sperm, gay, cheat, booty, ebony, asian, brazilian, fuck, cock, cunt, lesbian, shemale, boob, naughty, fatty, bitch, granny, jizz, faggot, horny, bukakke, bdsm, vagina, smut, x-rated, lusty, erotic, cunnilingus, blowjob, panty, hentai, latex, fetisch, fetish, erotik, bondage, naked, strip, teen, stocking, coitus, deprav, tube, perverse 
-\end{quote}
-
-For the 2004 comScore data, this gave about 140k domains that potentially carry pornographic content. We compare this list to the approximately 850k porn domains in the shallalist. This leaves us with a list of 68k domains with uncertain status. Use one of the many URL classification APIs. Using Trusted Source API, we get about 20k porn, and 48k non-porn. This gives us the lower bound of adult domains. 
-
-To estimate the false positives, we take a large random sample of 10,000 unique domains and compare results from our classifier to results from a commercial API by McAfee. This serves are our estimate of the false positive rate. For comScore data, our false negative rate is 5\%. False positive rate is close to 0. All of this ignores pornography available via more conventional channels. For instance, a large amount of pornography is consumed on sites like Tumblr. 
-
-\subsection{Measuring Partisan Identification}
-With the YouGov survey, we measured ideology and partisanship using the conventional survey measures. In the comScore data, we do have data on partisan identification. We substitute with a validated model. We train our model on the YouGov data, predicting partisan identification using socio-demographics coded to match comScore (3-point party identification, gender, education, income, age, race, and ideology), and passively observed visits to site domains (excluding adult, rewards, and social networking sites). We aggregate the number of visits to each domain in the data by individual respondent, excluding domains with more than 100 visits total in the data. We estimate a cross-validated ridge (L2 penalized) regression with a total of 5,651 features. The model has a high degree of accuracy (92\%). %Interestingly, the features most predictive of Democratic partisan affiliation are not demographic variables but rather 
+We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. In the Appendix, we use a keyword classifier and a machine learning classifier. As you will see, all of these methods consistently show the same thing. All of this ignores pornography available via more conventional channels. For instance, some pornography is consumed on sites like Tumblr.
 
 \section*{Results}
 
-\input{../tabs/models.tex}
+Our primary dependent variables of interest are: total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In the appendix, we show similar analysis for visits.) 
 
 \begin{figure}[h]
 \centering
-\caption{Consumption of Pornography by Ideology}
-\includegraphics[scale=.75]{../figs/ideo_boxplot_shalla.pdf}
-\label{fig:summary}
+\caption{Distribution of Consumption of Pornography Online}
+\includegraphics[scale=.75]{figs/distribution_duration_on_adultsites.pdf}
+\label{fig:distribution_duration}
 \end{figure}
 
-\section*{Discussion}
+\begin{figure}[h]
+\centering
+\caption{Proportion of Visits to Pornographic Sites}
+\includegraphics[scale=.75]{figs/distribution_proportion_adultsites_duration.pdf}
+\label{fig:distribution_prop_duration}
+\end{figure}
 
+\begin{figure}[h]
+\centering
+\caption{Distribution of Consumption of Pornography Online by Party}
+\includegraphics[scale=.75]{figs/distribution_duration_on_adultsites_by_party.pdf}
+\label{fig:distribution_duration}
+\end{figure}
+
+These minor differences (or lack of differences) could be because of the demographic differences we see across the party. Next, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find. 
+
+\input{tabs/models.tex}
+
+\section*{Discussion}
+Consumption of pornography is also problematic from a religious perspective. Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}}.
 \clearpage
 \bibliographystyle{apsr}
-\bibliography{porn_bib}
+\bibliography{porn}
 \clearpage
 \appendix
 \renewcommand{\thesection}{SI \arabic{section}}
@@ -182,9 +176,39 @@ With the YouGov survey, we measured ideology and partisanship using the conventi
 \end{center}
 
 \clearpage
-\section{Comparing YouGov Sample to Population Benchmarks}
-\label{si2_yougov}
+\section{Consequence of Using Alternate Ways of Measuring Pornography}
+\subsection{Keyword Classifier}
+Our first classifier is based on just the domain name and domain suffix. In particular, we use a calibrated keyword classifier. The features of the model are whether any of the following keywords are present in the domain name:
 
-\input{../tabs/app_table.tex}
+\begin{quote}
+
+cumshot, dildo, anal, adult, porn, mature, sex, xx, bbw, slut, whore, tits, titty, titties, pussy, sperm, gay, cheat, booty, ebony, asian, brazilian, fuck, cock, cunt, lesbian, shemale, boob, naughty, fatty, bitch, granny, jizz, faggot, horny, bukakke, bdsm, vagina, smut, x-rated, lusty, erotic, cunnilingus, blowjob, panty, hentai, latex, fetisch, fetish, erotik, bondage, naked, strip, teen, stocking, coitus, deprav, tube, perverse 
+
+\end{quote}
+\subsection{Machine Learning Classifier}
+
+\section{Analysis of Visits}
+
+\begin{figure}[h]
+\centering
+\caption{Distribution of Consumption of Pornography Online}
+\includegraphics[scale=.75]{figs/distribution_proportion_adultsites_visits.pdf}
+\label{fig:distribution_visits}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Proportion of Visits to Pornographic Sites}
+\includegraphics[scale=.75]{figs/distribution_proportion_adultsites_visits_by_party.pdf}
+\label{fig:distribution_prop_visits}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Distribution of Consumption of Pornography Online by Party}
+\includegraphics[scale=.75]{figs/distribution_visits_to_adultsites_by_party.pdf}
+\label{fig:distribution_visits_party}
+\end{figure}
 
 \end{document}
+
