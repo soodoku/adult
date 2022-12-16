@@ -136,21 +136,28 @@ Our primary dependent variables of interest are: total time spent on pornographi
 \begin{figure}[h]
 \centering
 \caption{Distribution of Consumption of Pornography Online}
-\includegraphics[scale=.75]{figs/distribution_duration_on_adultsites.pdf}
+\includegraphics[width=.55\linewidth]{../figs/distribution_duration_on_adultsites.pdf}
+\caption*{\footnotesize \emph{Notes:} 
+	Hours spent on adult sites by individuals who consumed pornography in the sample period.
+	Individuals are split into deciles with each bin containing approximately the same number of individuals.
+	Height of bars indicate mean of each bin.
+	Capped vertical bars are 95\% confidence intervals.
+	See \cref{tab:distribution_duration} for the more tabulated values.
+}
 \label{fig:distribution_duration}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \caption{Proportion of Visits to Pornographic Sites}
-\includegraphics[scale=.75]{figs/distribution_proportion_adultsites_duration.pdf}
+\includegraphics[scale=.75]{../figs/distribution_proportion_duration_on_adultsites.pdf}
 \label{fig:distribution_prop_duration}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \caption{Distribution of Consumption of Pornography Online by Party}
-\includegraphics[scale=.75]{figs/distribution_duration_on_adultsites_by_party.pdf}
+\includegraphics[scale=.75]{../figs/distribution_duration_on_adultsites_by_party.pdf}
 \label{fig:distribution_duration_party}
 \end{figure}
 
@@ -159,13 +166,13 @@ To formally test for these differences, we ran quantile regression, regressing t
 \begin{figure}[h]
 \centering
 \caption{Distribution of Consumption of Pornography Online by Party}
-\includegraphics[scale=.75]{figs/quantile_reg_nonzero_duration_adult.pdf}
+\includegraphics[scale=.75]{../figs/quantile_reg_nonzero_duration_adult.pdf}
 \label{fig:quantile_regression_duration}
 \end{figure}
 
 These minor differences (or lack of differences) could be because of the demographic differences we see across the party. Next, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find. 
 
-\input{tabs/models.tex}
+\input{../tabs/models.tex}
 
 \section*{Discussion}
 Consumption of pornography is also problematic from a religious perspective. Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}}.
@@ -184,6 +191,26 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 \Large{Supporting Information}
 \end{center}
 
+
+\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
+	\caption{Distribution of Consumption of Pornography Online}
+	\label{tab:distribution_duration}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}cc@{\hspace{0\tabcolsep}}}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Hours}}\\
+			\midrule
+			\input{../tabs/percentiles_duration_adultsites_by_individuals.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		See \cref{fig:distribution_duration} for the plot.
+	}
+\end{table}
+
+
 \clearpage
 \section{Top 25 Adult Domains}
 
@@ -191,9 +218,12 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 \begin{figure}[h]
 \centering
 \caption{Proportion of Visits to Pornographic Sites}
-\includegraphics[scale=.75]{figs/top_25_adultsites.pdf}
+\includegraphics[scale=.75]{../figs/top_25_adultsites.pdf}
 \label{fig:top25}
 \end{figure}
+
+
+
 
 \section{Consequence of Using Alternate Ways of Measuring Pornography}
 \subsection{Keyword Classifier}
@@ -211,21 +241,21 @@ cumshot, dildo, anal, adult, porn, mature, sex, xx, bbw, slut, whore, tits, titt
 \begin{figure}[h]
 \centering
 \caption{Distribution of Consumption of Pornography Online}
-\includegraphics[scale=.75]{figs/distribution_proportion_adultsites_visits.pdf}
+\includegraphics[scale=.75]{../figs/distribution_proportion_adultsites_visits.pdf}
 \label{fig:distribution_visits}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \caption{Proportion of Visits to Pornographic Sites}
-\includegraphics[scale=.75]{figs/distribution_proportion_adultsites_visits_by_party.pdf}
+\includegraphics[scale=.75]{../figs/distribution_proportion_adultsites_visits_by_party.pdf}
 \label{fig:distribution_prop_visits}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \caption{Distribution of Consumption of Pornography Online by Party}
-\includegraphics[scale=.75]{figs/distribution_visits_to_adultsites_by_party.pdf}
+\includegraphics[scale=.75]{../figs/distribution_visits_to_adultsites_by_party.pdf}
 \label{fig:distribution_visits_party}
 \end{figure}
 
