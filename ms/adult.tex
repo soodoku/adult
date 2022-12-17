@@ -211,6 +211,10 @@ Our primary dependent variables of interest are: total time spent on pornographi
 
 To formally test for these differences, we ran quantile regression, regressing the duration on party. 
 
+%===========================
+% Quantile regressions
+% Hours spent on adult sites
+%===========================
 \begin{figure}[ht]
 \centering
 \caption{Quantile Estimates--Hours Spent on Adult Sites by Party}
@@ -224,7 +228,10 @@ To formally test for these differences, we ran quantile regression, regressing t
 \label{fig:quantile_regression_duration}
 \end{figure}
 
-
+%========================================
+% Quantile regressions
+% Proportion of time spent on adult sites
+%========================================
 \begin{figure}[ht]
 	\centering
 	\caption{Quantile Estimates--Percentage of Time Spent on Adult Sites by Party}
@@ -241,7 +248,7 @@ To formally test for these differences, we ran quantile regression, regressing t
 
 \newpage
 
-These minor differences (or lack of differences) could be because of the demographic differences we see across the party. Next, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find. 
+These minor differences (or lack of differences) could be because of the demographic differences we see across the party. This lack of difference also partly stems from a lack of difference in the tendency to consume pornography (see \cref{fig:consume_porn_yes_no}). Next, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find. 
 
 \input{../tabs/models.tex}
 
@@ -298,6 +305,21 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 	}
 	\label{fig:top25_nonadult}
 \end{figure}
+
+
+
+%===============================================================================
+\begin{figure}
+	\centering
+	\caption{Porn Consumption by Party}
+	\includegraphics[width=.5\textwidth]{../figs/consume_porn_yes_no.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Figure shows proportion of panelists in the sample who ever consumed pornography in the sample period by party.
+		Capped vertical bars are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:consume_porn_yes_no}
+\end{figure}
+
 
 %====================================================
 % Tabulated percentiles of hours spent on adult sites
