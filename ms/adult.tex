@@ -20,6 +20,7 @@
 \usepackage{natbib}
 
 \usepackage{float}
+\usepackage{placeins}
 
 \usepackage{geometry}  % see geometry.pdf on how to lay out the page. There's lots.
 \geometry{letterpaper} % This is 8.5x11 paper. Options are a4paper or a5paper or other...
@@ -127,18 +128,23 @@ We use passively observed browsing data from a YouGov survey to measure the cons
 \section*{Measuring Consumption of Adult Content}
 For YouGov, we only observe data from a single machine per person. Our analyses should hold if people exhibit similar consumption patterns across devices. If that is too implausible an assumption, then we must decide on the direction of error and how it affects our analyses. We think it is likely that people would be less likely to search for pornography on machines on which they have installed passive monitoring software (though the data are de-identified). If that is so, our estimates are a lower bound of net consumption of pornography per machine. As the number of devices per person is increasing, all these numbers need to be adjusted. Next, is measurement error correlated with ideology? We have little reason to expect that, but we have no capacity to check if it is true. Thus, for current purposes, we assume that it is so.  
 
-We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. In the Appendix, we use a keyword classifier and a machine learning classifier. As you will see, all of these methods consistently show the same thing. All of this ignores pornography available via more conventional channels. For instance, some pornography is consumed on sites like Tumblr.
+We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data (see \cref{fig:top25_adult} and \cref{fig:top25_nonadult} for the most visited domains). In the Appendix, we use a keyword classifier and a machine learning classifier. As you will see, all of these methods consistently show the same thing. All of this ignores pornography available via more conventional channels. For instance, some pornography is consumed on sites like Tumblr.
 
+\FloatBarrier
 \section*{Results}
 
 Our primary dependent variables of interest are: total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In the appendix, we show similar analysis for visits.) 
 
-\begin{figure}[h]
+
+%======================================================
+% Figure for Distribution of Hours spent on adult sites
+%======================================================
+\begin{figure}[ht]
 \centering
 \caption{Distribution of Consumption of Pornography Online}
 \includegraphics[width=.5\linewidth]{../figs/distribution_duration_on_adultsites.pdf}
 \caption*{\footnotesize \emph{Notes:} 
-	Hours spent on adult sites by individuals who consumed pornography in the sample period.
+	Figure shows the number of hours spent on adult sites by individuals who consumed pornography in the sample period.
 	Individuals are split into deciles with each bin containing approximately the same number of individuals.
 	Height of bars indicate mean of each bin.
 	Capped vertical bars are 95\% confidence intervals.
@@ -147,19 +153,61 @@ Our primary dependent variables of interest are: total time spent on pornographi
 \label{fig:distribution_duration}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\caption{Proportion of Visits to Pornographic Sites}
-\includegraphics[scale=.75]{../figs/distribution_proportion_duration_on_adultsites.pdf}
-\label{fig:distribution_prop_duration}
+%===================================================================
+% Figure for Distribution of proportion of time spent on adult sites
+%===================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Percentage of Time Spent on Pornographic Sites}
+	\includegraphics[width=.5\linewidth]{../figs/distribution_proportion_duration_on_adultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Figure shows the proportion of time spent on adult sites by individuals who consumed pornography in the sample period.
+		Individuals are split into deciles with each bin containing approximately the same number of individuals.
+		Height of bars indicate mean of each bin.
+		Capped vertical bars are 95\% confidence intervals.
+		See \cref{tab:distribution_prop_duration} for the more tabulated values.
+	}
+	\label{fig:distribution_prop_duration}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\caption{Distribution of Consumption of Pornography Online by Party}
-\includegraphics[scale=.75]{../figs/distribution_duration_on_adultsites_by_party.pdf}
-\label{fig:distribution_duration_party}
+
+
+%===============================================
+% Splits by party for hours spent on adult sites
+%===============================================
+\begin{figure}[ht]
+	\centering
+	\caption{Distribution of Consumption of Pornography Online by Party}
+	\includegraphics[width=.6\linewidth]{../figs/distribution_duration_on_adultsites_by_party.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Figure shows splits by party and by percentiles for the total time spent on adult sites for panelists in the sample who consumed pornography in the sample period.
+		Round markers and the corresponding vertical lines indicate the mean and 95\% confidence intervals for each bin.
+		The \emph{x} symbols indicate actual panelists based on their percentiles.
+		See \cref{tab:distribution_duration_party} for the more tabulated values.
+	}
+	\label{fig:distribution_duration_party}
 \end{figure}
+
+
+%============================================================
+% Splits by party for proportion of time spent on adult sites
+%============================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Percentage of Time Spent on Pornographic Sites by Party}
+	\includegraphics[width=.6\linewidth]{../figs/distribution_proportion_duration_on_adultsites_by_party.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Figure shows splits by party and by percentiles for the proportion of time spent on adult sites for panelists in the sample who consumed pornography in the sample period.
+		Round markers and the corresponding vertical lines indicate the mean and 95\% confidence intervals for each bin.
+		The \emph{x} symbols indicate actual panelists based on their percentiles.
+		See \cref{tab:distribution_prop_duration_party} for the more tabulated values.
+	}
+	\label{fig:distribution_prop_duration_party}
+\end{figure}
+
+
+\newpage
+
 
 To formally test for these differences, we ran quantile regression, regressing the duration on party. 
 
@@ -180,18 +228,26 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 \bibliographystyle{apsr}
 \bibliography{porn}
 \clearpage
+
+%===============================================================================
+%===============================================================================
+% Appendix
+%===============================================================================
+%===============================================================================
 \appendix
 \renewcommand{\thesection}{SI \arabic{section}}
 \renewcommand\thetable{\thesection.\arabic{table}}  
 \renewcommand\thefigure{\thesection.\arabic{figure}}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
-
 \begin{center}
 \Large{Supporting Information}
 \end{center}
 
 
+%====================================================
+% Tabulated percentiles of hours spent on adult sites
+%====================================================
 \begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
 	\caption{Distribution of Consumption of Pornography Online}
 	\label{tab:distribution_duration}
@@ -200,13 +256,74 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 			\toprule
 			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Hours}}\\
 			\midrule
-			\input{../tabs/percentiles_duration_adultsites_by_individuals.tex} \\
+			\input{../tabs/percentiles_duration_adultsites_by_individuals.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
 		Table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the duration (hours) spent by individuals who consumed pornography in the sample period. 
 		See \cref{fig:distribution_duration} for the plot.
+	}
+\end{table}
+
+%=====================================================================
+% Tabulated percentiles of proportion of duration spent on adult sites
+%=====================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites}
+	\label{tab:distribution_prop_duration}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}cc@{\hspace{0\tabcolsep}}}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Hours}}\\
+			\midrule
+			\input{../tabs/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		See \cref{fig:distribution_prop_duration} for the plot.
+	}
+\end{table}
+
+%===========================================================================
+% Tabulated splits by party and by percentiles for hours spent on adultsites
+%===========================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Distribution of Consumption of Pornography Online by Party}
+	\label{tab:distribution_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}ccc@{\hspace{0\tabcolsep}}}
+			\toprule
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{r}{\textbf{Democrats}}\\
+			\midrule
+			\input{../tabs/percentiles_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+			Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
+
+%===============================================================================
+% Tabulated splits by party and by percentiles for proportion of time spent on adultsites
+%===============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites by Party}
+	\label{tab:distribution_prop_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}ccc@{\hspace{0\tabcolsep}}}
+			\toprule
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{r}{\textbf{Democrats}}\\
+			\midrule
+			\input{../tabs/percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. See \cref{fig:distribution_prop_duration_party} for the plot.
 	}
 \end{table}
 
