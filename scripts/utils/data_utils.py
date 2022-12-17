@@ -9,6 +9,10 @@ def pandas_to_tex(df, texfile):
         
     tex_table = df.to_latex(index=False, header=False)
     tex_table_fragment = "\n".join(tex_table.split("\n")[2:-3])
+    # Remove the last \\ in the tex fragment to prevent the annoying
+    # "Misplaced \noalign" LaTeX error when I use \bottomrule
+    tex_table_fragment = tex_table_fragment[:-2]
+
     
     with open(texfile, "w") as tf:
         tf.write(tex_table_fragment)
