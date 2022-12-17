@@ -211,12 +211,35 @@ Our primary dependent variables of interest are: total time spent on pornographi
 
 To formally test for these differences, we ran quantile regression, regressing the duration on party. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
-\caption{Distribution of Consumption of Pornography Online by Party}
-\includegraphics[scale=.75]{../figs/quantile_reg_nonzero_duration_adult.pdf}
+\caption{Quantile Estimates--Hours Spent on Adult Sites by Party}
+\includegraphics[width=.6\linewidth]{../figs/quantile_reg_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the number of hours panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
+}
 \label{fig:quantile_regression_duration}
 \end{figure}
+
+
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Percentage of Time Spent on Adult Sites by Party}
+	\includegraphics[width=.6\linewidth]{../figs/quantile_reg_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the percentage of time panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_prop_duration_covariates} for the same plot controlling for individual characteristics.
+	}
+	\label{fig:quantile_regression_prop_duration}
+\end{figure}
+
+
+\newpage
 
 These minor differences (or lack of differences) could be because of the demographic differences we see across the party. Next, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find. 
 
@@ -244,6 +267,37 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 \Large{Supporting Information}
 \end{center}
 
+\FloatBarrier
+%===============================================================================
+% Supplementary Descriptives for sense of landscape of porn consumption
+%===============================================================================
+\section{Supplementary Descriptive Figures and Tables}
+\begin{figure}[ht]
+	\centering
+	\caption{Top 25 Adult Domains}
+	\includegraphics[width=\textwidth]{../figs/top_25_adultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows the top 25 adult sites that panelists visit in the sample period.
+		Adult sites are categorized by YouGov.
+		The \emph{Hours} column are the total number of hours that panelists in the sample spent on the site. 
+		The \emph{Visits} column is total number of visits by panelists in the sample to the site.  
+		Sites to the right of the vertical dashed are the top 1 percent.
+	}
+	\label{fig:top25_adult}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\caption{Top 25 (Non-Adult) Domains}
+	\includegraphics[width=\textwidth]{../figs/top_25_nonadultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows the top 25 non-adult sites that panelists visit in the sample period.
+		The \emph{Hours} column are the total number of hours that panelists in the sample spent on the site. 
+		The \emph{Visits} column is total number of visits by panelists in the sample to the site.  			
+		Sites to the right of the vertical dashed are the top 1 percent.
+	}
+	\label{fig:top25_nonadult}
+\end{figure}
 
 %====================================================
 % Tabulated percentiles of hours spent on adult sites
@@ -303,7 +357,7 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 		\end{tabular}
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
-			Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. See \cref{fig:distribution_duration_party} for the plot.
+		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. See \cref{fig:distribution_duration_party} for the plot.
 	}
 \end{table}
 
@@ -327,43 +381,11 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 	}
 \end{table}
 
-
-\clearpage
-\section{Top 25 Adult Domains}
-
-
-\begin{figure}[h]
-	\centering
-	\caption{Top 25 Adult Domains}
-	\includegraphics[width=\textwidth]{../figs/top_25_adultsites.pdf}
-		\caption*{\footnotesize \emph{Notes:} 
-			Table shows the top 25 adult sites that panelists visit in the sample period.
-			Adult sites are categorized by YouGov.
-			The \emph{Hours} column are the total number of hours that panelists in the sample spent on the site. 
-			The \emph{Visits} column is total number of visits by panelists in the sample to the site.  
-			Sites to the right of the vertical dashed are the top 1 percent.
-		}
-	\label{fig:top25_adult}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\caption{Top 25 (Non-Adult) Domains}
-	\includegraphics[width=\textwidth]{../figs/top_25_nonadultsites.pdf}
-		\caption*{\footnotesize \emph{Notes:} 
-			Table shows the top 25 non-adult sites that panelists visit in the sample period.
-			The \emph{Hours} column are the total number of hours that panelists in the sample spent on the site. 
-			The \emph{Visits} column is total number of visits by panelists in the sample to the site.  			
-			Sites to the right of the vertical dashed are the top 1 percent.
-		}
-	\label{fig:top25_nonadult}
-\end{figure}
-
-
-
-
-
-\section{Consequence of Using Alternate Ways of Measuring Pornography}
+\FloatBarrier
+%===============================================================================
+% Consequence of Using Alternate Ways of Measuring Pornography and Alternative Analyses on Time Spent on Pornography
+%===============================================================================
+\section{Consequence of Using Alternate Ways of Measuring Pornography and Alternative Analyses on Time Spent on Pornography}
 \subsection{Keyword Classifier}
 Our first classifier is based on just the domain name and domain suffix. In particular, we use a calibrated keyword classifier. The features of the model are whether any of the following keywords are present in the domain name:
 
@@ -374,27 +396,129 @@ cumshot, dildo, anal, adult, porn, mature, sex, xx, bbw, slut, whore, tits, titt
 \end{quote}
 \subsection{Machine Learning Classifier}
 
+
+\subsection{Alternative Analyses of Time Spent on Pornography}
+
+%=====================================================
+% Fig of quantile regression estimates
+% Time Spent on Adult Sites by Party (with covariates) 
+%=====================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Hours Spent on Adult Sites by Party (with covariates)}
+	\includegraphics[width=.55\linewidth]{../figs/quantile_reg_covariates_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the number of hours panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_duration} for the same plot without covariates.
+	}
+	\label{fig:quantile_regression_duration_covariates}
+\end{figure}
+
+%==============================================================================
+% Fig of quantile regression estimates
+% Time Spent on Adult Sites by Party (for individuals who consumed pornography)
+%==============================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Hours Spent on Adult Sites by Party (for individuals who consumed pornography)}
+	\includegraphics[width=.55\linewidth]{../figs/quantile_reg_nonzero_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the number of hours panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Only includes panelists who consumed pornography in the sample period.
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_duration} for the same plot for the full sample.
+	}
+	\label{fig:quantile_regression_duration_nonzeroes}
+\end{figure}
+
+%==============================================================================
+% Fig of quantile regression estimates
+% Time Spent on Adult Sites by Party (for individuals who consumed pornography and with covariates)
+%==============================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Hours Spent on Adult Sites by Party (for individuals who consumed pornography and with covariates)}
+	\includegraphics[width=.55\linewidth]{../figs/quantile_reg_nonzero_covariates_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the number of hours panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Only includes panelists who consumed pornography in the sample period.
+		Covariates included on the right-hand side are: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_duration_covariates} for the same plot for the full sample.
+	}
+	\label{fig:quantile_regression_duration_nonzeroes}
+\end{figure}
+
+
+
+
+
+
+%================================================================
+% Fig of quantile regression estimates
+% Percentage Time Spent on Adult Sites by Party (with covariates) 
+%================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Percentage of Time Spent on Adult Sites by Party (with covariates)}
+	\includegraphics[width=.55\linewidth]{../figs/quantile_reg_covariates_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the percentage of time panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_prop_duration} for the same plot without covariates.
+	}
+	\label{fig:quantile_regression_prop_duration_covariates}
+\end{figure}
+
+%==============================================================================
+% Fig of quantile regression estimates
+% Percentage Time Spent on Adult Sites by Party (for individuals who consumed pornography)
+%==============================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Percentage of Time Spent on Adult Sites by Party (for individuals who consumed pornography)}
+	\includegraphics[width=.55\linewidth]{../figs/quantile_reg_nonzero_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the percentage of time panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Only includes panelists who consumed pornography in the sample period.
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_prop_duration} for the same plot for the full sample.
+	}
+	\label{fig:quantile_regression_prop_duration_nonzeroes}
+\end{figure}
+
+%==============================================================================
+% Fig of quantile regression estimates
+% Time Spent on Adult Sites by Party (for individuals who consumed pornography and with covariates)
+%==============================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Percentage of Time Spent on Adult Sites by Party (for individuals who consumed pornography and with covariates)}
+	\includegraphics[width=.55\linewidth]{../figs/quantile_reg_nonzero_covariates_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Dependent variable is the percentage of time panelists in our sample spent on adult sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Only includes panelists who consumed pornography in the sample period.
+		Covariates included on the right-hand side are: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from robust standard errors.
+		See \cref{fig:quantile_regression_prop_duration_covariates} for the same plot for the full sample.
+	}
+	\label{fig:quantile_regression_duration_nonzeroes_covariates}
+\end{figure}
+\FloatBarrier
+%===============================================================================
+% Analogous results for visits to adult sites
+%===============================================================================
 \section{Analysis of Visits}
 
-\begin{figure}[h]
-\centering
-\caption{Distribution of Consumption of Pornography Online}
-\includegraphics[scale=.75]{../figs/distribution_proportion_adultsites_visits.pdf}
-\label{fig:distribution_visits}
-\end{figure}
 
-\begin{figure}[h]
-\centering
-\caption{Proportion of Visits to Pornographic Sites}
-\includegraphics[scale=.75]{../figs/distribution_proportion_adultsites_visits_by_party.pdf}
-\label{fig:distribution_prop_visits}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\caption{Distribution of Consumption of Pornography Online by Party}
-\includegraphics[scale=.75]{../figs/distribution_visits_to_adultsites_by_party.pdf}
-\label{fig:distribution_visits_party}
-\end{figure}
 
 \end{document}
