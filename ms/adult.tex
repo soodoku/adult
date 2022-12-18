@@ -130,6 +130,9 @@ For YouGov, we only observe data from a single machine per person. Our analyses 
 
 We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data (see \cref{fig:top25_adult} and \cref{fig:top25_nonadult} for the top visited domains). In the Appendix, we use a keyword classifier and a machine learning classifier. As you will see, all of these methods consistently show the same thing. All of this ignores pornography available via more conventional channels. For instance, some pornography is consumed on sites like Tumblr.
 
+The consumption of pornography is concentrated. Traffic to the top 10 most frequented porn sites ten times that of traffic to all other porn sites outside the top 10 (approximately 120 minutes vs 12 minutes, see \crefrange{fig:concentration_porn_consumption}{fig:concentration_porn_consumption_by_party}). 
+For panelists who consume porn, close to 80 percent of their traffic to adult sites is concentrated in just one porn site (\cref{fig:concentration_porn_consumption_topX_by_party}). This behavior does not differ substantially party.
+
 \FloatBarrier
 \section*{Results}
 
@@ -279,6 +282,9 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 % Supplementary Descriptives for sense of landscape of porn consumption
 %===============================================================================
 \section{Supplementary Descriptive Figures and Tables}
+%============================
+% Figure of top 25 adultsites
+%============================
 \begin{figure}[ht]
 	\centering
 	\caption{Top 25 Adult Domains}
@@ -293,6 +299,9 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 	\label{fig:top25_adult}
 \end{figure}
 
+%================================
+% Figure of top 25 non-adultsites
+%================================
 \begin{figure}
 	\centering
 	\caption{Top 25 (Non-Adult) Domains}
@@ -307,8 +316,59 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 \end{figure}
 
 
+%=============================================
+% Figure for concentration of porn consumption
+%=============================================
+\begin{figure}
+	\centering
+	\caption{Traffic to Top 10 Porn Sites}
+	\includegraphics[width=.6\textwidth]{../figs/concentration_porn_consumption.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The Top 10 bar indicates traffic to the top 10 adult sites in the data (see \cref{fig:top25_adult}).
+		Time units is hours.
+		Data is at the panelist-domain level.
+		Others indicate traffic to all other adult sites outside of the top 10.
+		Vertical bars are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:concentration_porn_consumption}
+\end{figure}
 
-%===============================================================================
+%======================================================
+% Figure for concentration of porn consumption by party
+%======================================================
+\begin{figure}
+	\centering
+	\caption{Traffic to Top 10 Porn Sites by Party}
+	\includegraphics[width=.6\textwidth]{../figs/concentration_porn_consumption_by_party.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The Top 10 bar indicates traffic to the top 10 adult sites in the data (see \cref{fig:top25_adult}).
+		Time units is hours.
+		Data is at the panelist-domain level.
+		Others indicate traffic to all other adult sites outside of the top 10.
+		Vertical bars are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:concentration_porn_consumption_by_party}
+\end{figure}
+
+%====================================
+% Figure of traffic to top x websites
+%====================================
+\begin{figure}
+	\centering
+	\caption{Traffic to Top x Porn Sites by Party}
+	\includegraphics[width=.7\textwidth]{../figs/concentration_porn_consumption_topX_by_party.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		Figure shows concentration of porn consumption based on individuals' most frequented porn sites.
+		Shaded areas are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:concentration_porn_consumption_topX_by_party}
+\end{figure}
+
+
+%============================================================================
+% Figure of porn consumption by party
+% Y-axis = proportion of individuals that ever consumed porn in sample period
+%============================================================================
 \begin{figure}
 	\centering
 	\caption{Porn Consumption by Party}
