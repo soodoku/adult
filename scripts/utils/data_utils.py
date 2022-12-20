@@ -3,7 +3,7 @@ import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
-def pandas_to_tex(df, texfile):
+def pandas_to_tex(df, texfile, index=False):
     if texfile.split(".")[-1] != ".tex":
         texfile += ".tex"
         
