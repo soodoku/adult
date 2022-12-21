@@ -1,23 +1,40 @@
-
 import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
+
 def pandas_to_tex(df, texfile, index=False):
     if texfile.split(".")[-1] != ".tex":
         texfile += ".tex"
-        
-    tex_table = df.to_latex(index=False, header=False)
+
+    tex_table = df.to_latex(index=index, header=False)
     tex_table_fragment = "\n".join(tex_table.split("\n")[2:-3])
     # Remove the last \\ in the tex fragment to prevent the annoying
     # "Misplaced \noalign" LaTeX error when I use \bottomrule
     tex_table_fragment = tex_table_fragment[:-2]
 
-    
     with open(texfile, "w") as tf:
         tf.write(tex_table_fragment)
     return None
 
+
+def tableone_to_texfrag(tableone, texfile):
+    tex_table = tableone.tabulate(tablefmt="latex")
+    # line #1 = \begin{tabular}...
+    # line #2 = headers..
+    # line #3 = \hline
+    # last line = \end{tabular}
+    # 2nd last line = \hline
+    tex_table_fragment = "\n".join(tex_table.split("\n")[4:-2])
+    # Remove the last \\ in the tex fragment to prevent the annoying
+    # "Misplaced \noalign" LaTeX error when I use \bottomrule
+    tex_table_fragment = tex_table_fragment[:-2]
+    # Save
+    if texfile.split(".")[-1] != ".tex":
+        texfile += ".tex"
+    with open(texfile, "w") as tf:
+        tf.write(tex_table_fragment)
+    return None
 
 
 def fit_quantile_reg(y, x, quantile, df, z=None):
@@ -39,7 +56,6 @@ def fit_quantile_reg(y, x, quantile, df, z=None):
     return coef_list
 
 
-
 def fit_ols_reg(y, x, df, z=None):
     if z is None:
         ols_model = smf.ols(f"{y} ~ {x}", df)
@@ -55,6 +71,5 @@ def fit_ols_reg(y, x, df, z=None):
         tstat=ols_results.tvalues[x],
         pval=ols_results.pvalues[x],
         obs=ols_results.nobs,
-
     )
-    return ols_results    
+    return ols_results
