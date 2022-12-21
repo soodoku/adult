@@ -126,7 +126,7 @@ We also use the data to shed light on an age-old debate --- whether Democrats co
 We use passively observed browsing data from a YouGov survey to measure the consumption of adult content. YouGov maintains a large online panel recruited through a variety of methods. It uses matched sampling to survey respondents: The provider first draws a random sample from a large synthetic representative sampling frame, finds respondents that match the sampled individuals from its panel, and invites them to take a survey. For details and validation, see \citet{rivers2009}. For this particular sample, panelists also provided de-identified access to their web browsing activity via passive metering software installed voluntarily on their computers. The software, called RealityMine, can be uninstalled at any point and captures visited web URLs independent of the type of browser or browser-specific privacy settings.\footnote{RealityMine does not save passwords or financial transactions, and personally identifying information is screened out by the survey provider.} At the time this data was made available in June, 2022, YouGov had recruited 1,200 individuals to the web tracking panel, which is currently marketed as YouGov Pulse. The passive metering component of this particular opt-in panel adds a layer of selectivity to the sampling process. 
 
 Overall, we have over 6 million web browsing records by the 1,200 individuals over the one-month period of June 2022. 
-For each web browsing activity, we have information on the domain (e.g., wikipedia.org), the time of visit, and the time spent on the domain. Individuals are spread out over the US states and regions (see \cref{fig:map_duration}). 
+For each web browsing activity, we have information on the domain (e.g., wikipedia.org), the time of visit, and the time spent on the domain. Individuals are spread out over the US states and regions (see \cref{fig:map_porn}). 
 Our data also comes with characteristics for the 1,200 individuals.
 We have information on their party identification, which we use to code their partisanship.
 We verify this using information on whether they voted for the Republican or Democratic candidate in the 2020 presidential election.
@@ -134,7 +134,8 @@ Most individuals reported their party identification, with 120 individuals who d
 Out of the 1,080 individuals who report party identification, the majority 82 percent lean either Republican or Democrat. The remaining 18 percent identify as independent.
 In the analyses focusing on splits by party, we use only those who lean either Republican or Democrat.
 We also have information on birth year, gender, race, and education level.
-\cref{tab:characteristics_split_by_party} shows differences in gender, and race(?) by party. 
+\cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification.
+Republicans in the sample are, on average, older, less likely to be female, and much more likely to be White.
 Hence, our analyses below for differences in porn consumption includes these characteristics in the estimation.
 
 
@@ -554,6 +555,46 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 		Column (6) and column (7) report the p-values and standardized mean differences for non-consumers vs consumers.
 	}
 \end{table}
+
+%============================================================================
+% Map of party identification
+%============================================================================
+\begin{figure}
+	\centering
+	\caption{Party Identification by States}
+	\begin{subfigure}[t]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../figs/map_pid7.pdf}
+		\caption{Partisanship}
+	\end{subfigure}
+	\caption*{\footnotesize \emph{Notes:} 
+		Redder colors indicate stronger identification to the Republican party.
+		Bluer colors indicate stronger identification to the Democratic party.
+		North Dakota and Vermont have no data (shaded out).
+	}
+	\label{fig:map_pid7}
+\end{figure}
+
+\begin{figure}[t]
+	\caption{Porn Consumption by State}
+	\label{fig:map_porn}
+	\centering
+	\begin{subfigure}[t]{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../figs/map_visits.pdf}
+		\caption{Percentage of visits to porn sites}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../figs/map_duration.pdf}
+		\caption{Percentage of duration on porn sites}
+	\end{subfigure}
+	\caption*{\footnotesize \emph{Notes:} 
+		Darker shades indicate higher values.
+		Values for each state are percentage of visits to and time spent on porn sites averaged across individuals of the states.
+		Baseline values are for all web browsing activity.
+		North Dakota and Vermont have no data (shaded out).}
+\end{figure}
 
 \FloatBarrier
 %===============================================================================
