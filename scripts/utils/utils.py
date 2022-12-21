@@ -164,7 +164,10 @@ def annotate_states_on_map(gdf_states):
     return None    
 
 import cmasher as cmr
-from mapclassify import Quantiles
+try:
+    from mapclassify import Quantiles
+except ModuleNotFoundError:
+    pass
 import matplotlib as mpl
 
 def plot_map(y, gdf):
