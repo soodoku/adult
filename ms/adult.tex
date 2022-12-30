@@ -129,16 +129,16 @@ Overall, we have over 6 million web browsing records by the 1,200 individuals ov
 For each web browsing activity, we have information on the domain (e.g., wikipedia.org), the time of visit, and the time spent on the domain. Individuals are spread out over the US states and regions (see \cref{fig:map_porn}). 
 Our data also comes with characteristics for the 1,200 individuals.
 We have information on their party identification, which we use to code their partisanship.
-We verify this using information on whether they voted for the Republican or Democratic candidate in the 2020 presidential election.
+We verify this using information on whether they voted for the Republican or Democratic candidate in the 2020 presidential election (see \cref{tab:characteristics_split_by_party}).
 Most individuals reported their party identification, with 120 individuals who did not respond or say not sure/don't know.
 Out of the 1,080 individuals who report party identification, the majority 82 percent lean either Republican or Democrat. The remaining 18 percent identify as independent.
 In the analyses focusing on splits by party, we use only those who lean either Republican or Democrat.
 We also have information on birth year, gender, race, and education level.
 \cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification.
-Republicans in the sample are, on average, older, less likely to be female, and much more likely to be White.
-Hence, our analyses below for differences in porn consumption includes these characteristics in the estimation.
+We use these information in our analyses of pornography consumption below.
 
-
+In supplementary analyses, we leverage the \texttt{piedomains} package to classify which domains are pornographic sites using \textbf{what goes under-the-hood here}.
+We show that our results do not change using the alternative classifiers..\footnote{We also supplement our analyses using other open-source packages like }
 
 
 \section*{Measuring Consumption of Porn Online}
@@ -153,10 +153,32 @@ Certain domains are not predominately for porn consumption and we remove these f
 In the Appendix, we use a keyword classifier and a machine learning classifier. As you will see, all of these methods consistently show the same thing. All of this ignores pornography available via more conventional channels. For instance, some pornography is consumed on sites like Tumblr.
 
 The consumption of pornography is concentrated. Traffic to the top 10 most frequented porn sites more than 12 times that of traffic to all other porn sites outside the top 10 (approximately 109 minutes vs 9 minutes, see \crefrange{fig:concentration_porn_consumption}{fig:concentration_porn_consumption_by_party}). 
-For individuals who consume porn, close to 80 percent of their traffic to porn sites is concentrated in just one porn site (\cref{fig:concentration_porn_consumption_topX_by_party}). This behavior does not differ substantially party.
+For individuals who consume porn, close to 80 percent of their traffic to porn sites is concentrated in just one porn site (\cref{fig:concentration_porn_consumption_topX_by_party}). 
+The next most frequented pornographic site constitutes less than 20 percent of total traffic.
+This behavior does not differ substantially party.
+
+
+The majority of individuals do not consume pornography online. 
+On average, approximately 32 percent of individuals consumed pornography online---these are individuals who consumed visited any pornography site in the sample period.
+In \cref{fig:consume_porn_yes_no}, splitting by party does not reveal any substantial differences.
+We confirm this in \cref{tab:characteristics_split_by_porn_consumers}, which reports differences in characteristics between individuals who do and do not consume pornography online.
+The average consumer of pornography online spends about approximately 230 minutes (standard deviation of 576 minutes), which is 10.6 percent of total browsing activity (standard deviation of 17.9 percent).
+These come from 233 visits to pornographic sites (standard deviation of 550), which is 6.9 percent of visits to all sites (standard deviation of 11.2 percent).
+
+Based on individual characteristics, the key differences between consumers and non-consumers of pornography online is age and gender. 
+Consumers of pornography online are younger and are more likely to be male.
+In addition to splits by pornography consumption, these differences can also be observed in the splits by party.
+\cref{tab:characteristics_split_by_party} reports that individuals identifying as Republicans tend to be older and more likely to be male, in addition to some differences by regions in which they reside.
+In the regression analyses (\textbf{?in SI or main text?}) where we estimate whether pornography consumption differs by party, we account for these individual characteristics.
+
+
+
+
+
+
 
 \FloatBarrier
-\section*{Results}
+\section*{Regression Estimates for Porn Consumption by Party}
 
 Our primary dependent variables of interest are: total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In the appendix, we show similar analysis for visits.) 
 
@@ -522,7 +544,7 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 		Columns (3)--(5) show means and standard deviations for continuous variables and count and percentage of data for categorical variables, for the full sample, Democratic individuals, and Republican individuals.
 		Standard deviations and percentages in parentheses.
 		Column (6) and column (7) report the p-values and standardized mean differences for Democrats vs Republicans.
-		Given the skew in porn consumption, we also performed tests for difference in means medians for the measures of porn consumption by party. See \cref{tab:characteristics_split_by_party_medians}.
+		Given the skew in porn consumption, we also performed tests for difference in means for the measures of porn consumption by party. See \cref{tab:characteristics_split_by_party_medians}.
 	}
 \end{table}
 
@@ -552,6 +574,8 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 	\end{adjustbox}
 	\caption*{\scriptsize \emph{Notes:}
 		Table shows splits by consumers of porn for porn consumption and for individual characteristics for the 1,200 individuals.
+		65 of the 1,200 individuals did not clocked any browsing activity and are in the first panel.
+		These 65 individuals are not substantially different in characteristics than those included in the sample (see \textbf{TABLE ??}).
 		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
 		Column (1) shows subgroups for categorical variables.
 		Column (2) indicates the count of missing variables, if any.
@@ -567,7 +591,7 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 % Difference in medians
 %==============================================================================
 \begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
-	\caption{Differences (in Medians) in Porn Consumption and Individual Characteristics by Party}
+	\caption{Differences (in Medians) in Porn Consumption}
 	\label{tab:characteristics_split_by_party_medians}
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{@{\hspace{0\tabcolsep}}llrcccrr@{\hspace{0\tabcolsep}}}
@@ -589,7 +613,7 @@ Consumption of pornography is also problematic from a religious perspective. Chr
 		Columns (3)--(5) show the medians, the first quartiles, and the third quartiles, for the full sample, Democrats, and Republicans.
 		1st and 3rd quartiles in brackets.
 		Column (6) and column (7) report the p-values and standardized median differences for Democrats vs Republicans.
-		See \cref{tab:characteristics_split_by_party} for differences in means.
+		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
 	}
 \end{table}
 
