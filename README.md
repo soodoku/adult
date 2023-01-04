@@ -4,6 +4,12 @@ Both the parties claim the higher ground when it comes to women--- one's case fo
 
 We measure pornographic content on domains using YG provided classifications and [piedomains](https://github.com/themains/piedomains). We find that there are at best small difference between parties on total time spent on porn sites (or the proportion of time spent on pornographic sites). 
 
+**Quantile estimates: Hours spen on pornographic sites by party**
+<p align="center"><img width="55%" src="./figs/quantile_reg_duration_adult.png"></p>
+
+**Quantile estimates: Hours spen on pornographic sites by party**
+<p align="center"><img width="55%" src="./figs/quantile_reg_proportion_duration_adult.png"></p>
+
 * [Data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VIV4TS)
 * [Scripts](scripts/)
 * [Tables](tabs/)
