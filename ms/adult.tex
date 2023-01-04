@@ -93,7 +93,7 @@
 \makeatother
 
 
-\title{\Large{Holier Than Thou? No Partisan Gap in Consumption\\ of Pornography Online}\footnote{You can download the replication materials from \href{http://github.com/soodoku/adult}{https://github.com/soodoku/adult}}}
+\title{\Large{Holier Than Thou? No Partisan Gap in the Consumption\\ of Pornography Online}\footnote{You can download the replication materials from \href{http://github.com/soodoku/adult}{https://github.com/soodoku/adult}}}
 
 \author{Lucas Shen\thanks{Lucas is a Research Fellow at Asia Competitiveness Institute, Lee Kuan Yew School of Public Policy, at the National University of Singapore, \href{mailto:lucas@lucasshen.com}{\footnotesize{\texttt{lucas@lucasshen.com}}}} \and Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}}\vspace{.5cm}}
 
@@ -133,20 +133,21 @@ We code pornographic content at the domain level. Our main analysis depends on t
 
 In \ref{si:alternate_ways}, we leverage the \texttt{piedomains} package to classify which domains are pornographic sites using machine learning \citep{Chintalapati_piedomains_Predict_the_2022}. We leverage the probability estimates to produce a low false negative and low false positive version. The key results remain unchanged. 
 
-\section{Results}
+\section*{Results}
 
-\subsection{Consumption of Pornography}
+\subsection*{Consumption of Pornography}
 The consumption of pornography is highly concentrated. Traffic to the top 10 most frequented porn sites is more than 12 times that of traffic to all other porn sites outside the top 10 (approximately 109 minutes vs 9 minutes, see \crefrange{fig:concentration_porn_consumption}{fig:concentration_porn_consumption_by_party}). Close to 80 percent of the traffic to pornographic sites is concentrated in just one pornographic site (\cref{fig:concentration_porn_consumption}).  The next most frequented pornographic site constitutes less than 20 percent of total traffic.
 
 The consumption of pornography online is also limited to a minority of respondents. Only about 32 percent of the respondents visited at least one pornography online during the sample period. The average consumer of pornography online spends approximately 230 minutes (standard deviation of 576 minutes), which is 10.6 percent of total browsing activity (standard deviation of 17.9 percent). These come from 233 visits to pornographic sites (standard deviation of 550), which is 6.9 percent of visits to all sites (standard deviation of 11.2 percent).
 
 The key differences between consumers and non-consumers of pornography online are age and gender. Consumers of pornography online are younger and are more likely to be male. 
 
-\subsection{Partisan Differences in Consumption of Pornography Online}
+\subsection*{Partisan Differences in Consumption of Pornography Online}
 
 Our primary dependent variables of interest are: total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In \ref{si:visits}, we show similar analysis for visits.)
 
-Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figures \ref{fig:quantile_regression_duration} and \ref{fig:quantile_regression_prop_duration} show, there are no significant differences in consumption of pornographic content between the parties. To account for the possibility that these non-differences may be a result of confounding demographic differences between the parties, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find --- see Figure \ref{fig:quantile_regression_duration}. 
+Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figures \ref{fig:quantile_regression_duration} and \ref{fig:quantile_regression_prop_duration} show, there are no significant differences in consumption of pornographic content between the parties. To account for the possibility that these non-differences may be a result of confounding demographic differences between the parties, we control for immutable characteristics like age and gender to see if that adjustment changes the picture much. \cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification. We use these variables in our analyses of pornography consumption below. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find --- see Figure \ref{fig:quantile_regression_duration}. 
+
 
 %===========================
 % Quantile regressions
@@ -185,7 +186,8 @@ Given the skew in the data, we ran a quantile regression, regressing the duratio
 
 \section*{Discussion}
 
-Consumption of pornography has been attributed to a variety of ills. It is also considered problematic from a religious perspective. Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}}. The Internet has dramatically increased access to pornography. This leads to the concern that pornography consumption has become very widespread. Our data suggest that pornography consumption online is highly concentrated with very few people consuming a lot of pornograpghy and most people consuming very little.
+Consumption of pornography has been attributed to a variety of ills. It is also considered problematic from a religious perspective. Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}}. The Internet has dramatically increased access to pornography. This leads to the concern that pornography consumption has become very widespread. Our data suggest that pornography consumption online is highly concentrated with very few people consuming a lot of pornography and most people consuming very little.
+
 
 The second contribution of our paper is estimates of partisan differences in consumption of pornography online. Both the parties claim the higher ground when it comes to women--- one's case for morality is steeped in religion, the other's in enduring concern for women. Our data suggest that the partisan differences are likely very small.
 
