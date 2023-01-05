@@ -80,6 +80,7 @@
 \renewcommand{\ttdefault}{pcr}
 
 
+\usepackage{tocloft}
 
 
 \usepackage{lscape}
@@ -93,7 +94,10 @@
 \makeatother
 
 
-\title{\Large{Holier Than Thou? No Partisan Gap in the Consumption\\ of Pornography Online}\footnote{You can download the replication materials from \href{http://github.com/soodoku/adult}{https://github.com/soodoku/adult}}}
+\title{\Large{Holier Than Thou? No Partisan Gap in the Consumption\\ of Pornography Online}\footnote{You can download the replication materials from \href{http://github.com/soodoku/adult}{https://github.com/soodoku/adult}.
+		%We thank Alexander Marsolais (YouGov) and Rajashekar Chintalapati. 
+	}
+}
 
 \author{Lucas Shen\thanks{Lucas is a Research Fellow at Asia Competitiveness Institute, Lee Kuan Yew School of Public Policy, at the National University of Singapore, \href{mailto:lucas@lucasshen.com}{\footnotesize{\texttt{lucas@lucasshen.com}}}} \and Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}}\vspace{.5cm}}
 
@@ -124,29 +128,43 @@ In this paper, we investigate how much pornography Americans consume online. Usi
 We also use the data to shed light on an age-old debate---whether Democrats consume more pornography than Republicans or vice versa. Both parties claim the higher moral ground. And in surveys both parties think consumption of pornography is abhorrent. Unlike previous research, which relied on ecological inference, we find that Democrats consume about as much pornography online as Republicans \citep{macinnis2015american, edelman2009markets}. Adjusting for background attributes like age, gender etc., makes little difference.
 
 \section*{Data}\label{sec:data}
+\addcontentsline{toc}{section}{\nameref{sec:data}}
 We use data from YouGov to measure the consumption of adult content \citep{data-dataverse}. YouGov maintains a large panel that is recruits using various methods. YouGov uses matched sampling to survey respondents: it first draws a random sample from a large synthetic representative sampling frame, finds respondents that match the sampled individuals from its panel, and invites them to take a survey. For data on how well Yougov is able to approximate a random sample, see \citet{rivers2009}. For our sample, panelists also shared de-identified web browsing data tracked via passive metering software installed voluntarily on their computers. The software, called RealityMine, captures online visits independent of the type of browser or browser-specific privacy settings.
 
 The data are from 1,200 respondents and contains a month of data from June, 2022. In all, we have data on about 6 million visits. For each visit, we have information on the domain (e.g., wikipedia.org), the time of visit, and the time spent on the domain. The respondents visited about 64k unique sites, of which 900 are pornographic sites. 
 
 Our data also includes characteristics of the 1,200 individuals. We have data on demographic characteristics like birth year, state, gender, race, and education level. We also have information on their party identification. Except for 120 respondents  who did not respond or picked not sure/don't know, the rest stated the party they identified with.  Of the 1,080 individuals who report party identification, 82 percent lean either Republican or Democrat. The remaining 18 percent identify as independent. 
 
-\section*{Measuring Pornographic Content}
-We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic sites. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougoc classifies certain domains as 'Adult' that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org . Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We use the \texttt{forestplot} \citep{forestplot} and \texttt{tableone} \citep{tableone} packages to tabulate key descriptive figures.}, we manually check the top adult domains to remove such sites. If there is graphic nudity on the landing page or if the site is some form of erotica, we classify the site as a pornographic. 
+\section*{Measuring Pornographic Content}\label{sec:measuring_porn_content}
+\addcontentsline{toc}{section}{\nameref{sec:measuring_porn_content}}
+
+We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic sites. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougov classifies certain domains as 'Adult' that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org . Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We use the \texttt{forestplot} \citep{forestplot} and \texttt{tableone} \citep{tableone} packages to tabulate key descriptive figures.}, we manually check the top adult domains to remove such sites. If there is graphic nudity on the landing page or if the site is some form of erotica, we classify the site as a pornographic. 
 
 In \ref{si:alternate_ways}, we leverage the \texttt{piedomains} package to classify which domains are pornographic sites using machine learning \citep{Chintalapati_piedomains_Predict_the_2022}. We leverage the probability estimates to produce a low false negative and low false positive version. The key results remain unchanged. 
 
 
-\section*{Results}
+\section*{Results}\label{sec:results}
+\addcontentsline{toc}{section}{\nameref{sec:results}}
 
 \subsection*{Consumption of Pornography}
 Across all respondents, only a small fraction of the web browsing visits, approximately 84,000 visits or 1.3 percent, are to pornographic sites. And these visits are concentrated among a few people. Only about 32 percent of the respondents consumed pornography online during the sample period. The average consumer of pornography online spent approximately 230 minutes (standard deviation of 576 minutes). 
 
-The consumption of pornography is also highly concentrated among a few sites, with ten most frequented pornography sites receiving more than 12 times the traffic to all other pornographic sites  (approximately 109 minutes vs. 9 minutes, see \cref{fig:concentration_porn_consumption}). Close to 80 percent of the traffic to pornographic sites is to just one pornographic site. Looking at the characteristics of consumers of pornography, expectedly, consumers of pornography online are younger and are more likely to be male \cref{fig:} %TODO
+The consumption of pornography is also highly concentrated among a few sites, with ten most frequented pornography sites receiving more than 12 times the traffic to all other pornographic sites  (approximately 109 minutes vs. 9 minutes, see \cref{fig:concentration_porn_consumption}). Close to 80 percent of the traffic to pornographic sites is to just one pornographic site. Looking at the characteristics of consumers of pornography, expectedly, consumers of pornography online are younger and are more likely to be male (see, for instance, Panel B of \cref{tab:characteristics_split_by_porn_consumers}).
 
 \subsection*{Partisan Differences in Consumption of Pornography Online}
 Our primary dependent variables of interest are: total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In \ref{si:visits}, we show similar analysis for visits. The upshot is that the key conclusions are unaffected.)
 
-Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figures \ref{fig:quantile_regression_duration} and \ref{fig:quantile_regression_prop_duration} show, there are no significant differences in consumption of pornographic content between the parties. To account for the possibility that this may be a result of confounding demographic differences between the parties, we control for immutable characteristics like age and gender. (\cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification.) We use these variables in our analyses of pornography consumption below. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find --- see Figure \ref{fig:quantile_regression_duration}. 
+Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figures \ref{fig:quantile_regression_duration} and \ref{fig:quantile_regression_prop_duration} show, there are no significant differences in consumption of pornographic content between the parties. To account for the possibility that this may be a result of confounding demographic differences between the parties, we control for immutable characteristics like age and gender. (\cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification.) We use these variables in our analyses of pornography consumption below. Given how concentrated pornographic consumption is in our data, it is unlikely to make much of a difference and that is indeed what we find --- see Figure \ref{fig:quantile_regression_duration}.\footnote{
+	We also investigated consumption of pornography among independents in \cref{si:independents}.
+	At the median, Independents consume more pornography compared to partisans in terms of the amount of time spent and the percentage of time spent on pornography online (1.3 hours vs 0.7 hours in \cref{tab:percentiles_duration_adultsites_by_individuals_independents_partisans} and 3.4\% vs 2.3\% in \cref{tab:percentiles_prop_duration_adultsites_by_individuals_independents_partisans}).
+	This difference is driven by the relatively higher consumption of pornography among Republicans.
+	
+	This pattern reverses somewhat near the right tail  of the distribution.
+	Independents also consume more pornography at the right tail of the distribution. 
+	At the 95th percentile, Independents consume about 3.5 hours more and spend 13.9\% more of their internet browsing time on pornography online.
+	This behavior at the right tail is driven by the relatively higher consumption of pornography among the Democrats.
+}
+
 %===========================
 % Quantile regressions
 % Hours spent on adult sites
@@ -182,9 +200,9 @@ Given the skew in the data, we ran a quantile regression, regressing the duratio
 \end{figure}
 
 
-\section*{Discussion}
-
-Consumption of pornography has been attributed to a variety of ills. It is also considered problematic from a religious perspective. For instance, Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}}. The Internet has dramatically increased access to pornography. This has led to the concern that pornography consumption has become very widespread and extensive. Our data suggest that pornography consumption online is highly concentrated with very few people consuming a lot of pornography and most people consuming very little or none.
+\section*{Discussion}\label{sec:discussion}
+\addcontentsline{toc}{section}{\nameref{sec:discussion}}
+Consumption of pornography has been attributed to a variety of ills. It is also considered problematic from a religious perspective. For instance, Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}} The Internet has dramatically increased access to pornography. This has led to the concern that pornography consumption has become very widespread and extensive. Our data suggest that pornography consumption online is highly concentrated with very few people consuming a lot of pornography and most people consuming very little or none.
 
 The second contribution of our paper is estimates of partisan differences in consumption of pornography online. Both the parties claim the higher ground when it comes to women---one's case for morality is steeped in religion, the other's in enduring concern for women. Our data suggest that the partisan differences are likely very small.
 
@@ -210,17 +228,19 @@ The third concern is that our measures are a point in time. We have data from on
 \renewcommand\thefigure{\thesection.\arabic{figure}}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
-\begin{center}
-\Large{Supporting Information}
-\end{center}
+
+\section{Supporting Information}\label{si}
+%\begin{center}
+%\Large{Supporting Information}
+%\end{center}
 
 \FloatBarrier
 %===============================================================================
 % Supplementary Descriptives for sense of landscape of porn consumption
 %===============================================================================
-\section{Descriptive Analysis}
+\subsection{Descriptive Analysis}
 
-\subsection{Skew in Website Visits}
+\subsubsection{Skew in Website Visits}
 %============================
 % Figure of top 25 adultsites
 %============================
@@ -288,7 +308,7 @@ The third concern is that our measures are a point in time. We have data from on
 
 
 \FloatBarrier
-\subsection{Skew in Consumption of Pornographic Content}
+\subsubsection{Skew in Consumption of Pornographic Content}
 %====================================================
 % Tabulated percentiles of hours spent on adult sites
 %====================================================
@@ -332,8 +352,8 @@ The third concern is that our measures are a point in time. We have data from on
 \end{table}
 
 \FloatBarrier
-\section{Partisan Differences}
-\subsection{Distribution of Differences}
+\subsection{Partisan Differences}
+\subsubsection{Distribution of Differences}
 %===========================================================================
 % Tabulated splits by party and by percentiles for hours spent on adultsites
 %===========================================================================
@@ -375,13 +395,13 @@ The third concern is that our measures are a point in time. We have data from on
 		\end{tabular}
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
-		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
 		%See \cref{fig:distribution_prop_duration_party} for the plot.
 	}
 \end{table}
 
 \FloatBarrier
-\subsection{Accounting for Confounders}
+\subsubsection{Accounting for Confounders}
 %==============================================================================
 % Table for balance of porn consumption and individual characteristics by party
 %==============================================================================
@@ -527,20 +547,71 @@ The third concern is that our measures are a point in time. We have data from on
 %===============================================================================
 % Consequence of Using Alternate Ways of Measuring Pornography and Alternative Analyses on Time Spent on Pornography
 %===============================================================================
-\section{Alternate Ways of Measuring Pornography}
+\subsection{Alternate Ways of Measuring Pornography}
 \label{si:alternate_ways}
 \clearpage
 
-\section{Consumption of Pornography Among Independents}
+\subsection{Consumption of Pornography Among Independents}
+\label{si:independents}
+%===========================================================================
+% Tabulated splits by party and by percentiles for hours spent on adultsites
+%===========================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{6 pt}
+	\caption{Distribution of Consumption of Pornography Online Among Independents}
+	\label{tab:percentiles_duration_adultsites_by_individuals_independents_partisans}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}crrrrr@{\hspace{0\tabcolsep}}}
+			\toprule		
+			&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\	
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}&\multicolumn{1}{c}{\textbf{Partisans}}&\multicolumn{1}{c}{\textbf{Independents}}&\multicolumn{1}{r}{\textbf{Independents/DK}}\\
+			\midrule
+			\input{../tabs/percentiles_duration_adultsites_by_individuals_independents_partisans.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows splits by partisans and non-partisans, by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		Column (1) includes Democrats (n = 154).
+		Column (2) includes Republicans (n = 95).
+		Column (3) includes both Republicans and Democrats (n = 249).
+		Column (4) includes Independents (n = 67).
+		Column (5) includes Independents, those who report ``Don't Know'' for partisan identification, and those who do not report (n = 104).
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
+
+\begin{table}[ht] \centering \small \setlength\tabcolsep{6 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites Among Independents}
+	\label{tab:percentiles_prop_duration_adultsites_by_individuals_independents_partisans}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}crrrrr@{\hspace{0\tabcolsep}}}
+			\toprule		
+			&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\	
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}&\multicolumn{1}{c}{\textbf{Partisans}}&\multicolumn{1}{c}{\textbf{Independents}}&\multicolumn{1}{r}{\textbf{Independents/DK}}\\
+			\midrule
+			\input{../tabs/percentiles_prop_duration_adultsites_by_individuals_independents_partisans.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows splits by partisans and non-partisans, by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+		Column (1) includes Democrats (n = 154).
+		Column (2) includes Republicans (n = 95).
+		Column (3) includes both Republicans and Democrats (n = 249).
+		Column (4) includes Independents (n = 67).
+		Column (5) includes Independents, those who report ``Don't Know'' for partisan identification, and those who do not report (n = 104).
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
 
 \FloatBarrier
-\section{Alternate Measures}
+\subsection{Alternate Measures}
 %============================================================================
 % Figure of porn consumption by party
 % Y-axis = proportion of individuals that ever consumed porn in sample period
 %============================================================================
 
-\subsection{Proportion of Partisans Who Consumed Any Pornography}
+\subsubsection{Proportion of Partisans Who Consumed Any Pornography}
 \begin{figure}
 	\centering
 	\caption{Pornography Consumption by Party}
@@ -559,7 +630,7 @@ The third concern is that our measures are a point in time. We have data from on
 % Analogous results for visits to adult sites
 %===============================================================================
 %===============================================================================
-\subsection{Analyses of Visits}
+\subsubsection{Analyses of Visits}
 \label{si:visits}
 %=================================================
 % Figure for Distribution of visits to adult sites
