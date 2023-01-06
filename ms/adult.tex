@@ -138,7 +138,7 @@ Our data also includes characteristics of the 1,200 individuals. We have data on
 \section*{Measuring Pornographic Content}\label{sec:measuring_porn_content}
 \addcontentsline{toc}{section}{\nameref{sec:measuring_porn_content}}
 
-We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic sites. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougov classifies certain domains as 'Adult' that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org . Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We use the \texttt{forestplot} \citep{forestplot} and \texttt{tableone} \citep{tableone} packages to tabulate key descriptive figures.}, we manually check the top adult domains to remove such sites. If there is graphic nudity on the landing page or if the site is some form of erotica, we classify the site as a pornographic. 
+We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic sites. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougov classifies certain domains as 'Adult' that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org . Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We also use various packages to derive key results \citep{tableone, statsmodels, forestplot, scipy}.}, we manually check the top adult domains to remove such sites. If there is graphic nudity on the landing page or if the site is some form of erotica, we classify the site as a pornographic. 
 
 In \ref{si:alternate_ways}, we leverage the \texttt{piedomains} package to classify which domains are pornographic sites using machine learning \citep{Chintalapati_piedomains_Predict_the_2022}. We leverage the probability estimates to produce a low false negative and low false positive version. The key results remain unchanged. 
 
@@ -326,6 +326,7 @@ The third concern is that our measures are a point in time. We have data from on
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
 		Table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_prop_duration} for the distribution in terms of percentage of time.
 		%See \cref{fig:distribution_duration} for the plot.
 	}
 \end{table}
@@ -346,12 +347,14 @@ The third concern is that our measures are a point in time. We have data from on
 		\end{tabular}
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
-		Table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		Table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the percentage of time on pornography sites spent by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_duration} for the distribution in terms of hours.
 		%See \cref{fig:distribution_prop_duration} for the plot.
 	}
 \end{table}
 
 \FloatBarrier
+\clearpage
 \subsection{Partisan Differences}
 \subsubsection{Distribution of Differences}
 %===========================================================================
@@ -373,6 +376,9 @@ The third concern is that our measures are a point in time. We have data from on
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
 		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_prop_duration_party} for the distribution in terms of percentage of time. 
+		See \cref{tab:piedomains_distribution_duration_party} for the distribution using an alternate machine learning classifier of pornographic sites. 
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.005, rejecting the null that the Republican and Democrat distributions are the same.
 		%See \cref{fig:distribution_duration_party} for the plot.
 	}
 \end{table}
@@ -396,11 +402,15 @@ The third concern is that our measures are a point in time. We have data from on
 	\end{adjustbox}
 	\caption*{\footnotesize \emph{Notes:} 
 		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_duration_party} for the distribution in terms of percentage of time.
+		See \cref{tab:piedomains_distribution_prop_duration_party} for the distribution using an alternate machine learning classifier of pornographic sites. 
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.025, rejecting the null that the Republican and Democrat distributions are the same at the 5\% level.
 		%See \cref{fig:distribution_prop_duration_party} for the plot.
 	}
 \end{table}
 
 \FloatBarrier
+\clearpage
 \subsubsection{Accounting for Confounders}
 %==============================================================================
 % Table for balance of porn consumption and individual characteristics by party
@@ -434,7 +444,7 @@ The third concern is that our measures are a point in time. We have data from on
 		Columns (3)--(5) show means and standard deviations for continuous variables and count and percentage of data for categorical variables, for the full sample, Democratic individuals, and Republican individuals.
 		Standard deviations and percentages in parentheses.
 		Column (6) and column (7) report the p-values and standardized mean differences for Democrats vs Republicans.
-		Given the skew in consumption of pornography, we also performed tests for difference in means for the measures of pornography consumption by party. See \cref{tab:characteristics_split_by_party_medians}.
+		Given the skew in consumption of pornography, we also performed tests for difference in medians for the measures of pornography consumption by party (see \cref{tab:characteristics_split_by_party_medians}).
 	}
 \end{table}
 
@@ -549,8 +559,60 @@ The third concern is that our measures are a point in time. We have data from on
 %===============================================================================
 \subsection{Alternate Ways of Measuring Pornography}
 \label{si:alternate_ways}
-\clearpage
+%===========================================================================
+% Tabulated splits by party and by percentiles for hours spent on adultsites
+%===========================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Distribution of Consumption of Pornography Online by Party}
+	\label{tab:piedomains_distribution_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{Hours}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{../tabs/piedomains_percentiles_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		Classificationo of pornography sites are based on a machine learning classifier \citep{Chintalapati_piedomains_Predict_the_2022}.
+		See \cref{tab:piedomains_distribution_prop_duration_party} for the corresponding distribution in terms of percentage of time. 
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.0481, rejecting the null that the Republican and Democrat distributions are the same at the 5\% level.
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
 
+%===============================================================================
+% Tabulated splits by party and by percentiles for proportion of time spent on adultsites
+%===============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites by Party}
+	\label{tab:piedomains_distribution_prop_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{\% time}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{../tabs/piedomains_percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		Table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+		Classificationo of pornography sites are based on a machine learning classifier \citep{Chintalapati_piedomains_Predict_the_2022}.
+		See \cref{tab:piedomains_distribution_duration_party} for the corresponding distribution in terms of percentage of time.
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.19, failing to reject the null that the Republican and Democrat distributions are the same at the 5\% level.
+		%See \cref{fig:distribution_prop_duration_party} for the plot.
+	}
+\end{table}
+
+\FloatBarrier
+\clearpage
 \subsection{Consumption of Pornography Among Independents}
 \label{si:independents}
 %===========================================================================
@@ -604,14 +666,14 @@ The third concern is that our measures are a point in time. We have data from on
 	}
 \end{table}
 
+\cleardoublepage
 \FloatBarrier
 \subsection{Alternate Measures}
+\subsubsection{Proportion of Partisans Who Consumed Any Pornography}
 %============================================================================
 % Figure of porn consumption by party
 % Y-axis = proportion of individuals that ever consumed porn in sample period
 %============================================================================
-
-\subsubsection{Proportion of Partisans Who Consumed Any Pornography}
 \begin{figure}
 	\centering
 	\caption{Pornography Consumption by Party}
