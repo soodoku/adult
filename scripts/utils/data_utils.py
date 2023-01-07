@@ -131,7 +131,7 @@ def esttab_ols_quantile(y, x, quantiles, df, z=None):
     
     ## Make sig stars compatible with downstream dcolumns in LaTeX
     latex_fragment_str = latex_fragment_str.replace("$^{}$", "")
-    latex_fragment_str = latex_fragment_str.replace("$^{*}$", "\sym{*}")
-    latex_fragment_str = latex_fragment_str.replace("$^{**}$", "\sym{**}")
-    latex_fragment_str = latex_fragment_str.replace("$^{***}$", "\sym{***}")
+    latex_fragment_str = latex_fragment_str.replace("$^{*}$", "\sym{c}")
+    latex_fragment_str = latex_fragment_str.replace("$^{**}$", "\sym{b}")
+    latex_fragment_str = latex_fragment_str.replace("$^{***}$", "\sym{a}")
     return latex_fragment_str, stargazer
