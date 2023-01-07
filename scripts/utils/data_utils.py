@@ -1,6 +1,7 @@
 import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+from stargazer.stargazer import Stargazer
 
 
 def pandas_to_tex(df, texfile, index=False):
@@ -73,3 +74,64 @@ def fit_ols_reg(y, x, df, z=None):
         obs=ols_results.nobs,
     )
     return ols_results
+
+
+def esttab_ols_quantile(y, x, quantiles, df, z=None):
+    ## Set up regression models (quantile & OLS)
+    if z is None:
+        quantile_model = smf.quantreg(f"{y} ~ {x}", df)
+        ols_model = smf.ols(f"{y} ~ {x}", df)
+    else:
+        quantile_model = smf.quantreg(f"{y} ~ {x} + {z}", df)
+        ols_model = smf.ols(f"{y} ~ {x} + {z}", df)
+
+    ## Fit and store estimates
+    reg_results = []
+    
+    # Store OLS estimates
+    reg_results.append(ols_model.fit(cov_type="HC3"))
+    
+    # Store quantile estimates
+    for quantile in quantiles:
+        result = quantile_model.fit(q=quantile, max_iter=10_000)
+        reg_results.append(result)
+    stargazer = Stargazer(reg_results)
+
+    ## Edit stargazer table (absent variables seem to be ignored)
+    coeflabels = {
+        "rep": "Republican", 
+        "C(gender)[T.2]": "Female",
+        "C(educ2)[T.2]": "Educ (HS)",
+        "C(educ2)[T.3]": "Educ (some college)",
+        "C(educ2)[T.4]": "Educ (college grad)",
+        "age": "Age",
+        "age2": "Age$^2$",        
+        "C(race2)[T.2]": "Race (Black)",
+        "C(race2)[T.3]": "Race (Hispanic)",
+        "C(race2)[T.4]": "Race (Asian)",
+        "C(race2)[T.5]": "Race (Other)",
+        "C(region)[T.2]": "Region (MW)",
+        "C(region)[T.3]": "Region (South)",
+        "C(region)[T.4]": "Region (West)",
+        "Intercept": "Constant", 
+    }
+    stargazer.rename_covariates(coeflabels)
+    if z is None:
+        stargazer.covariate_order(["rep", "Intercept"])
+    else:
+        stargazer.covariate_order(coeflabels.keys())
+    stargazer.significant_digits(2)
+
+    ## Pare down to get LaTeX *fragment*
+    latex_str = stargazer.render_latex()
+    latex_fragment_str = "\n".join(latex_str.split("\n")[8:-11])
+    # Remove the last \\ in the tex fragment to prevent the annoying
+    # "Misplaced \noalign" LaTeX error when I use \bottomrule
+    latex_fragment_str = latex_fragment_str[:-2]  
+    
+    ## Make sig stars compatible with downstream dcolumns in LaTeX
+    latex_fragment_str = latex_fragment_str.replace("$^{}$", "")
+    latex_fragment_str = latex_fragment_str.replace("$^{*}$", "\sym{*}")
+    latex_fragment_str = latex_fragment_str.replace("$^{**}$", "\sym{**}")
+    latex_fragment_str = latex_fragment_str.replace("$^{***}$", "\sym{***}")
+    return latex_fragment_str, stargazer
