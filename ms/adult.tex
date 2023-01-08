@@ -112,17 +112,17 @@ tools::texi2dvi("adult.tex", pdf=TRUE, clean=TRUE)
 
 \thispagestyle{empty}
 \begin{abstract}
-\noindent Consumption of pornography has been blamed for a variety of societal ills, including the rise in misogyny, sex crimes, and the coarsening of culture. Using passively collected browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography and most consuming small amounts. Only about 32 percent of respondents consumed pornography online during the month-long observation period. Of the people who consumed pornography, the median consumer spent about 44 minutes consuming pornography and 95 percent spent less than 337 minutes. Lastly, we find that, in line with previous research \citep{macinnis2015american, edelman2009markets}, which was based on aggregated data, Republicans consume somewhat more pornography online than Democrats.
+\noindent Consumption of pornography has been blamed for a variety of societal ills, including the rise in misogyny, sex crimes, and the coarsening of culture. Using passively collected browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography and most consuming small amounts. Only about 32 percent of respondents consumed pornography online during the month-long observation period. Of the people who consumed pornography, the median consumer spent about three-quarters of an hour consuming pornography and 95 percent of the consumers spent less than five and a half hours. Lastly, we find that, in line with previous research \citep{macinnis2015american, edelman2009markets}, which was based on aggregated data, Republicans consume somewhat more pornography online than Democrats. Adjusting for immutable characteristics like age and gender makes the differences go away.
 \end{abstract} 
 \clearpage
 \setcounter{page}{1}
 \doublespace
 
-Consumption of pornography is associated with a variety of disturbing attitudes, beliefs, emotions, and behaviors. Consuming pornography is associated with support for violence against women \citep{hald2010pornography, malamuth2012pornography, donnerstein1984pornography}, belief in rape myths \citep{foubert2011pornography}, increased gender role conflict, lesser sexual satisfaction \citep{szymanski2014psychological, stewart2012young}, poorer relationship quality \citep{szymanski2014psychological, szymanski2015male}, and sexually risky behaviors such as engaging in paid sex, and having extramarital sex \citep{wright2012internet}. A lot of popular pornography also contains a healthy dose of violence. An analysis of popular pornography revealed that 88.2\% of the scenes contained physical aggression, and 48.7\% verbal aggression \citep{bridges2010aggression}. For all these reasons, there are serious concerns about consumption of pornography.
+Consumption of pornography is associated with a variety of disturbing attitudes, beliefs, emotions, and behaviors. Consuming pornography is associated with support for violence against women \citep{hald2010pornography, malamuth2012pornography, donnerstein1984pornography}, belief in rape myths \citep{foubert2011pornography}, increased gender role conflict, lesser sexual satisfaction \citep{szymanski2014psychological, stewart2012young}, poorer relationship quality \citep{szymanski2014psychological, szymanski2015male}, and sexually risky behaviors such as engaging in paid sex, and having extramarital sex \citep{wright2012internet}. A lot of popular pornography also contains a healthy dose of violence. An analysis of popular pornography revealed that 88.2\% of the scenes contained physical aggression, and 48.7\% verbal aggression \citep{bridges2010aggression}. For all these reasons, there are serious concerns about the consumption of pornography.
 
 In this paper, we investigate how much pornography Americans consume online. Using passive browsing data from YouGov, we find that there is a sharp skew in the consumption of pornography, with a small set of users consuming a large chunk of pornography. About 68 percent of respondents abstained from consuming pornography online during the month-long observation period. Of the people who consumed pornography, the median consumer spent about 45 minutes consuming pornography and the 95th percentile consumer spent about five and a half hours. 
 
-We also use the data to shed light on an age-old debate---whether Democrats consume more pornography than Republicans or vice versa. Both parties claim the higher moral ground. And in surveys both parties think consumption of pornography is abhorrent. Unlike previous research, which relied on aggregated data, we find that Republicans consume somewhat more pornography online than Democrats \citep{macinnis2015american, edelman2009markets}. Adjusting for background attributes like age, gender etc., makes the differences go away.
+We also use the data to shed light on an age-old debate---whether Democrats consume more pornography than Republicans or vice versa. Both parties claim the higher moral ground. And in surveys both parties think consumption of pornography is abhorrent. Like previous research, which relied on aggregated data, we find that Republicans consume somewhat more pornography online than Democrats \citep{macinnis2015american, edelman2009markets}. Adjusting for background attributes like age, gender etc., makes the differences go away.
 
 \section*{Data}\label{sec:data}
 \addcontentsline{toc}{section}{\nameref{sec:data}}
@@ -130,84 +130,105 @@ We use data from YouGov to measure the consumption of adult content \citep{data-
 
 The data are from 1,200 respondents for June, 2022. We have data on about 6 million visits. For each visit, we have information on the domain (e.g., wikipedia.org), the time of visit, and the time spent on the domain. The respondents visited about 64,000 unique domains. 
 
-Our data also includes characteristics of the respondents. We have data on demographic characteristics like birth year, state, gender, race, and education level. We also have information on their party identification. Except for 120 respondents who did not respond or picked not sure or don't know, the rest selected the party they identified with. Of the 1,080 individuals who reported party identification, 82 percent lean either Republican or Democrat. The remaining 18 percent identify as independent. 
+Our data also includes characteristics of the respondents. We have data on demographic characteristics like birth year, state, gender, race, and education level. We also have information on their party identification. Except for 120 respondents who did not respond or picked ``not sure'' or ``don't know,'' the rest selected the party they identified with or marked themselves as independents. Of those 1,080 individuals, 82 percent lean either Republican or Democrat. The remaining 18 percent identify as independent.
 
 \section*{Measuring Pornographic Content}\label{sec:measuring_porn_content}
 \addcontentsline{toc}{section}{\nameref{sec:measuring_porn_content}}
 
-We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic sites. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougov classifies certain domains as 'Adult' that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org . Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We use various statistical packages to compute key results \citep{tableone, statsmodels, forestplot, scipy}.}, we manually check the top adult domains to remove such sites. We code a domain as pornographic if there is nudity on the landing page or if the site is some form of erotica. 
+We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougov classifies some domains that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org, as `Adult.' Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We cite some of the statistical packages to compute key results \citep{tableone, statsmodels, forestplot, scipy}.}, we manually checked the top adult domains to remove such sites. We code a domain as pornographic if there is nudity on the landing page or if the site is some form of erotica. 
 
-In \ref{si:alternate_ways}, we leverage the \texttt{piedomains} package to classify which domains are pornographic sites using machine learning \citep{Chintalapati_piedomains_Predict_the_2022}. We leverage the probability estimates to produce a low false negative and low false positive version. The key results remain unchanged.
+In \ref{si:alternate_ways}, we leverage the \texttt{piedomains} package, which uses a machine learning model that uses the text of the website to classify the content of domains \citep{Chintalapati_piedomains_Predict_the_2022}. We leverage the probability estimates to produce a low false negative and low false positive version. The key conclusions remain unchanged.
 
 \section*{Results}\label{sec:results}
 \addcontentsline{toc}{section}{\nameref{sec:results}}
 
-\subsection*{Consumption of Pornography}
-Across all respondents, only a small fraction of the web browsing visits, approximately 84,000 visits or 1.3 percent, are to pornographic sites. And these visits are concentrated among a few people. Only about 32 percent of the respondents consumed pornography online during the sample period. The average consumer of pornography online spent approximately 230 minutes (standard deviation of 576 minutes). 
-
-The consumption of pornography is also highly concentrated among a few sites, with ten most frequented pornography sites receiving more than 12 times the traffic to all other pornographic sites  (approximately 109 minutes vs. 9 minutes, see \cref{fig:concentration_porn_consumption}). Close to 80 percent of the traffic to pornographic sites is to just one pornographic site. Looking at the characteristics of consumers of pornography, expectedly, consumers of pornography online are younger and are more likely to be male (see, for instance, Panel B of \cref{tab:characteristics_split_by_porn_consumers}).
-
-\subsection*{Partisan Differences in Consumption of Pornography Online}
 Our primary dependent variables of interest are total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In \ref{si:visits}, we analyze similar metrics for visits. The upshot is that the key conclusions are unaffected.)
 
-Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figures \ref{fig:quantile_regression_duration} and \ref{fig:quantile_regression_prop_duration} show, the 80th percentile of the difference is close to 0 but from thereon, there is a sharp diverging trend with the 95th percentile difference at nearly XX hrs. To put this in context, the 80th and 90th percentile of time spent on pornographic sites online among Republicans is nearly XX hrs and YY respectively. In contrast, the corresponding numbers are KK and PP for Democrats. (%TODO See also SI TABLE FOR DISTRIBUTION OF TIME SPENT ON PORNOGRAPHIC SITES BY PARTY AMONG THE SUBSET OF PEOPLE WHO CONSUMED AT LEAST SOME PORNOGRAPHIC CONTENT.)\footnote{
+\subsection*{Consumption of Pornography}
+Only about 32 percent of respondents consumed pornography online during the observation period. Of the 32\% of the respondents who consumed any pornography during the month, the median consumer consumed less than an hour of pornography while the 80th percentile consumer consumed nearly 4.5 hours and the 95th percentile, nearly 20 hours (see \cref{tab:distribution_duration}). You see a similar picture when it comes to the proportion of time spent online consuming pornography-the 50th percentile is nearly 3\%, the 80th percentile is about 14\%, and the 95th percentile is about 58\% (see \ref{tab:distribution_prop_duration}). 
 
-	We also investigated the consumption of pornography among independents in \cref{si:independents}.
+The consumption of pornography is also highly concentrated among a few sites, with the ten most frequented pornography sites receiving more than 12 times the traffic to all other pornographic sites (approximately 109 minutes vs. 9 minutes, see \cref{fig:concentration_porn_consumption}). Close to 80 percent of the traffic to pornographic sites is to just one pornographic site. Looking at the characteristics of consumers of pornography, expectedly, consumers of pornography online are younger and are more likely to be male (see, for instance, Panel B of \cref{tab:characteristics_split_by_porn_consumers}).
 
-	At the median, Independents consume more pornography compared to partisans in terms of the amount of time spent and the percentage of time spent on pornography online (1.3 hours vs 0.7 hours in \cref{tab:percentiles_duration_adultsites_by_individuals_independents_partisans} and 3.4\% vs 2.3\% in \cref{tab:percentiles_prop_duration_adultsites_by_individuals_independents_partisans}).
+\subsection*{Partisan Differences in Consumption of Pornography Online}
 
-	This difference is driven by the relatively higher consumption of pornography among Republicans.
+\subsection*{Partisan Differences in Consumption of Pornography Online}
 
-	
+Our primary dependent variables of interest are total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In \ref{si:visits}, we analyze similar metrics for visits. The upshot is that the key conclusions are unaffected.)
 
-	This pattern reverses somewhat near the right tail of the distribution.
+Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figures \ref{fig:quantile_regression_duration}, the 80th percentile of the difference is close to 0 but from thereon, there is a sharp diverging trend with the 95th percentile difference nearly 1.5 hrs. For context, the 80th and 95th percentile of time spent on pornographic sites online among Republicans is nearly .3 hours and 6.2 hours respectively. In contrast, the corresponding numbers are .2 hours and 4.5 hours for Democrats.\footnote{
 
-	Independents also consume more pornography in the right tail of the distribution. 
+	We analyze the consumption of pornography online among independents in \cref{si:independents}. The median independent consumes more pornography than partisans (1.3 hours vs 0.7 hours in \cref{tab:percentiles_duration_adultsites_by_individuals_independents_partisans} and 3.4\% vs 2.3\% in \cref{tab:percentiles_prop_duration_adultsites_by_individuals_independents_partisans}). This pattern reverses somewhat near the right tail of the distribution.}
 
-	At the 95th percentile, Independents consume about 3.5 hours more and spend 13.9\% more of their internet browsing time on pornography online.
+Looking at the percentage of time spent on pornographic sites reveals a similar trend to the trend in total time spent on pornographic sites (see \ref{fig:quantile_regression_prop_duration}). The 80th percentile of the partisan difference is nearly 0 and then there is a sharply rising line with differences nearly 10\% at the 100th percentile (albeit the number is very imprecisely estimated).
 
-	This behavior at the right tail is driven by the relatively higher consumption of pornography among Democrats.
-
-}
-
-Looking at the percentage of time spent on pornographic sites reveals a similar trend to the trend in total time spent on pornographic sites. The 80th percentile of the partisan difference is nearly 0 and then there is a sharply rising line with differences nearly 10% at the 100th percentile (albeit the number is very imprecisely estimated).
-
-Looking at differences in the percentage of partisans who consume any pornographic content shows muted differences. YY percent of Democrats and KK percent of Republicans consumed at least some pornography online in June, 2022; the difference between the two is not statistically significant (see FIGURE SI BLAH). 
+Looking at differences in the percentage of partisans who consume any pornographic content shows muted differences. Nearly 31\% percent of Democrats and 30\% percent of Republicans consumed at least some pornography online in June, 2022; the difference between the two is not statistically significant (\cref{fig:consume_porn_yes_no}). 
 
 To what extent are the results "explained" by the confounding demographic differences between the parties? To learn that, we control for immutable characteristics like age and gender. (\cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification.) We use these variables in our analyses of pornography consumption below. As Figure \ref{fig:quantile_regression_duration} shows, once you adjust for confounders, the partisan differences melt away.
+
 %===========================
+
 % Quantile regressions
+
 % Hours spent on adult sites
+
 %===========================
+
 \begin{figure}[t]
+
 	\centering
+
 	\caption{Quantile Estimates--Hours Spent on Pornographic Sites by Party}
+
 	\includegraphics[width=.7\linewidth]{../figs/quantile_reg_duration_adult.pdf}
+
 	\caption*{\footnotesize \emph{Notes:} 
+
 		Dependent variable is the number of hours individuals in our sample spent on pornographic sites.
+
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+
 		95\% confidence intervals constructed from standard errors.
+
 		See \cref{fig:quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
+
 	}
+
 	\label{fig:quantile_regression_duration}
+
 \end{figure}
 
 %========================================
+
 % Quantile regressions
+
 % Proportion of time spent on adult sites
+
 %========================================
+
 \begin{figure}[t]
+
 	\centering
+
 	\caption{Quantile Estimates--Percentage of Time Spent on Pornographic Sites by Party}
+
 	\includegraphics[width=.7\linewidth]{../figs/quantile_reg_proportion_duration_adult.pdf}
+
 	\caption*{\footnotesize \emph{Notes:} 
+
 		Dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
+
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+
 		95\% confidence intervals constructed from standard errors.
+
 		See \cref{fig:quantile_regression_prop_duration_covariates} for the same plot controlling for individual characteristics.
+
 	}
+
 	\label{fig:quantile_regression_prop_duration}
+
 \end{figure}
+
 
 
 \section*{Discussion}\label{sec:discussion}
@@ -218,10 +239,9 @@ The second contribution of our paper is estimates of partisan differences in con
 
 Our research has three major limitations. The first concern with our data is that we may not have all the Internet visitation data of a user. If the respondent changes their behavior in response to the knowledge that their data is being collected (even if it is de-identified), for e.g., they may modify their behavior on the machine or figure out ways to evade detection, it may bias our results. In fact, we think it is likely that people would be less likely to search for pornography on machines on which they have installed passive monitoring software (though the data are de-identified). If that is so, our estimates are a lower bound of consumption of online pornography. If this bias varies by party, our estimates of partisan differences will also be biased. 
 
-The second concern with our measurement is that we code content at a domain level. This runs the risk of incurring some ecological fallacy. For instance, our classification codes websites like Tumblr as not carrying pornographic content but some of Tumblr content is pornographic. 
+The second concern with our measurement is that we code content at a domain level. This runs the risk of incurring some ecological fallacy. For instance, our classification codes websites like Tumblr as not carrying pornographic content but some of Tumblr's content is pornographic. 
 
 The third concern is that our measures are a point in time. We have data from one month in one year - June, 2022. It is possible that people consume less pornography online and instead spend time outside in June when the weather in many parts of the US is more pleasant than in the preceding or following months. 
-
 
 \clearpage
 \bibliographystyle{apsr}
