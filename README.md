@@ -19,7 +19,7 @@ Both the parties claim the higher ground when it comes to women--- one's case fo
 
 ### Note
 
-We measure pornographic content on domains using [piedomains](https://github.com/themains/piedomains) (and the YouGov provided classifications).
+We measure pornographic content on domains using [piedomains](https://github.com/themains/piedomains) (and the YouGov-provided classifications).
 
 ### Authors
 
