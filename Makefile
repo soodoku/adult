@@ -8,15 +8,13 @@ PY_UTILITIES := $(SCRIPTS_DIR)/utils/utils.py $(SCRIPTS_DIR)/utils/data_utils.py
 
 EXECUTE_JUPYTERNB = cd $(SCRIPTS_DIR) && runpynb $(<F) 
 
-
-
 .PHONY: descriptives
 descriptives: # Make descriptive results
 	@echo "+ $@"
 	$(EXECUTE_JUPYTERNB) 1*.ipynb
 
-.PHONY: summary_percentiles
-summary_percentiles: # Make tables for summary statistics and percentiles
+.PHONY: summary
+summary: # Make tables for summary statistics and percentiles
 	@echo "+ $@"
 	$(EXECUTE_JUPYTERNB) 2*.ipynb 
 
@@ -39,9 +37,9 @@ ms: # Build LaTeX manuscript using latexmk
 	cd $(MS_DIR) && latexmk -pdf adult.tex
 	cd $(MS_DIR) && latexmk -c
 
-.PHONY: build outputs	
+.PHONY: build	
 build: # Prepare data and figure folders if they do not exist
-build: purge descriptives summary_percentiles reg
+build: purge descriptives summary reg
 
 .PHONY: all
 all: # Run notebooks to get results and compile manuscript

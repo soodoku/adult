@@ -8,3 +8,4 @@ tableone
 seaborn
 geopandas
 runpynb
+stargazer
