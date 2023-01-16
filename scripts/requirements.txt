@@ -7,3 +7,5 @@ forestplot
 tableone
 seaborn
 geopandas
+runpynb
+stargazer
