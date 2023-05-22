@@ -1,6 +1,6 @@
 ## Holier Than Thou: Partisan Gap in the Consumption of Pornography Online
 
-Both the parties claim the moral higher ground. When it comes to pornography, elites of both parties condemn it--- one's case for morality is steepled in religion, another's in enduring concern for women. We test whether Republicans consume more pornography than Democrats. Using passively collected domain level web visitation data from 1200 respondents over June, 2022, we find that the consumption of pornography online is very concentrated with a few respondents consuming a lot of pornography and most consuming little. Our data rules out large partisan differences in consumption of pornography online.
+Both the parties claim the moral higher ground. When it comes to pornography, elites of both parties condemn it--- one's case for morality is steeped in religion, another's in enduring concern for women. We test whether Republicans consume more pornography than Democrats. Using passively collected domain level web visitation data from 1200 respondents over June, 2022, we find that the consumption of pornography online is very concentrated with a few respondents consuming a lot of pornography and most consuming little. Our data rules out large partisan differences in consumption of pornography online.
 
 ### Key Results
 
