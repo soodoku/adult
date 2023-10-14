@@ -1,8 +1,10 @@
 import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
-from stargazer.stargazer import Stargazer
-
+try:
+    from stargazer.stargazer import Stargazer
+except:
+    pass
 
 def pandas_to_tex(df, texfile, index=False):
     if texfile.split(".")[-1] != ".tex":
