@@ -78,7 +78,7 @@ def fit_ols_reg(y, x, df, z=None):
     return ols_results
 
 
-def esttab_ols_quantile(y, x, quantiles, df, z=None):
+def esttab_ols_quantile(y, x, quantiles, df, z=None, significant_digits=2):
     ## Set up regression models (quantile & OLS)
     if z is None:
         quantile_model = smf.quantreg(f"{y} ~ {x}", df)
@@ -104,8 +104,8 @@ def esttab_ols_quantile(y, x, quantiles, df, z=None):
         "rep": "Republican", 
         "C(gender)[T.2]": "Female",
         "C(educ2)[T.2]": "Educ (HS)",
-        "C(educ2)[T.3]": "Educ (some college)",
-        "C(educ2)[T.4]": "Educ (college grad)",
+        "C(educ2)[T.3]": "Educ (some coll.)",
+        "C(educ2)[T.4]": "Educ (coll. grad.)",
         "age": "Age",
         "age2": "Age$^2$",        
         "C(race2)[T.2]": "Race (Black)",
@@ -122,7 +122,7 @@ def esttab_ols_quantile(y, x, quantiles, df, z=None):
         stargazer.covariate_order(["rep", "Intercept"])
     else:
         stargazer.covariate_order(coeflabels.keys())
-    stargazer.significant_digits(2)
+    stargazer.significant_digits(significant_digits)
 
     ## Pare down to get LaTeX *fragment*
     latex_str = stargazer.render_latex()
