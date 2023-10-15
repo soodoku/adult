@@ -137,3 +137,38 @@ def esttab_ols_quantile(y, x, quantiles, df, z=None, significant_digits=2):
     latex_fragment_str = latex_fragment_str.replace("$^{**}$", "\sym{b}")
     latex_fragment_str = latex_fragment_str.replace("$^{***}$", "\sym{a}")
     return latex_fragment_str, stargazer
+
+
+import numpy as np
+import statsmodels.api as sm
+lowess = sm.nonparametric.lowess
+
+def lowess_ci(x, y, N=100, conf_interval=0.95, lowess_kw=None, num_points=100):
+    """
+    Perform Lowess regression and determine a confidence interval by bootstrap resampling
+    Source: https://www.statsmodels.org/dev/examples/notebooks/generated/lowess.html
+    """
+    # Automatically generate evaluation points based on the range of x
+    eval_x = np.linspace(min(x), max(x), num_points)
+
+    # Lowess smoothing
+    smoothed = sm.nonparametric.lowess(exog=x, endog=y, xvals=eval_x, **lowess_kw)
+
+    # Perform bootstrap resamplings of the data and evaluate the smoothing at the fixed set of points
+    smoothed_values = np.empty((N, num_points))
+    for i in range(N):
+        sample = np.random.choice(len(x), len(x), replace=True)
+        sampled_x = x[sample]
+        sampled_y = y[sample]
+
+        smoothed_values[i] = sm.nonparametric.lowess(
+            exog=sampled_x, endog=sampled_y, xvals=eval_x, **lowess_kw
+        )
+
+    # Get the confidence interval
+    sorted_values = np.sort(smoothed_values, axis=0)
+    bound = int(N * (1 - conf_interval) / 2)
+    bottom = sorted_values[bound - 1]
+    top = sorted_values[-bound]
+
+    return smoothed, eval_x, bottom, top    
