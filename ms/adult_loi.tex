@@ -1,0 +1,137 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[titletoc,title]{appendix}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\definecolor{dark-red}{rgb}{0.75,0.10,0.10}
+\definecolor{bluish}{rgb}{0.05,0.05,0.85}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage[linkcolor=blue,
+			colorlinks=true,
+			urlcolor=blue,
+			pdfstartview={XYZ null null 1.00},
+			pdfpagemode=UseNone,
+			citecolor={bluish},
+			pdftitle={partisan adult}]{hyperref}
+
+%\newcites{SI}{SI References}
+\usepackage{natbib}
+
+\usepackage{float}
+\usepackage{placeins}
+
+\usepackage{geometry}  % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{letterpaper} % This is 8.5x11 paper. Options are a4paper or a5paper or other...
+\usepackage{graphicx}  % Handles inclusion of major graphics formats and allows use of
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{amsxtra}
+\usepackage{verbatim}
+%\setcitestyle{round,semicolon,aysep={},yysep={;}}
+\usepackage{setspace} % Permits line spacing control. Options are:
+%\doublespacing
+%\onehalfspace
+%\usepackage{sectsty}    % Permits control of section header styles
+\usepackage{pdflscape}
+\usepackage{fancyhdr}   % Permits header customization. See header section below.
+\usepackage{url}        % Correctly formats URLs with the \url{} tag
+\usepackage{fullpage}   %1-inch margins
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{rotating}
+\setlength{\parindent}{3em}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[bitstream-charter]{mathdesign}
+
+\usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{dcolumn}
+
+\usepackage[nameinlink, capitalize, noabbrev]{cleveref}
+
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\makeatother
+
+\usepackage{footmisc}
+\setlength{\footnotesep}{\baselineskip}
+\makeatother
+\renewcommand{\footnotelayout}{\normalsize \doublespacing}
+
+
+% Colors
+\usepackage{color}
+
+\newcommand{\bch}{\color{blue}\em  }   % begin change
+\newcommand{\ying} {\color{orange}\em  }   % begin change
+\newcommand{\bgcd} {\color{purple}\em }
+\newcommand{\ech}{\color{black}\rm  }    % end change
+
+% Caption
+\usepackage[hang, font=small,skip=0pt, labelfont={bf}]{caption}
+%\captionsetup[subtable]{font=small,skip=0pt}
+\usepackage{subcaption}
+
+% tt font issues
+% \renewcommand*{\ttdefault}{qcr}
+\renewcommand{\ttdefault}{pcr}
+
+
+\usepackage{tocloft}
+
+
+\usepackage{lscape}
+\renewcommand{\textfraction}{0}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.40}
+\setcounter{totalnumber}{5}
+\makeatletter
+\providecommand\phantomcaption{\caption@refstepcounter\@captype}
+\makeatother
+
+
+\title{Letter of Inquiry For Holier Than Thou: Partisan Gap in the Consumption of Pornography Online}
+
+\date{\nodate}
+\begin{document}
+\maketitle
+
+\begin{comment}
+
+setwd("~/Documents/Github/adult/ms/")
+tools::texi2dvi("adult.tex", pdf=TRUE, clean=TRUE) 
+
+\end{comment}
+
+Dear Editors,\\
+
+Consumption of pornography has been blamed for a variety of societal ills, including the rise in misogyny, sex crimes, and the coarsening of the culture. Using passively collected browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography and most consuming small amounts. Only about 32 percent of respondents consumed pornography online during the month-long observation period. Of the people who consumed pornography, the median consumer spent about three-quarters of an hour consuming pornography and 95 percent of the consumers spent less than five and a half hours. Lastly, we find that, in line with previous research, which was based on aggregated data, Republicans consume somewhat more pornography online than Democrats. Adjusting for immutable characteristics like age and gender makes the differences go away. 
+
+To answer the precise questions of interest:
+
+\begin{itemize}
+\item \textbf{What is your research question, in one sentence?}
+
+How much pornography do Americans consume online and are there partisan differences in the consumption of pornography?
+
+\item \textbf{What is being described?}
+
+Distribution of pornographic consumption online using passively observed domain level browsing data. 
+
+\item \textbf{How is the sample constructed?}
+
+We use a 1200 person sample from YouGov. We have profile data and passively observed browsing data for a month on these users.
+
+\item \textbf{How does it pertain to digital media?}
+
+We only observe and report on how much digital pornography people consume.
+
+\end{itemize}
+
+
+
+\end{document}

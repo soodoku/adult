@@ -1,0 +1,812 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[titletoc,title]{appendix}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\definecolor{dark-red}{rgb}{0.75,0.10,0.10}
+\definecolor{bluish}{rgb}{0.05,0.05,0.85}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage[linkcolor=blue,
+			colorlinks=true,
+			urlcolor=blue,
+			pdfstartview={XYZ null null 1.00},
+			pdfpagemode=UseNone,
+			citecolor={bluish},
+			pdftitle={partisan adult}]{hyperref}
+
+%\newcites{SI}{SI References}
+\usepackage{natbib}
+
+\usepackage{float}
+\usepackage{placeins}
+
+\usepackage{geometry}  % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{letterpaper} % This is 8.5x11 paper. Options are a4paper or a5paper or other...
+\usepackage{graphicx}  % Handles inclusion of major graphics formats and allows use of
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{amsxtra}
+\usepackage{verbatim}
+%\setcitestyle{round,semicolon,aysep={},yysep={;}}
+\usepackage{setspace} % Permits line spacing control. Options are:
+%\doublespacing
+%\onehalfspace
+%\usepackage{sectsty}    % Permits control of section header styles
+\usepackage{pdflscape}
+\usepackage{fancyhdr}   % Permits header customization. See header section below.
+\usepackage{url}        % Correctly formats URLs with the \url{} tag
+\usepackage{fullpage}   %1-inch margins
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{rotating}
+\setlength{\parindent}{3em}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[bitstream-charter]{mathdesign}
+
+\usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{dcolumn}
+
+\usepackage[nameinlink, capitalize, noabbrev]{cleveref}
+
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\makeatother
+
+\usepackage{footmisc}
+\setlength{\footnotesep}{\baselineskip}
+\makeatother
+\renewcommand{\footnotelayout}{\normalsize \doublespacing}
+
+
+% Colors
+\usepackage{color}
+
+\newcommand{\bch}{\color{blue}\em  }   % begin change
+\newcommand{\ying} {\color{orange}\em  }   % begin change
+\newcommand{\bgcd} {\color{purple}\em }
+\newcommand{\ech}{\color{black}\rm  }    % end change
+
+% Caption
+\usepackage[hang, font=small,skip=0pt, labelfont={bf}]{caption}
+%\captionsetup[subtable]{font=small,skip=0pt}
+\usepackage{subcaption}
+
+% tt font issues
+% \renewcommand*{\ttdefault}{qcr}
+\renewcommand{\ttdefault}{pcr}
+
+
+\usepackage{tocloft}
+
+
+\usepackage{lscape}
+\renewcommand{\textfraction}{0}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.40}
+\setcounter{totalnumber}{5}
+\makeatletter
+\providecommand\phantomcaption{\caption@refstepcounter\@captype}
+\makeatother
+
+
+\title{Holier Than Thou: Partisan Gap in the Consumption\\ of Pornography Online}%\thanks{You can download the replication materials from \href{http://github.com/soodoku/adult}{https://github.com/soodoku/adult}.}}
+
+%\author{Lucas Shen\thanks{Lucas is a Research Fellow at Asia Competitiveness Institute, Lee Kuan Yew School of Public Policy, at the National University of Singapore, \href{mailto:lucas@lucasshen.com}{\footnotesize{\texttt{lucas@lucasshen.com}}}} \and Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}}\vspace{.5cm}}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{comment}
+
+setwd("~/Documents/Github/adult/ms/")
+tools::texi2dvi("adult.tex", pdf=TRUE, clean=TRUE) 
+
+\end{comment}
+
+\thispagestyle{empty}
+\begin{abstract}
+\noindent Consumption of pornography has been blamed for a variety of societal ills, including the rise in misogyny, sex crimes, and the coarsening of the culture. Using passively collected browsing data from YouGov, we investigate how much pornography Americans consume online. We find that there is a sharp positive skew in the consumption of pornography, with a small number of users consuming lots of pornography and most consuming small amounts. Only about 32 percent of respondents consumed pornography online during the month-long observation period. Of the people who consumed pornography, the median consumer spent about three-quarters of an hour consuming pornography and 95 percent of the consumers spent less than five and a half hours. Lastly, in line with previous research \citep{macinnis2015american, edelman2009markets}, which was based on aggregated data, we find that Republicans consume slightly more pornography online than Democrats. Adjusting for immutable characteristics like age and gender makes the differences go away.
+\end{abstract} 
+\clearpage
+\setcounter{page}{1}
+\doublespace
+
+Consumption of pornography is associated with a variety of disturbing attitudes, beliefs, emotions, and behaviors. Consuming pornography is associated with support for violence against women \citep{hald2010pornography, malamuth2012pornography, donnerstein1984pornography}, belief in rape myths \citep{foubert2011pornography}, increased gender role conflict, lesser sexual satisfaction \citep{szymanski2014psychological, stewart2012young}, poorer relationship quality \citep{szymanski2014psychological, szymanski2015male}, and sexually risky behaviors such as engaging in paid sex and having extramarital sex \citep{wright2012internet}. A lot of popular pornography also contains a healthy dose of violence. An analysis of popular pornography revealed that 88.2\% of the scenes contained physical aggression, and 48.7\% verbal aggression \citep{bridges2010aggression}. For all these reasons, there are serious concerns about the consumption of pornography.
+
+In this paper, we investigate how much pornography Americans consume online. Using passive browsing data from YouGov, we find that there is a sharp skew in the consumption of pornography, with a small set of users consuming a large chunk of pornography. About 68 percent of respondents abstained from consuming pornography online during the month-long observation period. Of the people who consumed pornography, the median consumer spent about 45 minutes consuming pornography and the 95th percentile consumer spent about five and a half hours. 
+
+We also use the data to shed light on an age-old debate---whether Democrats consume more pornography than Republicans or vice versa. Both parties claim the higher moral ground. And in surveys, both parties think the consumption of pornography is abhorrent. Like previous research, which relied on aggregated data, we find that Republicans consume somewhat more pornography online than Democrats \citep{macinnis2015american, edelman2009markets}. Adjusting for background attributes like age, gender, etc., makes the differences go away.
+
+\section*{Data}\label{sec:data}
+\addcontentsline{toc}{section}{\nameref{sec:data}}
+We use data from YouGov to measure the consumption of adult content \citep{data-dataverse}. YouGov maintains a large panel that it recruits through various methods. YouGov uses matched sampling to survey respondents: it draws a random sample from a large synthetic representative sampling frame, finds respondents that match the sampled individuals from its panel, and invites them to take a survey. For data on how well YouGov is able to approximate a random sample, see \citet{rivers2009}. For our sample, panelists also shared de-identified web browsing data tracked via passive metering software installed voluntarily on their computers. The software, called RealityMine, captures online visits independent of the type of browser or browser-specific privacy settings.
+
+The data are from 1,200 respondents for June 2022. We have data on about 6 million visits. For each visit, we have information on the domain (e.g., wikipedia.org), the time of visit, and the time spent on the domain. The respondents visited about 64,000 unique domains. 
+
+Our data also includes the characteristics of the respondents. We have data on demographic characteristics like birth year, state, gender, race, and education level. We also have information on their party identification. Except for 120 respondents who did not respond or picked ``not sure'' or ``don't know,'' the rest selected the party they identified with or marked themselves as independents. Of those 1,080 individuals, 82 percent lean either Republican or Democrat. The remaining 18 percent identify as independent.
+
+\section*{Measuring Pornographic Content}\label{sec:measuring_porn_content}
+\addcontentsline{toc}{section}{\nameref{sec:measuring_porn_content}}
+
+We code pornographic content at the domain level. Our main analysis depends on the domain classifications that come with YouGov data. We code domains that YouGov categorizes as ``Adult'' as pornographic. These include ``Adult'' (e.g., xvideos.com), ``Adult, Business'' (e.g., onlyfans.com), and ``Adult, Entertainment'' (e.g., hentainfox.com). Yougov classifies some domains that do not primarily carry pornographic content, e.g., urbandictionary.com and 4chan.org, as `Adult.' Given the skew in the data (See \cref{fig:top25_adult} and \cref{fig:top25_nonadult})\footnote{We cite some of the statistical packages to compute key results \citep{tableone, statsmodels, forestplot, scipy}.}, we manually checked the top adult domains to remove such sites. We code a domain as pornographic if there is nudity on the landing page or if the site is some form of erotica. 
+
+In \ref{si:alternate_ways}, we leverage the \texttt{piedomains} package, which uses a machine learning model that uses the text of the website to classify the content of domains \citep{Chintalapati_piedomains_Predict_the_2022}. We leverage the probability estimates to produce a low false negative and low false positive version. The key conclusions remain unchanged.
+
+\section*{Results}\label{sec:results}
+\addcontentsline{toc}{section}{\nameref{sec:results}}
+
+Our primary dependent variables of interest are the total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In \ref{si:visits}, we analyze similar metrics for visits. The upshot is that the key conclusions are unaffected.)
+
+\subsection*{Consumption of Pornography}
+Only about 32 percent of respondents consumed pornography online during the observation period. Of the 32\% of the respondents who consumed any pornography during the month, the median consumer consumed less than an hour of pornography while the 80th percentile consumer consumed nearly 4.5 hours and the 95th percentile, nearly 20 hours (see \cref{tab:distribution_duration}). You see a similar picture when it comes to the proportion of time spent online consuming pornography-the 50th percentile is nearly 3\%, the 80th percentile is about 14\%, and the 95th percentile is about 58\% (see \ref{tab:distribution_prop_duration}). 
+
+The consumption of pornography is also highly concentrated among a few sites, with the ten most frequented pornography sites receiving more than 12 times the traffic to all other pornographic sites (approximately 109 minutes vs. 9 minutes, see \cref{fig:concentration_porn_consumption}). Close to 80 percent of the traffic to pornographic sites is to just one pornographic site. Looking at the characteristics of consumers of pornography, expectedly, consumers of pornography online are younger and are more likely to be male (see, for instance, Panel B of \cref{tab:characteristics_split_by_porn_consumers}).
+
+\subsection*{Partisan Differences in Consumption of Pornography Online}
+
+Our primary dependent variables of interest are the total time spent on pornographic sites and the proportion of time spent on pornographic sites. (In \ref{si:visits}, we analyze similar metrics for visits. The upshot is that the key conclusions are unaffected.)
+
+Given the skew in the data, we ran a quantile regression, regressing the duration on party. As Figure \ref{fig:quantile_regression_duration} shows, the 80th percentile of the difference is close to 0 but from thereon, there is a sharp diverging trend with the 95th percentile difference nearly 1.5 hrs. For context, the 80th and 95th percentile of time spent on pornographic sites online among Republicans is nearly .3 hours and 6.2 hours respectively. In contrast, the corresponding numbers are .2 hours and 4.5 hours for Democrats.\footnote{
+
+	We analyze the consumption of pornography online among independents in \cref{si:independents}. The median independent consumes more pornography than partisans (1.3 hours vs 0.7 hours in \cref{tab:percentiles_duration_adultsites_by_individuals_independents_partisans} and 3.4\% vs 2.3\% in \cref{tab:percentiles_prop_duration_adultsites_by_individuals_independents_partisans}). This pattern reverses somewhat near the right tail of the distribution.}
+
+Looking at the percentage of time spent on pornographic sites reveals a similar trend to the trend in total time spent on pornographic sites (see \ref{fig:quantile_regression_prop_duration}). The 80th percentile of the partisan difference is nearly 0 and then there is a sharply rising line with differences of nearly 10\% at the 100th percentile (albeit the number is very imprecisely estimated).
+
+Looking at differences in the percentage of partisans who consume any pornographic content shows muted differences. Nearly 31\% percent of Democrats and 30\% percent of Republicans consumed at least some pornography online in June 2022; the difference between the two is not statistically significant (\cref{fig:consume_porn_yes_no}). 
+
+To what extent are the results "explained" by the confounding demographic differences between the parties? To learn that, we control for immutable characteristics like age and gender. (\cref{tab:characteristics_split_by_party} shows differences in age, gender, and race by party identification.) We use these variables in our analyses of pornography consumption below. As Figure \ref{fig:quantile_regression_duration} shows, once you adjust for confounders, the partisan differences melt away.
+
+%===========================
+% Quantile regressions
+% Hours spent on adult sites
+%===========================
+\begin{figure}[t]
+	\centering
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornographic Sites}
+	\includegraphics[width=.7\linewidth]{figs/quantile_reg_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from standard errors.
+		See \cref{fig:quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
+	}
+	\label{fig:quantile_regression_duration}
+\end{figure}
+
+%========================================
+% Quantile regressions
+% Proportion of time spent on adult sites
+%========================================
+\begin{figure}[t]
+	\centering
+	\caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornographic Sites}
+
+	\includegraphics[width=.7\linewidth]{figs/quantile_reg_proportion_duration_adult.pdf}
+
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
+        Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from standard errors.
+		See \cref{fig:quantile_regression_prop_duration_covariates} for the same plot controlling for individual characteristics.
+	}
+	\label{fig:quantile_regression_prop_duration}
+
+\end{figure}
+
+
+
+\section*{Discussion}\label{sec:discussion}
+\addcontentsline{toc}{section}{\nameref{sec:discussion}}
+The consumption of pornography has been attributed to a variety of ills. It is also considered problematic from a religious perspective. For instance, Christian theologians believe that consumption of pornography leads people away from purity and hence should be avoided.\footnote{\url{https://www.churchofjesuschrist.org/study/manual/help-for-pornography-users/effect-of-pornography}} The Internet has dramatically increased access to pornography. This has led to the concern that pornography consumption has become very widespread and extensive. Our data suggest that pornography consumption online is highly concentrated with very few people consuming a lot of pornography and most people consuming very little or none.
+
+The second contribution of our paper is estimates of partisan differences in the consumption of pornography online. Both parties claim the higher ground when it comes to women---one's case for morality is steeped in religion, the other's in enduring concern for women. Our data suggest that partisan differences are likely small.
+
+Our research has three major limitations. The first concern with our data is that we may not have all the Internet visitation data of a user. If the respondent changes their behavior in response to the knowledge that their data is being collected (even if it is de-identified), for e.g., they may modify their behavior on the machine or figure out ways to evade detection, it may bias our results. In fact, we think it is likely that people would be less likely to search for pornography on machines on which they have installed passive monitoring software (though the data are de-identified). If that is so, our estimates are a lower bound of consumption of online pornography. If this bias varies by party, our estimates of partisan differences will also be biased. 
+
+The second concern with our measurement is that we code content at a domain level. This runs the risk of incurring some ecological fallacy. For instance, our classification codes websites like Tumblr as not carrying pornographic content but some of Tumblr's content is pornographic. 
+
+The third concern is that our measures are a point in time. We have data from one month in one year - June 2022. It is possible that people consume less pornography online and instead spend time outside in June when the weather in many parts of the US is more pleasant than in the preceding or following months. 
+
+\clearpage
+\bibliographystyle{apsr}
+\bibliography{porn}
+\clearpage
+
+%===============================================================================
+%===============================================================================
+% Appendix
+%===============================================================================
+%===============================================================================
+\appendix
+\renewcommand{\thesection}{SI \arabic{section}}
+\renewcommand\thetable{\thesection.\arabic{table}}  
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\section{Supporting Information}\label{si}
+%\begin{center}
+%\Large{Supporting Information}
+%\end{center}
+
+\FloatBarrier
+%===============================================================================
+% Supplementary Descriptives for sense of landscape of porn consumption
+%===============================================================================
+\subsection{Descriptive Analysis}
+
+\subsubsection{Skew in Website Visits}
+%============================
+% Figure of top 25 adultsites
+%============================
+\begin{figure}[ht]
+	\centering
+	\caption{Top 25 Pornography Sites}
+	\includegraphics[width=\textwidth]{figs/top_25_adultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows the top 25 pornographic sites that individuals visit in the sample period.
+		Pornography sites are as categorized by YouGov (see the \nameref{sec:data} section).
+		The \emph{Hours} column is the total number of hours that individuals in the sample spent on the site. 
+		The \emph{Visits} column is the total number of visits by individuals in the sample to the site.  
+		Sites to the right of the vertical dashed are the top 1 percent of pornographic sites.
+	}
+	\label{fig:top25_adult}
+\end{figure}
+
+%================================
+% Figure of top 25 non-adultsites
+%================================
+\begin{figure}
+	\centering
+	\caption{Top 25 (Non-Porn) Domains}
+	\includegraphics[width=\textwidth]{figs/top_25_nonadultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows the top 25 non-pornographic sites that individuals visit in the sample period.
+		The \emph{Hours} column is the total number of hours that individuals in the sample spent on the site. 
+		The \emph{Visits} column is the total number of visits by individuals in the sample to the site.  			
+		Sites to the right of the vertical dashed are the top 1 percent (of non-pornographic sites).
+	}
+	\label{fig:top25_nonadult}
+\end{figure}
+
+
+%=============================================
+% Figure for concentration of porn consumption
+%=============================================
+\begin{figure}
+	\centering
+	\caption{Traffic to Top 10 Pornographic Sites}
+	\includegraphics[width=.5\textwidth]{figs/concentration_porn_consumption.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The Top 10 bar indicates traffic to the top 10 pornographic sites in the data (see \cref{fig:top25_adult}).
+		The Others bar indicates traffic to all other pornographic sites outside of the top 10.
+		The y-axis is the total time spent on pornographic sites, averaged across individuals.
+		Time units are hours.
+		Vertical bars are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:concentration_porn_consumption}
+\end{figure}
+
+%====================================
+% Figure of traffic to top x websites
+%====================================
+\begin{figure}
+	\centering
+	\caption{Traffic to Top x Pornographic Sites by Party}
+	\includegraphics[width=.6\textwidth]{figs/concentration_porn_consumption_topX_by_party.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The figure shows the concentration of pornography consumption based on individuals' most frequented pornographic sites.
+		Shaded areas are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:concentration_porn_consumption_topX_by_party}
+\end{figure}
+
+
+\FloatBarrier
+\subsubsection{Skew in Consumption of Pornographic Content}
+%====================================================
+% Tabulated percentiles of hours spent on adult sites
+%====================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Distribution of Consumption of Pornography Online}
+	\label{tab:distribution_duration}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{cr}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Hours}}\\
+			\midrule
+			\input{tabs/percentiles_duration_adultsites_by_individuals.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_prop_duration} for the distribution in terms of percentage of time.
+		%See \cref{fig:distribution_duration} for the plot.
+	}
+\end{table}
+
+%=====================================================================
+% Tabulated percentiles of proportion of duration spent on adult sites
+%=====================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites}
+	\label{tab:distribution_prop_duration}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{cr}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{\% time}}\\
+			\midrule
+			\input{tabs/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the percentage of time on pornography sites spent by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_duration} for the distribution in terms of hours.
+		%See \cref{fig:distribution_prop_duration} for the plot.
+	}
+\end{table}
+
+\FloatBarrier
+\clearpage
+\subsection{Partisan Differences}
+\subsubsection{Distribution of Differences}
+%===========================================================================
+% Tabulated splits by party and by percentiles for hours spent on adultsites
+%===========================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Distribution of Consumption of Pornography Online by Party}
+	\label{tab:distribution_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{Hours}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{tabs/percentiles_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_prop_duration_party} for the distribution in terms of percentage of time. 
+		See \cref{tab:piedomains_distribution_duration_party} for the distribution using an alternate machine learning classifier of pornographic sites. 
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.005, rejecting the null that the Republican and Democrat distributions are the same.
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
+
+%===============================================================================
+% Tabulated splits by party and by percentiles for proportion of time spent on adultsites
+%===============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites by Party}
+	\label{tab:distribution_prop_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{\% time}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{tabs/percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+		See \cref{tab:distribution_duration_party} for the distribution in terms of percentage of time.
+		See \cref{tab:piedomains_distribution_prop_duration_party} for the distribution using an alternate machine learning classifier of pornographic sites. 
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.025, rejecting the null that the Republican and Democrat distributions are the same at the 5\% level.
+		%See \cref{fig:distribution_prop_duration_party} for the plot.
+	}
+\end{table}
+
+\FloatBarrier
+\clearpage
+\subsubsection{Accounting for Confounders}
+%==============================================================================
+% Table for balance of porn consumption and individual characteristics by party
+%==============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
+	\caption{Differences in Pornography Consumption and Individual Characteristics by Party}
+	\label{tab:characteristics_split_by_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}llrcccrr@{\hspace{0\tabcolsep}}}
+			\toprule
+			&\multicolumn{7}{c}{\underline{Panel A. Measures of pornography consumption}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
+			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrat}&\multicolumn{1}{c}{Republican}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-8}
+			\input{tabs/balance_outcomes_by_party.tex}\\
+			%-------------------------------------------------------------------
+			\cmidrule{2-8}
+			&\multicolumn{7}{c}{\underline{Panel B. Individual characteristics}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
+			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrat}&\multicolumn{1}{c}{Republican}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-8}
+			\input{tabs/balance_covariates_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\scriptsize \emph{Notes:}
+		The table shows splits by party for pornographic consumption and for individual characteristics for the 1,200 individuals.
+		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
+		Column (1) shows subgroups for categorical variables.
+		Column (2) indicates the count of missing variables, if any.
+		Columns (3)--(5) show means and standard deviations for continuous variables and count and percentage of data for categorical variables, for the full sample, Democratic individuals, and Republican individuals.
+		Standard deviations and percentages in parentheses.
+		Column (6) and column (7) report the p-values and standardized mean differences for Democrats vs Republicans.
+		Given the skew in consumption of pornography, we also performed tests for differences in medians for the measures of pornography consumption by party (see \cref{tab:characteristics_split_by_party_medians}).
+	}
+\end{table}
+
+%==============================================================================
+% Table for balance of porn consumption and individual characteristics by party
+%==============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
+	\caption{Differences in Pornography Consumption and Individual Characteristics by Pornography Consumers}
+	\label{tab:characteristics_split_by_porn_consumers}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}llrcccrr@{\hspace{0\tabcolsep}}}
+			\toprule
+			&\multicolumn{7}{c}{\underline{Panel A. Measures of pornography consumption}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
+			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Non-Consumers}&\multicolumn{1}{c}{Consumers}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-8}
+			\input{tabs/balance_outcomes_by_porn_consumers.tex}\\
+			%-------------------------------------------------------------------
+			\cmidrule{2-8}
+			&\multicolumn{7}{c}{\underline{Panel B. Individual characteristics}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
+			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Non-Consumers}&\multicolumn{1}{c}{Consumers}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-8}
+			\input{tabs/balance_covariates_by_porn_consumers.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\scriptsize \emph{Notes:}
+		The table shows splits by consumers of pornography for pornography consumption and for individual characteristics for the 1,200 individuals.
+		65 of the 1,200 individuals did not clock any browsing activity and are in the first panel.
+		These 65 individuals are not substantially different in characteristics than those included in the sample (untabulated).
+		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
+		Column (1) shows subgroups for categorical variables.
+		Column (2) indicates the count of missing variables, if any.
+		Columns (3)--(5) show means and standard deviations for continuous variables and count and percentage of data for categorical variables, for the full sample, non-consumers of pornography, and consumers of pornography.
+		Standard deviations and percentages in parentheses.
+		Column (6) and column (7) report the p-values and standardized mean differences for non-consumers vs consumers.
+	}
+\end{table}
+
+
+%==============================================================================
+% Table for balance of porn consumption and individual characteristics by party
+% Difference in medians
+%==============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
+	\caption{Differences (in Medians) in Pornography Consumption}
+	\label{tab:characteristics_split_by_party_medians}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}llrcccrr@{\hspace{0\tabcolsep}}}
+			\toprule
+			&\multicolumn{7}{c}{\underline{Measures of pornography consumption}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
+			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrats}&\multicolumn{1}{c}{Republicans}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-8}
+			\input{tabs/balance_outcomes_by_party_medians.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\scriptsize \emph{Notes:}
+		The table shows splits by party for pornography consumption and for individual characteristics for the 1,200 individuals.
+		This table focuses on differences in medians.
+		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
+		Column (1) shows subgroups for categorical variables.
+		Column (2) indicates the count of missing variables, if any.
+		Columns (3)--(5) show the medians, the first quartiles, and the third quartiles, for the full sample, Democrats, and Republicans.
+		1st and 3rd quartiles in brackets.
+		Column (6) and column (7) report the p-values and standardized median differences for Democrats vs Republicans.
+		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
+	}
+\end{table}
+%=====================================================
+% Fig of quantile regression estimates
+% Time Spent on Adult Sites by Party (with covariates) 
+%=====================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Hours Spent on Pornographic Sites by Party (with covariates)}
+	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from standard errors.
+		See \cref{fig:quantile_regression_duration} for the same plot without covariates.
+	}
+	\label{fig:quantile_regression_duration_covariates}
+\end{figure}
+
+%================================================================
+% Fig of quantile regression estimates
+% Percentage Time Spent on Adult Sites by Party (with covariates) 
+%================================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Quantile Estimates--Percentage of Time Spent on Pornographic Sites by Party (with covariates)}
+	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from standard errors.
+		See \cref{fig:quantile_regression_prop_duration} for the same plot without covariates.
+	}
+	\label{fig:quantile_regression_prop_duration_covariates}
+\end{figure}
+\clearpage
+
+\FloatBarrier
+%===============================================================================
+% Consequence of Using Alternate Ways of Measuring Pornography and Alternative Analyses on Time Spent on Pornography
+%===============================================================================
+\subsection{Alternate Ways of Measuring Pornography}
+\label{si:alternate_ways}
+%===========================================================================
+% Tabulated splits by party and by percentiles for hours spent on adultsites
+%===========================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Distribution of Consumption of Pornography Online by Party}
+	\label{tab:piedomains_distribution_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{Hours}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{tabs/piedomains_percentiles_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		Classification of pornography sites is based on a machine learning classifier \citep{Chintalapati_piedomains_Predict_the_2022}.
+		See \cref{tab:piedomains_distribution_prop_duration_party} for the corresponding distribution in terms of percentage of time. 
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.0481, rejecting the null that the Republican and Democrat distributions are the same at the 5\% level.
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
+
+%===============================================================================
+% Tabulated splits by party and by percentiles for proportion of time spent on adultsites
+%===============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites by Party}
+	\label{tab:piedomains_distribution_prop_duration_party}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{\% time}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{tabs/piedomains_percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+		Classification of pornography sites is based on a machine learning classifier \citep{Chintalapati_piedomains_Predict_the_2022}.
+		See \cref{tab:piedomains_distribution_duration_party} for the corresponding distribution in terms of percentage of time.
+		A two-sample Kolmogorov–Smirnov test returns a p-value of 0.19, failing to reject the null that the Republican and Democrat distributions are the same at the 5\% level.
+		%See \cref{fig:distribution_prop_duration_party} for the plot.
+	}
+\end{table}
+
+\FloatBarrier
+\clearpage
+\subsection{Consumption of Pornography Among Independents}
+\label{si:independents}
+%===========================================================================
+% Tabulated splits by party and by percentiles for hours spent on adultsites
+%===========================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{6 pt}
+	\caption{Distribution of Consumption of Pornography Online Among Independents}
+	\label{tab:percentiles_duration_adultsites_by_individuals_independents_partisans}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}crrrrr@{\hspace{0\tabcolsep}}}
+			\toprule		
+			&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\	
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}&\multicolumn{1}{c}{\textbf{Partisans}}&\multicolumn{1}{c}{\textbf{Independents}}&\multicolumn{1}{r}{\textbf{Independents/DK}}\\
+			\midrule
+			\input{tabs/percentiles_duration_adultsites_by_individuals_independents_partisans.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by partisans and non-partisans, by key percentiles (each of the ten deciles plus quantiles at the right tail) for the duration (hours) spent by individuals who consumed pornography in the sample period. 
+		Column (1) includes Democrats (n = 154).
+		Column (2) includes Republicans (n = 95).
+		Column (3) includes both Republicans and Democrats (n = 249).
+		Column (4) includes Independents (n = 67).
+		Column (5) includes Independents, those who report ``Don't Know'' for partisan identification, and those who do not report (n = 104).
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
+
+\begin{table}[ht] \centering \small \setlength\tabcolsep{6 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites Among Independents}
+	\label{tab:percentiles_prop_duration_adultsites_by_individuals_independents_partisans}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}crrrrr@{\hspace{0\tabcolsep}}}
+			\toprule		
+			&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\	
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}&\multicolumn{1}{c}{\textbf{Partisans}}&\multicolumn{1}{c}{\textbf{Independents}}&\multicolumn{1}{r}{\textbf{Independents/DK}}\\
+			\midrule
+			\input{tabs/percentiles_prop_duration_adultsites_by_individuals_independents_partisans.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by partisans and non-partisans, by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+		Column (1) includes Democrats (n = 154).
+		Column (2) includes Republicans (n = 95).
+		Column (3) includes both Republicans and Democrats (n = 249).
+		Column (4) includes Independents (n = 67).
+		Column (5) includes Independents, those who report ``Don't Know'' for partisan identification, and those who do not report (n = 104).
+		%See \cref{fig:distribution_duration_party} for the plot.
+	}
+\end{table}
+
+\cleardoublepage
+\FloatBarrier
+\subsection{Alternate Measures}
+\subsubsection{Proportion of Partisans Who Consumed Any Pornography}
+%============================================================================
+% Figure of porn consumption by party
+% Y-axis = proportion of individuals that ever consumed porn in sample period
+%============================================================================
+\begin{figure}
+	\centering
+	\caption{Pornography Consumption by Party}
+	\includegraphics[width=.5\textwidth]{figs/consume_porn_yes_no.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The figure shows the proportion of individuals in the sample who consumed pornography in the sample period by party.
+		Capped vertical bars are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
+	}
+	\label{fig:consume_porn_yes_no}
+\end{figure}
+\clearpage
+
+\FloatBarrier
+%===============================================================================
+%===============================================================================
+% Analogous results for visits to adult sites
+%===============================================================================
+%===============================================================================
+\subsubsection{Analyses of Visits}
+\label{si:visits}
+%=================================================
+% Figure for Distribution of visits to adult sites
+%=================================================
+\begin{figure}[ht]
+	\centering
+	\caption{Distribution of Traffic to Pornography Online}
+	\includegraphics[width=.5\linewidth]{figs/distribution_visits_to_adultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The figure shows the number of visits to pornography sites by individuals who consumed pornography in the sample period.
+		Individuals are split into deciles with each bin containing approximately the same number of individuals.
+		The height of the bars indicates the mean of each bin.
+		Capped vertical bars are 95\% confidence intervals.
+		%See \cref{tab:distribution_visits} for the more tabulated values.
+	}
+	\label{fig:distribution_visits}
+\end{figure}
+
+
+
+
+%===============================================================
+% Figure for Distribution of proportion of visits to adult sites
+%===============================================================
+\begin{figure}
+	\centering
+	\caption{Percentage of Traffic to Pornography Online}
+	\includegraphics[width=.5\linewidth]{figs/distribution_proportion_visits_to_adultsites.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The figure shows the proportion of visits to pornography sites by individuals who consumed pornography in the sample period.
+		Individuals are split into deciles with each bin containing approximately the same number of individuals.
+		The height of the bars indicates the mean of each bin.
+		Capped vertical bars are 95\% confidence intervals.
+		%See \cref{tab:distribution_prop_visits} for the more tabulated values.
+	}
+	\label{fig:distribution_prop_visits}
+\end{figure}
+
+%=======================
+% Quantile regressions
+% Traffic to adult sites
+%=======================
+\begin{figure}
+	\centering
+	\caption{Quantile Estimates--Traffic to Pornography Sites by Party}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_visits_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the number of visits to pornographic sites by individuals in our sample.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from standard errors.
+		%See \cref{fig:quantile_regression_visits_covariates} for the same plot controlling for individual characteristics.
+	}
+	\label{fig:quantile_regression_visits}
+\end{figure}
+
+%=====================================
+% Quantile regressions
+% Proportion of traffic to adult sites
+%=====================================
+\begin{figure}
+	\centering
+	\caption{Quantile Estimates--Percentage of Traffic to Pornographic Sites by Party}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_proportion_visits_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the percentage of traffic to pornographic sites by individuals in our sample.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from standard errors.
+		%See \cref{fig:quantile_regression_prop_visits_covariates} for the same plot controlling for individual characteristics.
+	}
+	\label{fig:quantile_regression_prop_visits}
+\end{figure}
+
+
+%==================================================
+% Fig of quantile regression estimates
+% Traffic to Adult Sites by Party (with covariates) 
+%==================================================
+\begin{figure}
+	\centering
+	\caption{Quantile Estimates--Traffic to Pornographic Sites by Party (with covariates)}
+	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_visits_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the number of visits to pornographic sites by individuals in our sample.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from standard errors.
+		%See \cref{fig:quantile_regression_visits} for the same plot without covariates.
+	}
+	\label{fig:quantile_regression_visits_covariates}
+\end{figure}
+
+
+
+%=============================================================
+% Fig of quantile regression estimates
+% Percentage Traffic to Adult Sites by Party (with covariates) 
+%=============================================================
+\begin{figure}
+	\centering
+	\caption{Quantile Estimates--Percentage of Traffic to Pornographic Sites by Party (with covariates)}
+	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_proportion_visits_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the percentage of traffic to pornographic sites by individuals in our sample.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from standard errors.
+		%See \cref{fig:quantile_regression_prop_visits} for the same plot without covariates.
+	}
+	\label{fig:quantile_regression_prop_visits_covariates}
+\end{figure}
+
+
+
+
+\end{document}
