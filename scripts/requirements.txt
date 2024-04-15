@@ -1,0 +1,11 @@
+pandas
+pyjanitor
+matplotlib
+matplotlib-inline<=0.1.3
+statsmodels
+forestplot 
+tableone
+seaborn
+geopandas
+runpynb
+stargazer

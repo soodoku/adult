@@ -163,7 +163,11 @@ def annotate_states_on_map(gdf_states):
             )
     return None    
 
-import cmasher as cmr
+try:
+    import cmasher as cmr
+except ModuleNotFoundError:
+    pass
+
 try:
     from mapclassify import Quantiles
 except ModuleNotFoundError:

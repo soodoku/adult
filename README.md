@@ -1,37 +1,25 @@
-## Holier than Thou: Partisan Gap in Consumption of Adult Content
+## Holier Than Thou: Partisan Gap in the Consumption of Pornography Online
 
-Both the parties claim the higher ground when it comes to women--- one's case for morality is steepled in religion, another's in enduring concern for women. Using passively collected browsing data from 1200 respondents, we test whether Republicans consume more pornography than Democrats. 
+Both the parties claim the moral higher ground. When it comes to pornography, elites of both parties condemn it--- one's case for morality is steeped in religion, another's in enduring concern for women. We test whether Republicans consume more pornography than Democrats. Using passively collected domain level web visitation data from 1200 respondents over June, 2022, we find that the consumption of pornography online is very concentrated with a few respondents consuming a lot of pornography and most consuming little. Our data rules out large partisan differences in consumption of pornography online.
 
-### Analysis
+### Key Results
 
-#### Measuring Porn
+**Distribution of Partisan Differences in Hours Spent on Pornographic Sites**
+<p align="center"><img width="55%" src="./figs/quantile_reg_duration_adult.png"></p>
 
-1. Measure domain level porn using the model (piedomains and pydomains) and using default output from YG. Keyword classifier using just domain names + tld gives 82\%.
-2. Validation: Look up top 10 porn sites and make sure they are in every list. This is assuming that there is a sharp skew.
+**Distribution of Partisan Differences in Percentage of Time Spent on Pornographic Sites**
+<p align="center"><img width="55%" src="./figs/quantile_reg_proportion_duration_adult.png"></p>
 
-#### Outcome Variables
+### Replication Materials
+* [Data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VIV4TS)
+* [Scripts](scripts/)
+* [Tables](tabs/)
+* [Figures](figs/)
+* [Manuscript](ms/)
 
-1. Total time spent on porn sites 
-2. Total number of visits to porn sites
-3. Proportion of time spent on porn sites
-4. Proportion of visits to porn sites 
-5. What kind of porn
+### Note
 
-#### Outputs
-
-1. Distributions of 1, 2, 3 and 4
-2. When is porn consumed (night or day, weekday/weekend)?
-3. Split by party, region/state, etc. and show the density plot. Plus tables --- old + poisson/quantile regression, given skew---though proportions should be reasonably behaved as DVs.
-
-### Future
-
-* Build a ML model to predict PID + sociodem. (categorized the same way as comScore) from domain visits, etc. 
-	- comScore data: Use the Flaxman, Goel strategy of calling Republicans who consume more R than D and vice-versa and doing analysis. We can eventually scale the users' ideology using consumption of news.
-* Use it to extend the analysis to comScore data
-* Appendix table comparing means of critical variables to population (CPS, ANES etc.) (will add weighted col. later) 
-	* age (split in few cats - 3-4), education (split in few cats - 3-4), gender, marital status (again 3-4 cats), census region, urban, rural 
-		* depending on the extent of concern, we can also compare demographics by party (DONE -AG)
-* Post-stratify
+We measure pornographic content on domains using [piedomains](https://github.com/themains/piedomains) (and the YouGov-provided classifications).
 
 ### Authors
 
