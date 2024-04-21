@@ -1,0 +1,12 @@
+\begin{table}
+\small
+    \begin{tabular}{lllll}
+    \textbf{Reg Model}  & \textbf{Hyperparams}                             & \textbf{Predictors}                                        & \textbf{Accuracy (in sample)} & \textbf{Accuracy (o.o.s.)} \\
+    CV penalized & $\alpha = 1$, $\lambda = 0.03$ & Demographics only                                 & 0.617                & 0.601                    \\
+    CV penalized & $\alpha = 0.5$, $\lambda = 0.07$ &  Web visits only (counts)                          & 0.703                & 0.407                    \\
+    CV penalized & $\alpha = 0.5$, $\lambda = 0.05$ &  Political site visits (counts), demographics      & 0.687                & 0.584                    \\
+    CV penalized & $\alpha = 0.5$, $\lambda = 0.03$ &  Political site visits (proportions), demographics & 0.671                & 0.567                    \\
+    CV penalized & $\alpha = 1$, $\lambda = 0.05$ &  Web visits (counts), demographics                 & 0.92                 & 0.576                    \\
+    CV penalized & $\alpha = 1$, $\lambda = 0.05$ &  Web visits (proportions), demographics            & 0.391                & 0.556                    \\
+    \end{tabular}
+\end{table}
