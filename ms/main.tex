@@ -327,12 +327,13 @@ The second concern is that our measures are a point in time. We have data from o
 \normalsize
 
 \newcommand{\smATitle}{Descriptive Analyses}
-\newcommand{\smCTitle}{Online Pornography vs. Leisure}
 \newcommand{\smBTitle}{Partisan Differences}
-\newcommand{\smETitle}{Alternate Classifications of Pornography Sites}
-\newcommand{\smGTitle}{Alternate Measures of Pornography}
-\newcommand{\smFTitle}{Consumption of Pornography Among Independents}
+\newcommand{\smCTitle}{Online Pornography vs. Leisure}
 \newcommand{\smDTitle}{Time of Consumption}
+\newcommand{\smETitle}{Alternate Classifications of Pornography Sites}
+\newcommand{\smFTitle}{Consumption of Pornography Among Independents}
+\newcommand{\smGTitle}{Alternate Measures of Pornography}
+\newcommand{\smHTitle}{Missing at Random}
 
 %\noindent 
 \textbf{\hphantom{aaa}Table of Contents}\\
@@ -343,6 +344,7 @@ The second concern is that our measures are a point in time. We have data from o
 \hyperref[sm:smE]{\indent \textcolor{magenta}{\S E:}} \smETitle{}\\
 \hyperref[sm:smF]{\indent \textcolor{magenta}{\S F:}} \smFTitle{}\\
 \hyperref[sm:smG]{\indent \textcolor{magenta}{\S G:}} \smGTitle{}\\
+\hyperref[sm:smH]{\indent \textcolor{magenta}{\S H:}} \smHTitle{}\\
 
 \clearpage
 % =============================================================================
@@ -1438,6 +1440,101 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
         }
     \end{table}
 \end{landscape}
+
+
+\clearpage
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\setcounter{equation}{0}
+% =============================================================================
+\FloatBarrier
+\renewcommand{\thetable}{H\arabic{table}}
+\renewcommand{\thefigure}{H\arabic{figure}}
+\renewcommand{\theequation}{H\arabic{equation}}
+\subsection{H. \smHTitle{}}\label{sm:smH}
+% =============================================================================
+\begin{figure}[!ht]
+\caption{Hours Spent on Online Pornography and All Other Online Content}
+\label{fig:distribution_duration_on_adultsites_fullsample_mar}
+     \centering
+     \begin{subfigure}[b]{0.495\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figs/mar/distribution_duration_on_adultsites_fullsample.pdf}
+         \caption{Online pornography}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.495\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figs/mar/distribution_duration_on_nonadultsites_fullsample.pdf}
+         \caption{Other online content}
+     \end{subfigure}
+\caption*{\footnotesize \emph{Notes:} 
+    Each panel shows the total number of hours for the sample period.
+    Individuals (n = 1135) are split into deciles, with each bin containing approximately the same number of individuals.
+    The height of the bars indicates the mean of each bin. 
+    Capped vertical bars are bootstrapped 95\% confidence intervals (n = 10,000).
+    \cref{fig:distribution_duration_on_adultsites_fullsample} in main body.
+    
+}
+\end{figure}
+
+
+%========================================
+% Quantile regressions
+% Proportion of time spent on adult sites
+%========================================
+\begin{figure}[t]
+	\centering
+	\caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornographic Sites}
+	\includegraphics[width=.7\linewidth]{figs/mar/quantile_reg_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		95\% confidence intervals constructed from standard errors.
+		See \cref{fig:quantile_regression_prop_duration_covariates_mar} for the same plot controlling for individual characteristics.
+            \cref{fig:quantile_regression_prop_duration} in main body.
+	}
+	\label{fig:quantile_regression_prop_duration_mar}
+\end{figure}
+
+%================================================================
+% Fig of quantile regression estimates
+% Percentage Time Spent on Adult Sites by Party (with covariates) 
+%================================================================
+\begin{figure}[!ht]
+	\centering
+	\caption{Quantile Estimates--Percentage of Time Spent on Pornographic Sites by Party (with covariates)}
+	\includegraphics[width=.7\linewidth]{figs/mar/quantile_reg_covariates_proportion_duration_adult.pdf}
+	\caption*{\footnotesize \emph{Notes:} 
+		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
+		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+		Covariates included on the right-hand side are: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
+		95\% confidence intervals constructed from standard errors.
+		See \cref{fig:quantile_regression_prop_duration_mar} for the same plot without covariates.
+            \cref{fig:quantile_regression_prop_duration_covariates} in main body.
+	}
+	\label{fig:quantile_regression_prop_duration_covariates_mar}
+\end{figure}
+
+
+
+%=====================================================================
+% Tabulated percentiles of the proportion of duration spent on adult sites
+%=====================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites (Conditional on having consumed pornography)}
+	\label{tab:distribution_prop_duration}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{cr}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{\% time}}\\
+			\midrule
+			\input{../tabs/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} The table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the percentage of time on pornography sites spent by individuals who consumed pornography in the sample period. The base number is the individual's own total time spent on the web. See \cref{tab:distribution_duration} for the distribution of total time spent on pornographic websites.}
+\end{table}
 
 
 \end{document}
