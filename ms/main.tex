@@ -1,4 +1,6 @@
 \documentclass[12pt,twoside]{article}
+\usepackage{silence}
+\WarningsOff*
 \renewcommand{\abstractname}{\vspace{-\baselineskip}}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[
@@ -24,6 +26,7 @@ pdftitle={Holier Than Thou? No Large Partisan Gaps in the Consumption of Pornogr
 \usepackage{natbib}
 \bibliographystyle{apalike}
 \usepackage{graphicx}
+\graphicspath{{../}}
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -73,7 +76,7 @@ pdftitle={Holier Than Thou? No Large Partisan Gaps in the Consumption of Pornogr
 \fancyhead[LO]{\color{gray} \footnotesize Journal of Quantitative Description: Digital Media 1(2024)}
 \fancyhead[RO]{\color{gray} \footnotesize Consumption of Pornography Online \thepage}
 \fancyhead[LE]{\color{gray} \footnotesize Lucas Shen and Gaurav Sood}
-\fancyhead[RE]{ \color{gray} \footnotesize Journal of Quantitative Description: Digital Media 1(2021) \thepage}
+\fancyhead[RE]{ \color{gray} \footnotesize Journal of Quantitative Description: Digital Media 1(2024) \thepage}
 % DO NOT MAKE CHANGES ABOVE THIS LINE
 %Article Title goes here
 \title{\normalsize \headingfont \textbf{Holier Than Thou? No Large Partisan Gaps in the Consumption of Pornography Online} \vspace{-1.5em}} 
@@ -423,7 +426,7 @@ The second concern is that our measures are a point in time. We have data from o
             \cmidrule(l){2-5}
             YouGov category&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}&\multicolumn{1}{c}{(11)}&\multicolumn{1}{c}{(12)}&\multicolumn{1}{c}{(13)}&\multicolumn{1}{c}{(14)} \\
             \midrule
-            \input{tabs/top10cat_description}\\       
+            \input{../tabs/top10cat_description}\\       
             \bottomrule
         \end{tabular}
         \end{adjustbox}
@@ -447,7 +450,7 @@ The second concern is that our measures are a point in time. We have data from o
 			\toprule
 			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Hours}}\\
 			\midrule
-			\input{tabs/percentiles_duration_adultsites_by_individuals.tex}\\
+			\input{../tabs/percentiles_duration_adultsites_by_individuals.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -469,7 +472,7 @@ The second concern is that our measures are a point in time. We have data from o
 			\toprule
 			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{\% time}}\\
 			\midrule
-			\input{tabs/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
+			\input{../tabs/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -502,7 +505,7 @@ The second concern is that our measures are a point in time. We have data from o
 			\cmidrule(l){2-3}
 			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
 			\midrule
-			\input{tabs/percentiles_duration_adultsites_by_individuals_by_party.tex}\\
+			\input{../tabs/percentiles_duration_adultsites_by_individuals_by_party.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -526,7 +529,7 @@ The second concern is that our measures are a point in time. We have data from o
 			\cmidrule(l){2-3}
 			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
 			\midrule
-			\input{tabs/percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
+			\input{../tabs/percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -553,7 +556,7 @@ The second concern is that our measures are a point in time. We have data from o
 			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
 			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrats}&\multicolumn{1}{c}{Republicans}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
 			\cmidrule{2-8}
-			\input{tabs/balance_outcomes_by_party_medians.tex}\\
+			\input{../tabs/balance_outcomes_by_party_medians.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -586,14 +589,14 @@ The second concern is that our measures are a point in time. We have data from o
 			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
 			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrat}&\multicolumn{1}{c}{Republican}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
 			\cmidrule{2-8}
-			\input{tabs/balance_outcomes_by_party.tex}\\
+			\input{../tabs/balance_outcomes_by_party.tex}\\
 			%-------------------------------------------------------------------
 			\cmidrule{2-8}
 			&\multicolumn{7}{c}{\underline{Panel B. Individual characteristics}}\\
 			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
 			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrat}&\multicolumn{1}{c}{Republican}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
 			\cmidrule{2-8}
-			\input{tabs/balance_covariates_by_party.tex}\\
+			\input{../tabs/balance_covariates_by_party.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -623,14 +626,14 @@ The second concern is that our measures are a point in time. We have data from o
 			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
 			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Non-Consumers}&\multicolumn{1}{c}{Consumers}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
 			\cmidrule{2-8}
-			\input{tabs/balance_outcomes_by_porn_consumers.tex}\\
+			\input{../tabs/balance_outcomes_by_porn_consumers.tex}\\
 			%-------------------------------------------------------------------
 			\cmidrule{2-8}
 			&\multicolumn{7}{c}{\underline{Panel B. Individual characteristics}}\\
 			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
 			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Non-Consumers}&\multicolumn{1}{c}{Consumers}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
 			\cmidrule{2-8}
-			\input{tabs/balance_covariates_by_porn_consumers.tex}\\
+			\input{../tabs/balance_covariates_by_porn_consumers.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -667,14 +670,14 @@ The second concern is that our measures are a point in time. We have data from o
             &\multicolumn{20}{c}{\textbf{Panel A. Unconditional quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\
             \cmidrule(l){2-21}
-            \input{tabs/regtab_quantile_reg_duration_adult.tex}\\
+            \input{../tabs/regtab_quantile_reg_duration_adult.tex}\\
             \cmidrule(l){2-21}
             % ===================================================================
             % Panel B            
             &\multicolumn{20}{c}{\textbf{Panel B. Adjusted quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\  
             \cmidrule(l){2-21}
-             \input{tabs/regtab_quantile_reg_covariates_duration_adult.tex}\\          
+             \input{../tabs/regtab_quantile_reg_covariates_duration_adult.tex}\\          
             \bottomrule
         \end{tabular}
         \end{adjustbox}
@@ -706,14 +709,14 @@ The second concern is that our measures are a point in time. We have data from o
             &\multicolumn{20}{c}{\textbf{Panel A. Unconditional quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\
             \cmidrule(l){2-21}
-            \input{tabs/regtab_quantile_reg_proportion_duration_adult}\\
+            \input{../tabs/regtab_quantile_reg_proportion_duration_adult}\\
             \cmidrule(l){2-21}
             % ===================================================================
             % Panel B            
             &\multicolumn{20}{c}{\textbf{Panel B. Adjusted quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\  
             \cmidrule(l){2-21}
-             \input{tabs/regtab_quantile_reg_covariates_proportion_duration_adult}\\          
+             \input{../tabs/regtab_quantile_reg_covariates_proportion_duration_adult}\\          
             \bottomrule
         \end{tabular}
         \end{adjustbox}
@@ -843,13 +846,13 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
         &\multicolumn{6}{c}{Outcome variable is a binary variable based on time-of-day visit:}\\
         &\multicolumn{1}{c}{4am--8am}&\multicolumn{1}{c}{8am--12pm}&\multicolumn{1}{c}{12pm--4pm}&\multicolumn{1}{c}{4pm--8pm}&\multicolumn{1}{c}{8pm--12am}&\multicolumn{1}{c}{12am--4am}\\
         \cmidrule(l){2-7}
-        \input{tabs/regtab_wls_visit_timing_4hrbins}\\
+        \input{../tabs/regtab_wls_visit_timing_4hrbins}\\
         \cmidrule(l){2-7}
         &\multicolumn{6}{c}{\textbf{Panel B. Adjusted WLS estimates}}\\
         &\multicolumn{6}{c}{Outcome variable is a binary variable based on time-of-day visit:}\\
         &\multicolumn{1}{c}{4am--8am}&\multicolumn{1}{c}{8am--12pm}&\multicolumn{1}{c}{12pm--4pm}&\multicolumn{1}{c}{4pm--8pm}&\multicolumn{1}{c}{8pm--12am}&\multicolumn{1}{c}{12am--4am}\\
         \cmidrule(l){2-7}
-        \input{tabs/regtab_wls_visit_timing_4hrbins_adjusted}\\
+        \input{../tabs/regtab_wls_visit_timing_4hrbins_adjusted}\\
     \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -1132,7 +1135,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
             \cmidrule(lr){2-4}\cmidrule(l){5-6}
 			\textbf{Percentile}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}&\multicolumn{1}{c}{\textbf{Partisans}}&\multicolumn{1}{c}{\textbf{Independents}}&\textbf{Independents/DK}\\
 			\midrule
-			\input{tabs/percentiles_duration_adultsites_by_individuals_independents_partisans.tex}\\
+			\input{../tabs/percentiles_duration_adultsites_by_individuals_independents_partisans.tex}\\
             \midrule
             Observations&\multicolumn{1}{r}{\text{98}}&\multicolumn{1}{r}{\text{158}}&\multicolumn{1}{r}{\text{256}}&\multicolumn{1}{r}{\text{68}}&105\\   
 			\bottomrule
@@ -1154,7 +1157,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
             \cmidrule(lr){2-4}\cmidrule(l){5-6}
 			\textbf{Percentile}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}&\multicolumn{1}{c}{\textbf{Partisans}}&\multicolumn{1}{c}{\textbf{Independents}}&\textbf{Independents/DK}\\
 			\midrule
-            \input{tabs/percentiles_prop_duration_adultsites_by_individuals_independents_partisans.tex}\\
+            \input{../tabs/percentiles_prop_duration_adultsites_by_individuals_independents_partisans.tex}\\
             \midrule
             Observations&\multicolumn{1}{r}{\text{98}}&\multicolumn{1}{r}{\text{158}}&\multicolumn{1}{r}{\text{256}}&\multicolumn{1}{r}{\text{68}}&105\\
 			\bottomrule
@@ -1249,7 +1252,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
 			\midrule
 		%percentiles_duration_adultsites_by_individuals_by_party
-            \input{tabs/percentiles_visits_adultsites_by_individuals_by_party}\\
+            \input{../tabs/percentiles_visits_adultsites_by_individuals_by_party}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -1272,7 +1275,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
 			\midrule
 		%percentiles_duration_adultsites_by_individuals_by_party
-            \input{tabs/percentiles_proportion_visits_adultsites_by_individuals_by_party}\\
+            \input{../tabs/percentiles_proportion_visits_adultsites_by_individuals_by_party}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
@@ -1374,14 +1377,14 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
             &\multicolumn{20}{c}{\textbf{Panel A. Unconditional quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\
             \cmidrule(l){2-21}
-            \input{tabs/regtab_quantile_reg_visits_adult}\\
+            \input{../tabs/regtab_quantile_reg_visits_adult}\\
             \cmidrule(l){2-21}
             % ===================================================================
             % Panel B            
             &\multicolumn{20}{c}{\textbf{Panel B. Adjusted quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\  
             \cmidrule(l){2-21}
-             \input{tabs/regtab_quantile_reg_covariates_visits_adult}\\          
+             \input{../tabs/regtab_quantile_reg_covariates_visits_adult}\\          
             \bottomrule
         \end{tabular}
         \end{adjustbox}
@@ -1413,14 +1416,14 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
             &\multicolumn{20}{c}{\textbf{Panel A. Unconditional quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\
             \cmidrule(l){2-21}
-            \input{tabs/regtab_quantile_reg_proportion_visits_adult}\\
+            \input{../tabs/regtab_quantile_reg_proportion_visits_adult}\\
             \cmidrule(l){2-21}
             % ===================================================================
             % Panel B            
             &\multicolumn{20}{c}{\textbf{Panel B. Adjusted quantile estimates}}\\
             &\multicolumn{1}{c}{p5}         &\multicolumn{1}{c}{p10}         &\multicolumn{1}{c}{p15}         &\multicolumn{1}{c}{p20}         &\multicolumn{1}{c}{p25}         &\multicolumn{1}{c}{p30}         &\multicolumn{1}{c}{p35}         &\multicolumn{1}{c}{p40}         &\multicolumn{1}{c}{p45}         &\multicolumn{1}{c}{p50}&\multicolumn{1}{c}{p55}         &\multicolumn{1}{c}{p60}         &\multicolumn{1}{c}{p65}         &\multicolumn{1}{c}{p70}         &\multicolumn{1}{c}{p75}         &\multicolumn{1}{c}{p80}         &\multicolumn{1}{c}{p85}         &\multicolumn{1}{c}{p90}         &\multicolumn{1}{c}{p95}         &\multicolumn{1}{c}{p100}         \\  
             \cmidrule(l){2-21}
-             \input{tabs/regtab_quantile_reg_covariates_proportion_visits_adult}\\          
+             \input{../tabs/regtab_quantile_reg_covariates_proportion_visits_adult}\\          
             \bottomrule
         \end{tabular}
         \end{adjustbox}
