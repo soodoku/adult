@@ -1523,18 +1523,44 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=====================================================================
 \begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
 	\caption{Percentage of Time Spent on Pornographic Sites (Conditional on having consumed pornography)}
-	\label{tab:distribution_prop_duration}
+	\label{tab:distribution_prop_duration_mar}
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{cr}
 			\toprule
 			\multicolumn{1}{c}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{\% time}}\\
 			\midrule
-			\input{../tabs/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
+			\input{../tabs/mar/percentiles_proportion_duration_adultsites_by_individuals.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
-	\caption*{\footnotesize \emph{Notes:} The table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the percentage of time on pornography sites spent by individuals who consumed pornography in the sample period. The base number is the individual's own total time spent on the web. See \cref{tab:distribution_duration} for the distribution of total time spent on pornographic websites.}
+	\caption*{\footnotesize \emph{Notes:} The table shows key percentiles (each of the ten deciles plus quantiles at the right tail) and their corresponding values for the percentage of time on pornography sites spent by individuals who consumed pornography in the sample period. The base number is the individual's own total time spent on the web. See \cref{tab:distribution_duration} for the distribution of total time spent on pornographic websites.
+    See also \cref{tab:distribution_prop_duration}.
+ }
 \end{table}
 
+%===============================================================================
+% Tabulated splits by party and by percentiles for the proportion of time spent on adultsites
+%===============================================================================
+\begin{table}[ht] \centering \small \setlength\tabcolsep{10 pt}
+	\caption{Percentage of Time Spent on Pornographic Sites by Party (Conditional on having consumed pornography)}
+	\label{tab:distribution_prop_duration_party_mar}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{crr}
+			\toprule
+			\multicolumn{1}{l}{\textbf{}}&\multicolumn{2}{c}{\textbf{\% time}}\\
+			\cmidrule(l){2-3}
+			\multicolumn{1}{l}{\textbf{Percentile}}&\multicolumn{1}{c}{\textbf{Republicans}}&\multicolumn{1}{c}{\textbf{Democrats}}\\
+			\midrule
+			\input{../tabs/mar/percentiles_proportion_duration_adultsites_by_individuals_by_party.tex}\\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\footnotesize \emph{Notes:} 
+		The table shows splits by party and by key percentiles (each of the ten deciles plus quantiles at the right tail) for the percentage of time spent on pornography by individuals who consumed pornography in the sample period. 
+        The base number is the individual's own total time spent on the web.
+		See \cref{tab:distribution_duration_party} for the distribution in terms of percentage of time.
+          See also \cref{tab:distribution_prop_duration_party}.
+	}
+\end{table}
 
 \end{document}
