@@ -16,7 +16,7 @@ main: ## Make all results via YG categories
 	00_get_individual_browsing_data.ipynb \
 	10_topsites.ipynb \
 	12_concentration.ipynb \
-	12_consume_porn_yes_no.ipynb \
+	13_consume_porn_yes_no.ipynb \
 	20_duration_on_adultsites.ipynb \
 	21_visits_to_adultsites.ipynb \
 	22_duration_on_adultsites_independents.ipynb \
@@ -24,12 +24,10 @@ main: ## Make all results via YG categories
 	25_traffic_top10_categories.ipynb \
 	30_quantile_reg.ipynb \
 	31_quantile_reg_covariates.ipynb \
-	32_quantile_reg_nonzeroes.ipynb \
-	33_quantile_reg_nonzeroes-covariates.ipynb \
 	40_timeuse.ipynb \
 	41_time_of_day.ipynb \
 	42_time_of_day_estimates.ipynb \
-	--sequence
+	--sequence --output
 
 
 ########################################################################
@@ -47,7 +45,7 @@ alternative: ## Make all results via alternative categories
 	35_piedomains_quantile_reg_covariates.ipynb \
 	36_vt_quantile_reg.ipynb \
 	37_vt_quantile_reg_covariates.ipynb \
-	--sequence
+	--sequence --output
 
 
 ########################################################################
