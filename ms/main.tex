@@ -217,10 +217,11 @@ As \cref{tab:characteristics_split_by_party} shows, 31.5\% of Democrats consumed
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=.7\linewidth]{figs/quantile_reg_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+            Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
         \cref{tab:quantile-estimates-hours} in \hyperref[sm:smB]{Appendix B} tabulates the estimates.
@@ -235,10 +236,11 @@ As \cref{tab:characteristics_split_by_party} shows, 31.5\% of Democrats consumed
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=.7\linewidth]{figs/quantile_reg_proportion_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in the Percentage of Time Spent on Pornographic Sites}
+	\caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornography}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_prop_duration_covariates} for the same plot controlling for individual characteristics.
             %\cref{tab:quantile-estimates-time} tabulates the estimates.
@@ -266,10 +268,11 @@ In addition to individual-level demographics, we also have precise timestamps fo
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.7\linewidth]{figs/quantile_reg_covariates_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (with covariates)}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (with covariates)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_duration} for the same plot without covariates.
@@ -285,10 +288,11 @@ In addition to individual-level demographics, we also have precise timestamps fo
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.7\linewidth]{figs/quantile_reg_covariates_proportion_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in the Percentage of Time Spent on Pornographic Sites (with covariates)}
+	\caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornography (with covariates)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included: gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_prop_duration} for the same plot without covariates.
@@ -415,7 +419,9 @@ The second concern is that our measures are a point in time. We have data from o
 	\includegraphics[width=.5\textwidth]{figs/concentration_porn_consumption.pdf}
 	\caption{Top 10 Pornographic Sites vs. Other Pornographic Sites}
 	\caption*{\footnotesize \emph{Notes:} 
-            The average number of hours spent on the top 10 pornographic sites by total time spent vs. all other pornographic sites.
+            The average number of minutes spent on the top 10 pornographic sites vs. all other pornographic sites.
+            Top 10 pornographic sites are determined by the total amount of time spent on each site by all individuals over the sample period.
+            Data is at the individual-domain level (n = 2.4k).
 		Vertical bars are 95\% confidence intervals from bootstrapped standard errors (n = 1,000).
 	}
 	\label{fig:concentration_porn_consumption}
@@ -444,7 +450,7 @@ The second concern is that our measures are a point in time. We have data from o
         \end{adjustbox}
         \caption*{\scriptsize
         The table enumerates the top ten categories (YouGov) based on the amount of traffic to the corresponding sites from individuals in the sample.
-        Panel A is constructed using the browsing level data (n = 6.3m web browsing records.) Panel B is constructed using the domain-level data (n = 40k).
+        Panel A is constructed using the browsing level data (n = 6.3m web browsing records.) Panel B is constructed using the individual-category-level data (n = 40k).
         }
     \end{table}
 \end{landscape}
@@ -584,6 +590,38 @@ The second concern is that our measures are a point in time. We have data from o
 		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
 	}
 \end{table}
+
+\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
+	\caption{Median Differences in Pornography Consumption}
+	\label{tab:characteristics_split_by_party_medians}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{@{\hspace{0\tabcolsep}}lrcccrr@{\hspace{0\tabcolsep}}}
+			\toprule
+			&\multicolumn{6}{c}{\underline{Measures of pornography consumption}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\			
+			&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrats}&\multicolumn{1}{c}{Republicans}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-7}
+        			n                            &            & 1200          & 530           & 356            &                  \\
+         Minutes, median [Q1,Q3]      &  65        & 0.0 [0.0,4.8] & 0.0 [0.0,3.1] & 0.0 [0.0,3.6] & 0.981     & 0.056           \\
+         \% of time, median [Q1,Q3]    &  65        & 0.0 [0.0,0.1] & 0.0 [0.0,0.1] & 0.0 [0.0,0.1] & 0.842     & 0.049           \\
+         Visits, median [Q1,Q3]       &  65        & 0.0 [0.0,8.0] & 0.0 [0.0,6.0] & 0.0 [0.0,8.0] & 0.933     & 0.048           \\
+         \% of visits, median [Q1,Q3]  &  65        & 0.0 [0.0,0.2] & 0.0 [0.0,0.1] & 0.0 [0.0,0.2] & 0.916     & 0.085         \\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption*{\scriptsize \emph{Notes:}
+		The table shows splits by party for pornography consumption and for individual characteristics for the 1,200 individuals.
+		This table focuses on differences in medians.
+		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
+		Column (1) indicates the count of missing variables.
+		Columns (2)--(4) show the medians, the first quartiles, and the third quartiles for the full sample, Democrats, and Republicans, respectively.
+		1st and 3rd quartiles in brackets.
+		Column (5) and column (6) report the p-values and standardized median differences for Democrats vs Republicans.
+		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
+	}
+\end{table}
+
+
 \FloatBarrier
 \clearpage
 \subsubsection{Accounting for Confounders}
@@ -670,7 +708,7 @@ The second concern is that our measures are a point in time. We have data from o
 \begin{landscape}% Landscape page
     \begin{table}[ht] \centering \ssmall \setlength\tabcolsep{0 pt} \setlength{\defaultaddspace}{0pt}
     \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-    \caption{Quantile Estimates--Hours spent on Pornographic Sites by Party }
+    \caption{Distribution of Partisan Differences in Hours Spent on Pornography}
     \label{tab:quantile-estimates-hours}
 	\begin{adjustbox}{max width=1.325\textwidth}
             \begin{tabular}{l*{20}{D{.}{.}{-1}}}
@@ -711,7 +749,7 @@ The second concern is that our measures are a point in time. We have data from o
 \begin{landscape}% Landscape page
     \begin{table}[ht] \centering \ssmall \setlength\tabcolsep{0 pt} \setlength{\defaultaddspace}{0pt}
     \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-    \caption{Quantile Estimates--Percentage of Time Spent on Pornographic Sites by Party}
+    \caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornography}
     \label{tab:quantile-estimates-time}
 	\begin{adjustbox}{max width=1.325\textwidth}
             \begin{tabular}{l*{20}{D{.}{.}{-1}}}
@@ -916,10 +954,10 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.7\linewidth]{figs/piedomains_quantile_reg_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (\texttt{piedomains})}
+	\includegraphics[width=.6\linewidth]{figs/piedomains_quantile_reg_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (\texttt{piedomains})}
 	\caption*{\footnotesize \emph{Notes:} 
-		The dependent variable is the number of hours people spent on pornographic sites. Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis. 95\% confidence intervals constructed from standard errors. See \cref{fig:piedomains_quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
+		The dependent variable is the number of hours people spent on pornographic sites. Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis. Figure shows 19 quantile estimates (5th--95th percentile in steps of 5). 95\% confidence intervals constructed from standard errors. See \cref{fig:piedomains_quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
 	}
 	\label{fig:piedomains_quantile_regression_duration}
 \end{figure}
@@ -930,11 +968,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=====================================================
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (with covariates, \texttt{piedomains})}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_covariates_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (with covariates, \texttt{piedomains})}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:piedomains_quantile_regression_duration_covariates} for the same plot without covariates.
@@ -976,11 +1015,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=.7\linewidth]{figs/forcepoint_quantile_reg_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (Forcepoint ThreatSeeker)}
+	\includegraphics[width=.6\linewidth]{figs/forcepoint_quantile_reg_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (Forcepoint ThreatSeeker)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:forcepoint_quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
 	}
@@ -993,11 +1033,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=====================================================
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/forcepoint_quantile_reg_covariates_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (with covariates, Forcepoint ThreatSeeker)}
+	\includegraphics[width=.6\linewidth]{figs/forcepoint_quantile_reg_covariates_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (with covariates, Forcepoint ThreatSeeker)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:forcepoint_quantile_regression_duration_covariates} for the same plot without covariates.
@@ -1041,11 +1082,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=.7\linewidth]{figs/bitdefender_quantile_reg_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (Bitdefender)}
+	\includegraphics[width=.6\linewidth]{figs/bitdefender_quantile_reg_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (Bitdefender)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:bitdefender_quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
 	}
@@ -1058,11 +1100,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=====================================================
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/bitdefender_quantile_reg_covariates_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (with covariates, Bitdefender)}
+	\includegraphics[width=.6\linewidth]{figs/bitdefender_quantile_reg_covariates_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (with covariates, Bitdefender)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:bitdefender_quantile_regression_duration_covariates} for the same plot without covariates.
@@ -1102,11 +1145,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=.7\linewidth]{figs/alphamountain_quantile_reg_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (alphaMountain)}
+	\includegraphics[width=.6\linewidth]{figs/alphamountain_quantile_reg_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (alphaMountain)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of hours individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:alphamountain_quantile_regression_duration_covariates} for the same plot controlling for individual characteristics.
 	}
@@ -1119,10 +1163,10 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=====================================================
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/alphamountain_quantile_reg_covariates_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Hours Spent on Pornographic Sites (with covariates, Bitdefender)}
+	\includegraphics[width=.6\linewidth]{figs/alphamountain_quantile_reg_covariates_duration_adult.pdf}
+	\caption{Distribution of Partisan Differences in Hours Spent on Pornography (with covariates, Bitdefender)}
 	\caption*{\footnotesize \emph{Notes:} 
-		The dependent variable is the number of hours individuals in our sample spent on pornographic sites. Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis. Covariates included gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W). 95\% confidence intervals constructed from standard errors. See \cref{fig:alphamountain_quantile_regression_duration_covariates} for the same plot without covariates.
+		The dependent variable is the number of hours individuals in our sample spent on pornographic sites. Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis. Figure shows 19 quantile estimates (5th--95th percentile in steps of 5). Covariates included gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W). 95\% confidence intervals constructed from standard errors. See \cref{fig:alphamountain_quantile_regression_duration_covariates} for the same plot without covariates.
 	}
 	\label{fig:alphamountain_quantile_regression_duration_covariates}
 \end{figure}
@@ -1308,11 +1352,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=======================
 \begin{figure}
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/quantile_reg_visits_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Traffic to Pornography Sites}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_visits_adult.pdf}
+	\caption{Distribution of Partisan Differences in Visits to Pornographic Sites}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of visits to pornographic sites by individuals in our sample.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_visits_covariates} for the same plot controlling for individual characteristics.
             \cref{tab:quantile-estimates-traffic} tabulates the estimates.
@@ -1326,11 +1371,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %==================================================
 \begin{figure}
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_visits_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in Traffic to Pornography Sites (with covariates)}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_covariates_visits_adult.pdf}
+	\caption{Distribution of Partisan Differences in Visits to Pornographic Sites (with covariates)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the number of visits to pornographic sites by individuals in our sample.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_visits} for the same plot without covariates.
@@ -1345,11 +1391,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=====================================
 \begin{figure}
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/quantile_reg_proportion_visits_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in the Percentage of Traffic to Pornography Sites}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_proportion_visits_adult.pdf}
+	\caption{Distribution of Partisan Differences in Percentage of Total Visits to Pornographic Sites}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the percentage of traffic to pornographic sites by individuals in our sample.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_prop_visits_covariates} for the same plot controlling for individual characteristics.
             \cref{tab:quantile-estimates-prop-traffic} tabulates the estimates.
@@ -1363,11 +1410,12 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 %=============================================================
 \begin{figure}
 	\centering
-	\includegraphics[width=.55\linewidth]{figs/quantile_reg_covariates_proportion_visits_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in the Percentage of Traffic to Pornography Sites (with covariates)}
+	\includegraphics[width=.6\linewidth]{figs/quantile_reg_covariates_proportion_visits_adult.pdf}
+	\caption{Distribution of Partisan Differences in Percentage of Total Visits to Pornographic Sites (with covariates)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the percentage of traffic to pornographic sites by individuals in our sample.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
+  Figure shows 19 quantile estimates (5th--95th percentile in steps of 5).
 		Covariates included on the right-hand side are gender (Female/Male), race (White/Black/Hispanic/Asian/Others), education level (no HS/HS graduate/some college/college graduate), age and its quadratic, and region (NE/MW/S/W).
 		95\% confidence intervals constructed from standard errors.
 		See \cref{fig:quantile_regression_prop_visits} for the same plot without covariates.
@@ -1380,7 +1428,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 \begin{landscape}% Landscape page
     \begin{table}[ht] \centering \ssmall \setlength\tabcolsep{0 pt} \setlength{\defaultaddspace}{0pt}
     \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-    \caption{Quantile Estimates--Traffic to Pornographic Sites by Party }
+    \caption{Distribution of Partisan Differences in Visits to Pornographic Sites}
     \label{tab:quantile-estimates-traffic}
 	\begin{adjustbox}{max width=1.325\textwidth}
             \begin{tabular}{l*{20}{D{.}{.}{-1}}}
@@ -1421,7 +1469,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 \begin{landscape}% Landscape page
     \begin{table}[ht] \centering \ssmall \setlength\tabcolsep{0 pt} \setlength{\defaultaddspace}{0pt}
     \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-    \caption{Quantile Estimates--Percentage of Traffic to Pornographic Sites by Party }
+    \caption{Distribution of Partisan Differences in Percentage of Total Visits to Pornographic Sites}
     \label{tab:quantile-estimates-prop-traffic}
 	\begin{adjustbox}{max width=1.325\textwidth}
             \begin{tabular}{l*{20}{D{.}{.}{-1}}}
@@ -1503,7 +1551,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=.7\linewidth]{figs/mar/quantile_reg_proportion_duration_adult.pdf}
-	\caption{Partisan Differences in the Percentage of Time Spent on Pornography Sites}
+	\caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornography}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
@@ -1521,7 +1569,7 @@ Once we adjust for the individual-level demographics and for day-of-week fixed e
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.7\linewidth]{figs/mar/quantile_reg_covariates_proportion_duration_adult.pdf}
-	\caption{Quantile Estimates--Partisan Differences in the Percentage of Time Spent on Pornography Sites (with covariates)}
+	\caption{Distribution of Partisan Differences in the Percentage of Time Spent on Pornography (with covariates)}
 	\caption*{\footnotesize \emph{Notes:} 
 		The dependent variable is the percentage of time individuals in our sample spent on pornographic sites.
 		Each point indicates the difference between Republicans and Democrats and corresponds to a quantile regression at the quantile indicated by the x-axis.
