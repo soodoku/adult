@@ -118,7 +118,7 @@ Specifically, we use data from 1,200 YouGov panelists for June 2022 \citep{data-
 
 \subsection{Demographics And Partisan Identification}
 \label{subsec:demographics}
-YouGov panel file contains data on demographic characteristics like birth year, state of residence, gender, race, and education level. It also contains data on partisan self-identification. Except for 120 respondents who did not respond or picked ``not sure'' or ``don't know,'' the rest selected the party they identified with or marked themselves as independents. Of the 1,080 people, 82\% leaned either Republican or Democrat. The remaining 18 percent identified as independent. (See Panel B of \cref{tab:characteristics_split_by_party} and \cref{tab:characteristics_split_by_porn_consumers} for a summary of socio-demographic data by party.)
+YouGov panel file contains data on demographic characteristics like birth year, state of residence, gender, race, and education level. It also contains data on partisan self-identification. Except for 120 respondents who did not respond or picked ``not sure'' or ``don't know,'' the rest selected the party they identified with or marked themselves as independents. Of the 1,080 people, 82\% leaned either Republican or Democrat. The remaining 18 percent identified as independent. (See Panel B of \cref{tab:characteristics_split_by_party} for a summary of socio-demographic data by party.)
 
 \subsection{Measuring Pornographic Content}
 \label{subsec:measuring_porn_content}
@@ -301,7 +301,9 @@ In addition to individual-level demographics, we also have precise timestamps fo
 	\label{fig:quantile_regression_prop_duration_covariates}
 \end{figure}
 
-Partisans differ on other characteristics than the party (see \cref{tab:characteristics_split_by_party}). For instance, Democrats are younger (\cref{tab:characteristics_split_by_party}). Add to it that consumers of pornography online tend to be younger (see Panel B of \cref{tab:characteristics_split_by_porn_consumers}). How do differences in age and other such demographic differences between the parties ``explain'' the results? To find out, we control for the following immutable characteristics that predict pornography consumption: age \citep{Wright2013-an, Woodrum1992-vk}, ethnicity \citep{Wright2013-an}, gender \citep{Woodrum1992-vk}, and education level \citep{Woodrum1992-vk}. As \cref{fig:quantile_regression_duration_covariates} and \cref{fig:quantile_regression_prop_duration_covariates} show, once we adjust for confounders, the partisan differences melt away. 
+Partisans differ on other characteristics than the party (see \cref{tab:characteristics_split_by_party}). For instance, Democrats are younger (\cref{tab:characteristics_split_by_party}). 
+%Add to it that consumers of pornography online tend to be younger (see Panel B of \cref{tab:characteristics_split_by_porn_consumers}). 
+How do differences in age and other such demographic differences between the parties ``explain'' the results? To find out, we control for the following immutable characteristics that predict pornography consumption: age \citep{Wright2013-an, Woodrum1992-vk}, ethnicity \citep{Wright2013-an}, gender \citep{Woodrum1992-vk}, and education level \citep{Woodrum1992-vk}. As \cref{fig:quantile_regression_duration_covariates} and \cref{fig:quantile_regression_prop_duration_covariates} show, once we adjust for confounders, the partisan differences melt away. 
 %(For the corresponding table with the various percentiles, see \cref{tab:quantile-estimates-time}.) 
 %Using alternative classifications of pornography sites led to similar conclusions (\cref{sec:robustness}).
 
@@ -564,21 +566,21 @@ The second concern is that our measures are a point in time. We have data from o
 % Table for balance of porn consumption and individual characteristics by party
 % Difference in medians
 %==============================================================================
-\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
+\begin{table}[ht] \centering \normalsize \setlength\tabcolsep{5 pt}
 	\caption{Differences (in Medians) in Pornography Consumption}
 	\label{tab:characteristics_split_by_party_medians}
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{@{\hspace{0\tabcolsep}}llrcccrr@{\hspace{0\tabcolsep}}}
 			\toprule
-			&\multicolumn{7}{c}{\underline{Measures of pornography consumption}}\\
-			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{r}{(7)}\\			
-			&\multicolumn{1}{l}{Subgroups}&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrats}&\multicolumn{1}{c}{Republicans}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
-			\cmidrule{2-8}
+			&\multicolumn{6}{c}{\underline{Measures of pornography consumption}}\\
+			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\			
+			&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrats}&\multicolumn{1}{c}{Republicans}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
+			\cmidrule{2-7}
 			\input{../tabs/balance_outcomes_by_party_medians.tex}\\
 			\bottomrule
 		\end{tabular}
 	\end{adjustbox}
-	\caption*{\scriptsize \emph{Notes:}
+	\caption*{\footnotesize \emph{Notes:}
 		The table shows splits by party for pornography consumption and for individual characteristics for the 1,200 individuals.
 		This table focuses on differences in medians.
 		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
@@ -587,36 +589,6 @@ The second concern is that our measures are a point in time. We have data from o
 		Columns (3)--(5) show the medians, the first quartiles, and the third quartiles for the full sample, Democrats, and Republicans.
 		1st and 3rd quartiles in brackets.
 		Column (6) and column (7) report the p-values and standardized median differences for Democrats vs Republicans.
-		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
-	}
-\end{table}
-
-\begin{table}[ht] \centering \small \setlength\tabcolsep{5 pt}
-	\caption{Median Differences in Pornography Consumption}
-	\label{tab:characteristics_split_by_party_medians}
-	\begin{adjustbox}{max width=\textwidth}
-		\begin{tabular}{@{\hspace{0\tabcolsep}}lrcccrr@{\hspace{0\tabcolsep}}}
-			\toprule
-			&\multicolumn{6}{c}{\underline{Measures of pornography consumption}}\\
-			&\multicolumn{1}{l}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\			
-			&\multicolumn{1}{c}{NA}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Democrats}&\multicolumn{1}{c}{Republicans}&\multicolumn{1}{c}{P-val}&\multicolumn{1}{r}{SMD}\\
-			\cmidrule{2-7}
-        			n                            &            & 1200          & 530           & 356            &                  \\
-         Minutes, median [Q1,Q3]      &  65        & 0.0 [0.0,4.8] & 0.0 [0.0,3.1] & 0.0 [0.0,3.6] & 0.981     & 0.056           \\
-         \% of time, median [Q1,Q3]    &  65        & 0.0 [0.0,0.1] & 0.0 [0.0,0.1] & 0.0 [0.0,0.1] & 0.842     & 0.049           \\
-         Visits, median [Q1,Q3]       &  65        & 0.0 [0.0,8.0] & 0.0 [0.0,6.0] & 0.0 [0.0,8.0] & 0.933     & 0.048           \\
-         \% of visits, median [Q1,Q3]  &  65        & 0.0 [0.0,0.2] & 0.0 [0.0,0.1] & 0.0 [0.0,0.2] & 0.916     & 0.085         \\
-			\bottomrule
-		\end{tabular}
-	\end{adjustbox}
-	\caption*{\scriptsize \emph{Notes:}
-		The table shows splits by party for pornography consumption and for individual characteristics for the 1,200 individuals.
-		This table focuses on differences in medians.
-		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
-		Column (1) indicates the count of missing variables.
-		Columns (2)--(4) show the medians, the first quartiles, and the third quartiles for the full sample, Democrats, and Republicans, respectively.
-		1st and 3rd quartiles in brackets.
-		Column (5) and column (6) report the p-values and standardized median differences for Democrats vs Republicans.
 		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
 	}
 \end{table}
@@ -651,18 +623,19 @@ The second concern is that our measures are a point in time. We have data from o
 		\end{tabular}
 	\end{adjustbox}
 	\caption*{\scriptsize \emph{Notes:}
-		The table shows splits by party for pornographic consumption and for individual characteristics for the 1,200 individuals.
+		The table shows splits by party for pornography consumption and for individual characteristics for the 1,200 individuals.
+		This table focuses on differences in medians.
 		Party identification is based on a 7-point scale. We code 1--3 as ``Democrat'', 4 as ``Independent'', 5--7 as ``Republican''.
-		Column (1) shows subgroups for categorical variables.
-		Column (2) indicates the count of missing variables, if any.
-		Columns (3)--(5) show means and standard deviations for continuous variables and count and percentage of data for categorical variables for the full sample, Democratic individuals, and Republican individuals.
-		Standard deviations and percentages are in parentheses.
-		Column (6) and column (7) report the p-values and standardized mean differences for Democrats vs Republicans.
-		Given the skew in consumption of pornography, we also performed tests for differences in medians for the measures of pornography consumption by party (see \cref{tab:characteristics_split_by_party_medians}).
+		Column (1) indicates the count of missing variables.
+		Columns (2)--(4) show the medians, the first quartiles, and the third quartiles for the full sample, Democrats, and Republicans, respectively.
+		1st and 3rd quartiles in brackets.
+		Column (5) and column (6) report the p-values and standardized median differences for Democrats vs Republicans.
+		See Panel A of \cref{tab:characteristics_split_by_party} for differences in means.
 	}
 \end{table}
 
 
+\iffalse
 %==============================================================================
 % Table for balance of porn consumption and individual characteristics by consumer
 %==============================================================================
@@ -699,7 +672,7 @@ The second concern is that our measures are a point in time. We have data from o
 		Column (6) and column (7) report the p-values and standardized mean differences for non-consumers vs consumers.
 	}
 \end{table}
-
+\fi
 
 
 
