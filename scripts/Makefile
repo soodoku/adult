@@ -48,16 +48,19 @@ alternative: ## Make all results via alternative categories
 	--sequence --output
 
 
+
+
 ########################################################################
 # Other utilities
 ########################################################################
-FIGS_PATH := ./figs
-TABS_PATH := ./tabs
+FIGS_PATH := ../figs/*.p*
+TABS_PATH := ../tabs/*.tex
+.PHONY: purge
 purge:
 	@echo "==> $@"
 	@echo "Purging created exhibits..."
 	rm -f $(FIGS_PATH)
-	rm -f $(TAB_PATH)
+	rm -f $(TABS_PATH)
 
 .PHONY: help
 help: ## Show this help message and exit
