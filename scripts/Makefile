@@ -2,7 +2,7 @@
 
 .PHONY: all
 all: ## Make all results (will purge existing results)
-all: purge main alternative
+all: purge main
 	@echo "==> $@"
 
 
@@ -23,13 +23,14 @@ main: ## Make all results via YG categories
 ########################################################################
 # Other utilities
 ########################################################################
-FIGS_PATH := ./figs
-TABS_PATH := ./tabs
+FIGS_PATH := ../figs/*
+TABS_PATH := ../tabs/*
+.PHONY: purge
 purge:
 	@echo "==> $@"
 	@echo "Purging created exhibits..."
 	rm -f $(FIGS_PATH)
-	rm -f $(TAB_PATH)
+	rm -f $(TABS_PATH)
 
 .PHONY: help
 help: ## Show this help message and exit
