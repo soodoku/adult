@@ -1,17 +1,17 @@
-name: "Retracted Articles Checker"
-description: "Scans .bib files for retracted articles and opens a GitHub issue if any are found."
-author: "Gaurav Sood"
-branding:
-  icon: "alert-triangle"
-  color: "red"
+name: Retracted Articles Check
 
-inputs:
-  github_token:
-    description: "GitHub token for authentication"
-    required: true
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs at midnight on the first day of every month
+  workflow_dispatch:      # Allows manual triggering from the GitHub UI
 
-runs:
-  using: "docker"
-  image: "Dockerfile"
-  env:
-    GITHUB_TOKEN: ${{ inputs.github_token }}
+jobs:
+  check-retracted-articles:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Retracted Articles Checker
+      uses: recite/retract@v.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
