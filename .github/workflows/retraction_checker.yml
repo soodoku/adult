@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Retracted Articles Checker
-      uses: recite/retract@v.2
+      uses: recite/retract@v.3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
