@@ -2,19 +2,21 @@ name: Retraction Check
 on: 
   push:
     paths:
-      - '*.bib'  # Only trigger on .bib file changes (optional)
+      - '*.bib'
   pull_request:
     paths:
-      - '*.bib'  # Only trigger on .bib file changes (optional)
-  workflow_dispatch:  # Manually trigger the workflow
+      - '*.bib'
+  workflow_dispatch:
 
 jobs:
   check-retractions:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v4  # Latest version
+      with:
+        fetch-depth: 0  # Fetch full history
+
     - uses: recite/retract@v1.8
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
