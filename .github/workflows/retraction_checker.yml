@@ -13,9 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4  # Latest version
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch full history
+
+    - name: Debug Workspace
+      run: |
+        pwd
+        ls -la
+        echo "GitHub Workspace: $GITHUB_WORKSPACE"
+        echo "Current directory contents:"
+        find . -type f
+
+    - name: Verify Specific Files
+      run: |
+        echo "Checking for check_retractions.py:"
+        find . -name "check_retractions.py"
+        
+        echo "Showing file details:"
+        ls -l check_retractions.py || echo "File not found"
 
     - uses: recite/retract@v1.8
       with:
