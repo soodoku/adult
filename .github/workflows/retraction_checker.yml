@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run retraction checker
-        uses: recite/retract@v.11
+      - name: Run Retraction Checker
+        uses: recite/retract@v1.13
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
