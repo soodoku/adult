@@ -1,17 +1,12 @@
-name: Retracted Articles Check
-
-on:
-  schedule:
-    - cron: '0 0 1 * *'  # Runs at midnight on the first day of every month
-  workflow_dispatch:      # Allows manual triggering from the GitHub UI
-
+name: Retraction Check
+on: [push, pull_request]
 jobs:
-  check-retracted-articles:
+  check-retractions:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    - name: Retracted Articles Checker
-      uses: recite/retract@v1.4
+    - uses: actions/checkout@v3
+    
+    - uses: recite/retract@v1.5
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
