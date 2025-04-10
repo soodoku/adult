@@ -6,6 +6,7 @@ on:
   pull_request:
     paths:
       - '*.bib'  # Only trigger on .bib file changes (optional)
+  workflow_dispatch:  # Manually trigger the workflow
 
 jobs:
   check-retractions:
