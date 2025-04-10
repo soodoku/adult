@@ -1,38 +1,17 @@
-name: Retraction Check
-on: 
-  push:
-    paths:
-      - '*.bib'
-  pull_request:
-    paths:
-      - '*.bib'
+name: Retracted Articles Check
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
   workflow_dispatch:
 
 jobs:
-  check-retractions:
+  check-retracted-articles:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Fetch full history
+      - uses: actions/checkout@v4
 
-    - name: Debug Workspace
-      run: |
-        pwd
-        ls -la
-        echo "GitHub Workspace: $GITHUB_WORKSPACE"
-        echo "Current directory contents:"
-        find . -type f
-
-    - name: Verify Specific Files
-      run: |
-        echo "Checking for check_retractions.py:"
-        find . -name "check_retractions.py"
-        
-        echo "Showing file details:"
-        ls -l check_retractions.py || echo "File not found"
-
-    - uses: recite/retract@v1.8
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run retraction checker
+        uses: recite/retract@v1.10
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
