@@ -1,5 +1,12 @@
 name: Retraction Check
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+      - '*.bib'  # Only trigger on .bib file changes (optional)
+  pull_request:
+    paths:
+      - '*.bib'  # Only trigger on .bib file changes (optional)
+
 jobs:
   check-retractions:
     runs-on: ubuntu-latest
