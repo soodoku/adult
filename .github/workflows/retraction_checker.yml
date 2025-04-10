@@ -7,6 +7,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - uses: recite/retract@v1.6
+    - uses: recite/retract@v1.7
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
